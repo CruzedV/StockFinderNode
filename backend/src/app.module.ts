@@ -1,20 +1,20 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { UsersModule } from './users/users.module';
+
+require('dotenv').config()
 
 @Module({
   imports: [
     SequelizeModule.forRoot({
-      dialect: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'test',
+      dialect: 'postgres',
+      username: process.env.PGUSER,
+      database: process.env.PGDATABASE,
+      password: process.env.PGPASSWORD,
+      host: process.env.PGHOST,
+      port: parseInt(process.env.PGPORT, 10),
       autoLoadModels: true,
       synchronize: true,
     }),
-    UsersModule,
   ],
 })
 export class AppModule {}
