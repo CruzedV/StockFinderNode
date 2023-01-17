@@ -1,0 +1,18 @@
+{
+  "subscribeCandlesRequest": {
+    "subscriptionAction": "SUBSCRIPTION_ACTION_UNSPECIFIED",
+    "instruments": [
+      {
+        "figi": "Auto Loan Account calculate",
+        "interval": "SUBSCRIPTION_INTERVAL_UNSPECIFIED",
+        "instrumentId": "{{ faker.random.uuid }}"
+      },
+      {
+        "figi": "Auto Loan Account calculate",
+        "interval": "SUBSCRIPTION_INTERVAL_UNSPECIFIED",
+        "instrumentId": "{{ faker.random.uuid }}"
+      }
+    ],
+    "waitingClose": true
+  }
+}

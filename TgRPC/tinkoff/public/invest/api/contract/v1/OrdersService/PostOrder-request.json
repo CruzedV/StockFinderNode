@@ -1,0 +1,13 @@
+{
+  "figi": "Auto Loan Account calculate",
+  "quantity": "19",
+  "price": {
+    "units": "345",
+    "nano": 102
+  },
+  "direction": "ORDER_DIRECTION_BUY",
+  "accountId": "{{ faker.random.uuid }}",
+  "orderType": "ORDER_TYPE_UNSPECIFIED",
+  "orderId": "{{ faker.random.uuid }}",
+  "instrumentId": "{{ faker.random.uuid }}"
+}

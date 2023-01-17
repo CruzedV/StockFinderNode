@@ -1,0 +1,10 @@
+{
+  "instruments": [
+    {
+      "instrumentId": "{{ faker.random.uuid }}"
+    },
+    {
+      "instrumentId": "{{ faker.random.uuid }}"
+    }
+  ]
+}

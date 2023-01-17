@@ -1,0 +1,5 @@
+{
+  "figi": "Auto Loan Account calculate",
+  "depth": 525,
+  "instrumentId": "{{ faker.random.uuid }}"
+}

@@ -1,0 +1,12 @@
+{
+  "details": {
+    "methodFqn": "tinkoff.public.invest.api.contract.v1.MarketDataStreamService.MarketDataServerSideStream"
+  },
+  "requests": [
+    {
+      "location": "MarketDataServerSideStream-request.json"
+    }
+  ],
+  "operationType": "serverStreaming",
+  "invokerName": "grpc"
+}

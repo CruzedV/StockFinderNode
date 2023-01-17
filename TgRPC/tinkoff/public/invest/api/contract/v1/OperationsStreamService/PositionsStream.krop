@@ -1,0 +1,12 @@
+{
+  "details": {
+    "methodFqn": "tinkoff.public.invest.api.contract.v1.OperationsStreamService.PositionsStream"
+  },
+  "requests": [
+    {
+      "location": "PositionsStream-request.json"
+    }
+  ],
+  "operationType": "serverStreaming",
+  "invokerName": "grpc"
+}

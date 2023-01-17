@@ -1,0 +1,12 @@
+{
+  "details": {
+    "methodFqn": "tinkoff.public.invest.api.contract.v1.InstrumentsService.OptionBy"
+  },
+  "requests": [
+    {
+      "location": "OptionBy-request.json"
+    }
+  ],
+  "operationType": "unary",
+  "invokerName": "grpc"
+}

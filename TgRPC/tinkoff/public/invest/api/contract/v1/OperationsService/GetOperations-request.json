@@ -1,0 +1,7 @@
+{
+  "accountId": "{{ faker.random.uuid }}",
+  "from": "1970-01-01T00:12:56.000000399Z",
+  "to": "1970-01-01T00:07:25.000000746Z",
+  "state": "OPERATION_STATE_EXECUTED",
+  "figi": "Auto Loan Account calculate"
+}

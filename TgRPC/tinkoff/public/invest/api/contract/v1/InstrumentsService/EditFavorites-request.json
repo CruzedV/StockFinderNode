@@ -1,0 +1,11 @@
+{
+  "instruments": [
+    {
+      "figi": "Auto Loan Account calculate"
+    },
+    {
+      "figi": "Auto Loan Account calculate"
+    }
+  ],
+  "actionType": "EDIT_FAVORITES_ACTION_TYPE_ADD"
+}
