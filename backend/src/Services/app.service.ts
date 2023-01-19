@@ -1,8 +1,13 @@
 import { Injectable } from '@nestjs/common';
+import { account, api } from '../api';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  async getPortfolio(): Promise<object> {
+    const { accounts } = await api.users.getAccounts({});
+    const portfolio = await api.operations.getPortfolio({
+      accountId: accounts[0].id,
+    });
+    return accounts[0].id, portfolio;
   }
 }

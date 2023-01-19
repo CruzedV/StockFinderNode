@@ -1,6 +1,6 @@
-import { AppService } from './app.service';
+import { AppService } from '../Services/app.service';
 export declare class AppController {
     private readonly appService;
     constructor(appService: AppService);
-    getHello(): string;
+    getPortfolio(): Promise<object>;
 }

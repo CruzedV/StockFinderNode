@@ -8,9 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppService = void 0;
 const common_1 = require("@nestjs/common");
+const api_1 = require("../api");
 let AppService = class AppService {
-    getHello() {
-        return 'Hello World!';
+    async getPortfolio() {
+        const { accounts } = await api_1.api.users.getAccounts({});
+        const portfolio = await api_1.api.operations.getPortfolio({
+            accountId: accounts[0].id,
+        });
+        return accounts[0].id, portfolio;
     }
 };
 AppService = __decorate([
