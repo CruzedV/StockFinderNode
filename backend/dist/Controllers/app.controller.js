@@ -27,7 +27,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "getPortfolio", null);
 AppController = __decorate([
-    (0, common_1.Controller)(),
+    (0, common_1.Controller)('api/user'),
     __metadata("design:paramtypes", [app_service_1.AppService])
 ], AppController);
 exports.AppController = AppController;
