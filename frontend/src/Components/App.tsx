@@ -1,25 +1,20 @@
-import React from 'react';
 import logo from '../resources/logo.svg';
 import './App.css';
+import { GetPortfolio } from '../API/getPortfolio';
 
 function App() {
-  const [data, setData] = React.useState(null);
-  
-  React.useEffect(() => {
-    fetch("/api/user")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
+  const data = GetPortfolio('/api/user');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {!data ? "Loading..." : data}
-        </p>
+      <header className="App-header">      
+        <img src={logo} className="App-logo" alt="logo"/>
       </header>
+        <ul>
+          {data.map((i:any) => (
+            <li key={i.figi}>{i.instrumnetType}</li>
+          ))}
+        </ul>
     </div>
   );
-}
-
+  }
 export default App;
