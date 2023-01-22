@@ -1,6 +1,7 @@
 import logo from '../resources/logo.svg';
 import './App.css';
 import { GetPortfolio } from '../API/getPortfolio';
+import { IInstrument } from '../Interfaces/IInstrument';
 
 function App() {
   const data = GetPortfolio('/api/user');
@@ -10,8 +11,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo"/>
       </header>
         <ul>
-          {data.map((i:any) => (
-            <li key={i.figi}>{i.instrumnetType}</li>
+          {data.map((i:IInstrument) => (
+            <li key={i.figi}>{i.quanity}</li>
           ))}
         </ul>
     </div>
