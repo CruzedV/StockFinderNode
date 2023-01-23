@@ -1,16 +1,11 @@
-import { useState, useEffect } from 'react';
 import axios from "axios"
+// import { IPositionsData } from "../Interfaces/IData"
+import { IInstrument } from "../Interfaces/IInstrument";
 
-export function GetPortfolio(url:string){
-  const [data,setData] = useState("")
-  useEffect(() => {
-    (
-      async function(){
-        const res = await axios.get(url)
-        console.log(res.data.positions)
-        setData(res.data)
-      }
-    )()
-  }, [url])
-  return [data]
+export async function GetPortfolio(url:string) {
+  const res = await axios.get(url);
+  console.log(res.data.positions)
+  return await res.data.positions as Array<IInstrument>
+  
+
 }
