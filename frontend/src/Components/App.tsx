@@ -2,8 +2,9 @@ import React from 'react';
 import './App.css';
 import { GetPortfolio } from '../API/getPortfolio';
 import { IInstrument } from '../Interfaces/IInstrument';
-import { ThemeProvider } from '@mui/system';
+import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../theme';
+import { Button, Typography } from '@mui/material';
 
 class App extends React.Component<{} , {data: Array<IInstrument>}>{
   constructor(props:any){
@@ -29,7 +30,12 @@ class App extends React.Component<{} , {data: Array<IInstrument>}>{
     return (
       <div className="App">
         <ThemeProvider theme={theme}>
-
+          <div>
+            <Typography>something</Typography>
+            <Button color="primary">
+              gfgfgf
+            </Button>
+          </div>
         </ThemeProvider>
       </div>
     );
