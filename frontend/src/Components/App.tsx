@@ -4,9 +4,10 @@ import { GetPortfolio } from '../API/getPortfolio';
 import { IInstrument } from '../Interfaces/IInstrument';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../theme';
-import { Button, Typography } from '@mui/material';
+import { Container, Box } from '@mui/material';
+import { Navbar } from './Navbar/Navbar';
 
-class App extends React.Component<{} , {data: Array<IInstrument>}>{
+class App extends React.Component<{}, {data: Array<IInstrument>}> {
   constructor(props:any){
     super(props);
     this.handleEvent = this.handleEvent.bind(this);
@@ -28,16 +29,18 @@ class App extends React.Component<{} , {data: Array<IInstrument>}>{
 
   render () {
     return (
-      <div className="App">
+      <React.Fragment>
         <ThemeProvider theme={theme}>
-          <div>
-            <Typography>something</Typography>
-            <Button color="primary">
-              gfgfgf
-            </Button>
-          </div>
+          <Container maxWidth="xl">
+            <Navbar>
+
+            </Navbar>
+            <Box sx ={{backgroundColor: "secondary.main", height: '100vh'}}>
+              {/* Router */}
+            </Box>
+          </Container>
         </ThemeProvider>
-      </div>
+      </React.Fragment>
     );
   }
   }

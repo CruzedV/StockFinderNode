@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 declare module '@mui/material/styles' {
   interface Theme {
@@ -13,7 +13,8 @@ declare module '@mui/material/styles' {
   }
 }
 
-export const theme = createTheme({
+let themeMain = createTheme({
+// COLOR DEFINITION
   status: {
     danger: '#DB324D',
   },
@@ -31,12 +32,15 @@ export const theme = createTheme({
       primary: '#F4F4F4',
       secondary: '#373737',
     },
-    
+// FONT DEFINITION
   },
   typography: {
-    fontFamily: "Inter"
+    fontFamily: "Inter",
+    fontSize: 16,
   },
   components: {
   }
   });
+
+export const theme = responsiveFontSizes(themeMain);
   
