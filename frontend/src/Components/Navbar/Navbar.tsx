@@ -1,6 +1,6 @@
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
-import { Typography, Box, Toolbar, Button, ButtonGroup, IconButton } from '@mui/material';
+import { Typography, Box, Toolbar, Button, ButtonGroup } from '@mui/material';
 // Acciunt Icon
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 // Buy
@@ -56,14 +56,11 @@ export class Navbar extends React.Component {
             <Box sx={{
               width: "11em"
             }}>
-              <IconButton sx={{
+              <Button endIcon={<AccountCircleRoundedIcon/>}sx={{
                   color: "text.primary",
-                  ml: "auto",
-                  mr: "auto",
-                  display: "block"
                 }}>
-                <AccountCircleRoundedIcon/>
-              </IconButton>
+                <Typography>Профиль</Typography>
+              </Button>
             </Box>
           </Toolbar>
         </AppBar>

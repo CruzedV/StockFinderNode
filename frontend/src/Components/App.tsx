@@ -6,6 +6,8 @@ import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../theme';
 import { Container, Box } from '@mui/material';
 import { Navbar } from './Navbar/Navbar';
+import { HeaderPortfolio } from './Header/HeaderPortfolio';
+import { BodyPortfolio } from './Body/BodyPortfoilio'
 
 class App extends React.Component<{}, {data: Array<IInstrument>}> {
   constructor(props:any){
@@ -32,11 +34,15 @@ class App extends React.Component<{}, {data: Array<IInstrument>}> {
       <React.Fragment>
         <ThemeProvider theme={theme}>
           <Container maxWidth="xl">
-            <Navbar>
-
-            </Navbar>
+            <Navbar/>
             <Box sx ={{backgroundColor: "secondary.main", height: '100vh'}}>
-              {/* Router */}
+              <Container maxWidth={false} sx={{
+                maxWidth: "41em",
+              }}>
+                {/* Router */}
+                <HeaderPortfolio/>
+                <BodyPortfolio/>
+              </Container>
             </Box>
           </Container>
         </ThemeProvider>
