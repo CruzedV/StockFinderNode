@@ -33,11 +33,17 @@ class App extends React.Component<{}, {data: Array<IInstrument>}> {
     return (
       <React.Fragment>
         <ThemeProvider theme={theme}>
-          <Container maxWidth="xl">
+          <Container maxWidth="xl" sx = {{
+              height: "100%"
+            }}>
             <Navbar/>
-            <Box sx ={{backgroundColor: "secondary.main", height: '100vh'}}>
+            <Box sx ={{
+              backgroundColor: "secondary.main", 
+              height: '100%',
+              pb: "1em"
+              }}>
               <Container maxWidth={false} sx={{
-                maxWidth: "41em",
+                maxWidth: "45em",
               }}>
                 {/* Router */}
                 <HeaderPortfolio/>

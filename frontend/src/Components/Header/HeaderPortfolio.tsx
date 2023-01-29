@@ -5,10 +5,12 @@ export class HeaderPortfolio extends React.Component {
   render() {
     return (
       <Box sx={{
-        m: "auto",
+        pt: "3.75em",
+        pb: "3.75em",
         borderRadius: "0.9em"
       }}>
         <Paper sx={{
+          borderRadius: "0.9em",
           backgroundColor: "primary.main"
         }}>
           <Typography sx={{

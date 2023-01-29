@@ -11,6 +11,21 @@ declare module '@mui/material/styles' {
       danger: React.CSSProperties['color'];
     };
   }
+  interface TypographyVariants {
+    positionSubtitle: React.CSSProperties;
+  }
+
+  // allow configuration using `createTheme`
+  interface TypographyVariantsOptions {
+    positionSubtitle?: React.CSSProperties;
+  }
+}
+
+declare module '@mui/material/Typography' {
+  interface TypographyPropsVariantOverrides {
+    positionSubtitle: true;
+    h3: false;
+  }
 }
 
 let themeMain = createTheme({
@@ -28,18 +43,23 @@ let themeMain = createTheme({
     success: {
       main: '#53DD6C',
     },
+    error: {
+      main: '#DB324D',
+    },
     text: {
       primary: '#F4F4F4',
       secondary: '#373737',
     },
 // FONT DEFINITION
-  },
+  },  
   typography: {
     fontFamily: "Inter",
     fontSize: 16,
+    positionSubtitle: {
+      fontFamily: "Inter",
+      fontSize: 12,
+    }
   },
-  components: {
-  }
   });
 
 export const theme = responsiveFontSizes(themeMain);

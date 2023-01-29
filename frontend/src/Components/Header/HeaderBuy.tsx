@@ -1,3 +1,5 @@
+import React from "react";
+import { Box, Paper, Typography } from "@mui/material";
 // BOND
 import AccountBalanceRoundedIcon from '@mui/icons-material/AccountBalanceRounded';
 // ETF
