@@ -8,7 +8,7 @@ import { Container, Box } from '@mui/material';
 import { Navbar } from './Navbar/Navbar';
 import { PortfolioPage } from './PortfolioPage/PortfolioPage'
 import { BuyPage } from './BuyPage/BuyPage';
-import { AvailablePage } from './AvailablePage/AvailablePage';
+import { SettingsPage } from './SettingsPage/SettingsPage';
 import { Routes, Route } from "react-router-dom";
 
 class App extends React.Component<{}, {data: Array<IInstrument>}> {
@@ -51,7 +51,7 @@ class App extends React.Component<{}, {data: Array<IInstrument>}> {
                 <Routes>
                   <Route path="/portfolio" element={<PortfolioPage/>}/>
                   <Route path="/buy" element={<BuyPage/>}/>
-                  <Route path="/ava" element={<AvailablePage/>}/>
+                  <Route path="/settings" element={<SettingsPage/>}/>
                 </Routes>
               </Container>
             </Box>

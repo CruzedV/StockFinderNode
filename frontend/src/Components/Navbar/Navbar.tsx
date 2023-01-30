@@ -11,6 +11,21 @@ import CardTravelRoundedIcon from '@mui/icons-material/CardTravelRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 
 export class Navbar extends React.Component {
+  constructor(props:any){
+    super(props);
+    this.handleUrlBuy = this.handleUrlBuy.bind(this);
+    this.handleUrlPortfolio = this.handleUrlPortfolio.bind(this);
+    this.handleUrlSettings = this.handleUrlSettings.bind(this);
+  }
+  handleUrlBuy(){
+    window.location.assign('http://localhost:3000/buy')
+  }
+  handleUrlPortfolio(){
+    window.location.assign('http://localhost:3000/portfolio')
+  }
+  handleUrlSettings(){
+    window.location.assign('http://localhost:3000/settings')
+  }
   render() {
     return(
       <Box>
@@ -33,19 +48,19 @@ export class Navbar extends React.Component {
             }}>
               <ButtonGroup>
                 {/* Buy */}
-                <Button startIcon={<AddShoppingCartRoundedIcon/>} sx={{
+                <Button onClick={this.handleUrlBuy} startIcon={<AddShoppingCartRoundedIcon/>} sx={{
                   color: "text.primary"
                 }}>
                   <Typography color="text.primary">Купить</Typography>
                 </Button>
                 {/* Portfolio */}
-                <Button startIcon={<CardTravelRoundedIcon/>} sx={{
+                <Button onClick={this.handleUrlPortfolio} startIcon={<CardTravelRoundedIcon/>} sx={{
                   color: "text.primary"
                 }}>
                   <Typography color="text.primary">Портфель</Typography>
                 </Button>
                 {/* Settings */}
-                <Button startIcon={<SettingsRoundedIcon/>} sx={{
+                <Button onClick={this.handleUrlSettings} startIcon={<SettingsRoundedIcon/>} sx={{
                   color: "text.primary"
                 }}>
                   <Typography color="text.primary">Настройки</Typography>
