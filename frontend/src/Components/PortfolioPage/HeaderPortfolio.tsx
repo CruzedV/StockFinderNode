@@ -20,10 +20,10 @@ export class HeaderPortfolio extends React.Component {
                 width: "40%",
               }}>
                 <Typography color="text.primary">
-                  12345Р
+                  12345P
                 </Typography>
                 <Typography color="error">
-                  -1234Р | -12%
+                  -1234P | -12%
                 </Typography>
               </Box>
             <Typography variant="positionSubtitle">

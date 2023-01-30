@@ -1,5 +1,4 @@
 import React from "react";
-import { Box, Paper, Typography } from "@mui/material";
 // BOND
 import AccountBalanceRoundedIcon from '@mui/icons-material/AccountBalanceRounded';
 // ETF
@@ -10,3 +9,13 @@ import CurrencyRubleRoundedIcon from '@mui/icons-material/CurrencyRubleRounded';
 import MoneyRoundedIcon from '@mui/icons-material/MoneyRounded';
 //OTHER
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
+
+export class HeaderBuy extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+
+      </React.Fragment>
+    )
+  }
+}

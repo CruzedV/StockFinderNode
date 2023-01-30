@@ -6,8 +6,10 @@ import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../theme';
 import { Container, Box } from '@mui/material';
 import { Navbar } from './Navbar/Navbar';
-import { HeaderPortfolio } from './Header/HeaderPortfolio';
-import { BodyPortfolio } from './Body/BodyPortfoilio'
+import { PortfolioPage } from './PortfolioPage/PortfolioPage'
+import { BuyPage } from './BuyPage/BuyPage';
+import { AvailablePage } from './AvailablePage/AvailablePage';
+import { Routes, Route } from "react-router-dom";
 
 class App extends React.Component<{}, {data: Array<IInstrument>}> {
   constructor(props:any){
@@ -46,8 +48,11 @@ class App extends React.Component<{}, {data: Array<IInstrument>}> {
                 maxWidth: "45em",
               }}>
                 {/* Router */}
-                <HeaderPortfolio/>
-                <BodyPortfolio/>
+                <Routes>
+                  <Route path="/portfolio" element={<PortfolioPage/>}/>
+                  <Route path="/buy" element={<BuyPage/>}/>
+                  <Route path="/ava" element={<AvailablePage/>}/>
+                </Routes>
               </Container>
             </Box>
           </Container>

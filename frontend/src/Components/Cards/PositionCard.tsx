@@ -44,10 +44,10 @@ export class PositionCard extends React.Component {
               width: "40%",
             }}>
               <Typography color="text.secondary">
-                1000Р
+                1000P
               </Typography>
               <Typography variant="positionSubtitle" color="error">
-                -255Р | -15%
+                -255P | -15%
               </Typography>
             </Box>
           </Box>
