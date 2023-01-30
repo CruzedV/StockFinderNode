@@ -10,16 +10,18 @@ export class PositionCard extends React.Component {
       <Card sx={{ 
         m: "2em auto 2em auto",
         maxWidth: "37.5em",
-        maxHeight: "4em"
+        maxHeight: "4em",
+        borderRadius: "0.9em"
        }}>
         <CardActionArea>
-          <Box>
+          <Box sx={{
+            float: "left",
+          }}>
             <CardMedia
               component="img"
               image="./minfinx160.png"
               sx={{
                 maxHeight: "4em", 
-                float: "left",
               }}
             />
           </Box>
