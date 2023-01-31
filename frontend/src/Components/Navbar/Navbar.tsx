@@ -10,22 +10,9 @@ import CardTravelRoundedIcon from '@mui/icons-material/CardTravelRounded';
 // Settings
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 
+import { Link } from 'react-router-dom';
+
 export class Navbar extends React.Component {
-  constructor(props:any){
-    super(props);
-    this.handleUrlBuy = this.handleUrlBuy.bind(this);
-    this.handleUrlPortfolio = this.handleUrlPortfolio.bind(this);
-    this.handleUrlSettings = this.handleUrlSettings.bind(this);
-  }
-  handleUrlBuy(){
-    window.location.assign('http://localhost:3000/buy')
-  }
-  handleUrlPortfolio(){
-    window.location.assign('http://localhost:3000/portfolio')
-  }
-  handleUrlSettings(){
-    window.location.assign('http://localhost:3000/settings')
-  }
   render() {
     return(
       <Box>
@@ -48,23 +35,30 @@ export class Navbar extends React.Component {
             }}>
               <ButtonGroup>
                 {/* Buy */}
-                <Button onClick={this.handleUrlBuy} startIcon={<AddShoppingCartRoundedIcon/>} sx={{
-                  color: "text.primary"
-                }}>
-                  <Typography color="text.primary">Купить</Typography>
-                </Button>
+                <Link to="/buy">
+                  <Button startIcon={<AddShoppingCartRoundedIcon/>} sx={{
+                    color: "text.primary"
+                  }}>
+                    
+                    <Typography color="text.primary">Купить</Typography>
+                  </Button>
+                </Link>
                 {/* Portfolio */}
-                <Button onClick={this.handleUrlPortfolio} startIcon={<CardTravelRoundedIcon/>} sx={{
-                  color: "text.primary"
-                }}>
-                  <Typography color="text.primary">Портфель</Typography>
-                </Button>
+                <Link to="/">
+                  <Button startIcon={<CardTravelRoundedIcon/>} sx={{
+                    color: "text.primary"
+                  }}>
+                    <Typography color="text.primary">Портфель</Typography>
+                  </Button>
+                </Link>
                 {/* Settings */}
-                <Button onClick={this.handleUrlSettings} startIcon={<SettingsRoundedIcon/>} sx={{
-                  color: "text.primary"
-                }}>
-                  <Typography color="text.primary">Настройки</Typography>
-                </Button>
+                <Link to="/settings">
+                  <Button startIcon={<SettingsRoundedIcon/>} sx={{
+                    color: "text.primary"
+                  }}>
+                    <Typography color="text.primary">Настройки</Typography>
+                  </Button>
+                </Link>
               </ButtonGroup>
             </Box>
             {/* Account */}

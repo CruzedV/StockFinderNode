@@ -5,11 +5,13 @@ import { IInstrument } from '../Interfaces/IInstrument';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../theme';
 import { Container, Box } from '@mui/material';
+import { Routes, Route } from "react-router-dom";
 import { Navbar } from './Navbar/Navbar';
 import { PortfolioPage } from './PortfolioPage/PortfolioPage'
 import { BuyPage } from './BuyPage/BuyPage';
 import { SettingsPage } from './SettingsPage/SettingsPage';
-import { Routes, Route } from "react-router-dom";
+import { PositionPage } from './PositionPage/PositionPage'
+
 
 class App extends React.Component<{}, {data: Array<IInstrument>}> {
   constructor(props:any){
@@ -49,9 +51,10 @@ class App extends React.Component<{}, {data: Array<IInstrument>}> {
               }}>
                 {/* Router */}
                 <Routes>
-                  <Route path="/portfolio" element={<PortfolioPage/>}/>
+                  <Route path="/" element={<PortfolioPage/>}/>
                   <Route path="/buy" element={<BuyPage/>}/>
                   <Route path="/settings" element={<SettingsPage/>}/>
+                  <Route path="position" element={<PositionPage/>}/>
                 </Routes>
               </Container>
             </Box>
