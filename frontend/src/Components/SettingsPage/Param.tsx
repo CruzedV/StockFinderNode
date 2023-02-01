@@ -6,15 +6,13 @@ export class Param extends React.Component {
     return(
       <React.Fragment>
         <Box sx={{
-          m: "2em auto 2em auto",
+          m: "2em 2em 2em 2em",
           textAlign: "center",
         }}>
-          <Typography color="text.primary">ПАРАМЕТР 1</Typography>
-          <TextField color="secondary"/>
+            <Typography color="text.primary">ПАРАМЕТР 1</Typography>
+            <TextField fullWidth variant="filled" color="secondary"></TextField>
         </Box>
-        <Divider variant="middle" sx={{
-          color: "secondary.main",
-        }}/>
+        <Divider light={true} variant="middle"/>
       </React.Fragment>
     )
   }

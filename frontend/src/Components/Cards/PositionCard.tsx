@@ -6,9 +6,6 @@ import { CardActionArea, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 export class PositionCard extends React.Component {
-  handleClick(){
-    window.location.assign('http://localhost:3000/position')
-  }
   render () {
     return (
       <Card sx={{ 
