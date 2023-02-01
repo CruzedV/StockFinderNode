@@ -12,7 +12,6 @@ import { BuyPage } from './BuyPage/BuyPage';
 import { SettingsPage } from './SettingsPage/SettingsPage';
 import { PositionPage } from './PositionPage/PositionPage'
 
-
 class App extends React.Component<{}, {data: Array<IInstrument>}> {
   constructor(props:any){
     super(props);
