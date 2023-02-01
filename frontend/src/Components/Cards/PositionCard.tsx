@@ -21,7 +21,7 @@ export class PositionCard extends React.Component {
             }}>
               <CardMedia
                 component="img"
-                image="./minfinx160.png"
+                image={require ("../../static/minfinx160.png")}
                 sx={{
                   maxHeight: "4em", 
                 }}

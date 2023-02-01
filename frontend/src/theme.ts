@@ -1,4 +1,5 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import React from "react";
 
 declare module '@mui/material/styles' {
   interface Theme {
@@ -13,17 +14,20 @@ declare module '@mui/material/styles' {
   }
   interface TypographyVariants {
     positionSubtitle: React.CSSProperties;
+    positionText: React.CSSProperties;
   }
 
   // allow configuration using `createTheme`
   interface TypographyVariantsOptions {
     positionSubtitle?: React.CSSProperties;
+    positionText?: React.CSSProperties;
   }
 }
 
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     positionSubtitle: true;
+    positionText: true;
     h3: false;
   }
 }
@@ -58,6 +62,10 @@ let themeMain = createTheme({
     positionSubtitle: {
       fontFamily: "Inter",
       fontSize: 12,
+    },
+    positionText: {
+      fontFamily: "Inter",
+      fontSize: 14,
     }
   },
   });

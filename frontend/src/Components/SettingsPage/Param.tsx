@@ -6,6 +6,7 @@ export class Param extends React.Component {
     return(
       <React.Fragment>
         <Box sx={{
+          borderRadius: "0.9em",
           m: "2em 2em 2em 2em",
           textAlign: "center",
         }}>
