@@ -7,17 +7,21 @@ export class PositionRegion extends React.Component{
       <React.Fragment>
         <Box sx={{
           textAlign: "center",
+          p: "1em 1em 2em 1em",
+          height: "5em",
         }}>
           <Typography>Страна и биржа</Typography>
           <Box>
             <Box sx={{
               width: "50%",
+              float: "left",
             }}>
               <Typography> RU </Typography>
-              <Typography variant="positionText">Россия</Typography>
+              <Typography variant="positionText">Российская федереция</Typography>
             </Box>
             <Box sx={{
-              width: "50%"
+              width: "50%",
+              float: "left"
             }}>
               <Typography> MOEX </Typography>
               <Typography variant="positionText">Московская биржа</Typography>
