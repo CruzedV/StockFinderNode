@@ -16,14 +16,14 @@ export class PositionRegion extends React.Component{
               width: "50%",
               float: "left",
             }}>
-              <Typography> RU </Typography>
+              <Typography>RU</Typography>
               <Typography variant="positionText">Российская федереция</Typography>
             </Box>
             <Box sx={{
               width: "50%",
               float: "left"
             }}>
-              <Typography> MOEX </Typography>
+              <Typography>MOEX</Typography>
               <Typography variant="positionText">Московская биржа</Typography>
             </Box>
           </Box>

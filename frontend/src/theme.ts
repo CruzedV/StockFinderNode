@@ -15,12 +15,14 @@ declare module '@mui/material/styles' {
   interface TypographyVariants {
     positionSubtitle: React.CSSProperties;
     positionText: React.CSSProperties;
+    positionPrice: React.CSSProperties;
   }
 
   // allow configuration using `createTheme`
   interface TypographyVariantsOptions {
     positionSubtitle?: React.CSSProperties;
     positionText?: React.CSSProperties;
+    positionPrice?: React.CSSProperties;
   }
 }
 
@@ -28,6 +30,7 @@ declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     positionSubtitle: true;
     positionText: true;
+    positionPrice: true;
     h3: false;
   }
 }
@@ -66,7 +69,11 @@ let themeMain = createTheme({
     positionText: {
       fontFamily: "Inter",
       fontSize: 14,
-    }
+    },
+    positionPrice: {
+      fontFamily: "Inter",
+      fontSize: "1.75em",
+    },
   },
   });
 

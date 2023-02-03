@@ -1,7 +1,8 @@
 import React from 'react'
 import { Box, Paper, Divider } from '@mui/material'
-import { HeaderPosition } from './PositionDetail/HeaderPosition'
-import { PositionRegion } from './PositionDetail/PositionRegion'
+import { HeaderPosition } from './HeaderPosition'
+import { PositionRegion } from './PositionRegion'
+import { PositionGraph } from './PositionGraph/PositionGraph'
 
 export class PositionPage extends React.Component {
   render () {
@@ -21,7 +22,7 @@ export class PositionPage extends React.Component {
             <Divider color="#F4F4F4" variant="middle"/>
             {/* <PositionDetail/> */}
             <Divider color="#F4F4F4" variant="middle"/>
-            {/* <PositionGraph/> */}
+            <PositionGraph/>
             <Divider color="#F4F4F4" variant="middle"/>
           </Paper>
         </Box>
