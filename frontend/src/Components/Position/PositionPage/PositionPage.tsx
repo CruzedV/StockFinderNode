@@ -3,6 +3,8 @@ import { Box, Paper, Divider } from '@mui/material'
 import { HeaderPosition } from './HeaderPosition'
 import { PositionRegion } from './PositionRegion'
 import { PositionGraph } from './PositionGraph/PositionGraph'
+import { PositionButton } from './PositionButton'
+import { Link } from 'react-router-dom';
 
 export class PositionPage extends React.Component {
   render () {
@@ -25,6 +27,24 @@ export class PositionPage extends React.Component {
             <PositionGraph/>
             <Divider color="#F4F4F4" variant="middle"/>
           </Paper>
+          <Box>
+            <Box sx={{
+              width: "50%",
+              float: "left",
+            }}>
+              <Link to="/position/sell">
+                <PositionButton/>
+              </Link>
+            </Box>
+            <Box sx={{
+              width: "50%",
+              float: "right",
+            }}>
+              <Link to="/position/buy">
+                <PositionButton/>
+              </Link>
+            </Box>
+          </Box>
         </Box>
       </React.Fragment>
     )

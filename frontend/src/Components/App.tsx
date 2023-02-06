@@ -10,7 +10,9 @@ import { Navbar } from './Navbar/Navbar';
 import { PortfolioPage } from './PortfolioPage/PortfolioPage'
 import { BuyPage } from './BuyPage/BuyPage';
 import { SettingsPage } from './SettingsPage/SettingsPage';
-import { PositionPage } from './PositionPage/PositionPage'
+import { PositionPage } from './Position/PositionPage/PositionPage';
+import { PositionSellPage } from './Position/PositionSellPage/PositionSellPage';
+import { PositionBuyPage } from './Position/PositionBuyPage/PositionBuyPage';
 
 class App extends React.Component<{}, {data: Array<IInstrument>}> {
   constructor(props:any){
@@ -54,6 +56,8 @@ class App extends React.Component<{}, {data: Array<IInstrument>}> {
                   <Route path="/buy" element={<BuyPage/>}/>
                   <Route path="/settings" element={<SettingsPage/>}/>
                   <Route path="position" element={<PositionPage/>}/>
+                  <Route path="position/buy" element={<PositionBuyPage/>}/>
+                  <Route path="position/sell" element={<PositionSellPage/>}/>
                 </Routes>
               </Container>
             </Box>

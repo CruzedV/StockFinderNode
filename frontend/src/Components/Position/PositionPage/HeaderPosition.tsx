@@ -13,7 +13,7 @@ export class HeaderPosition extends React.Component {
             width: "25%",
             float: "left",
           }}>
-            <img alt="img" src={require ("../../static/minfinx160.png")}/>
+            <img alt="img" src={require ("../../../static/minfinx160.png")}/>
           </Box>
           <Box sx={{
             ml: "30%",
