@@ -25,20 +25,24 @@ export class PositionPage extends React.Component {
             {/* <PositionDetail/> */}
             <Divider color="#F4F4F4" variant="middle"/>
             <PositionGraph/>
-            <Divider color="#F4F4F4" variant="middle"/>
           </Paper>
-          <Box>
+          <Box sx={{
+            p: "0.5em 0 0.5em 0"
+          }}
+          >
             <Box sx={{
-              width: "50%",
-              float: "left",
+              width: "20%",
+              ml: "20%",
+              mr: "auto",
             }}>
               <Link to="/position/sell">
                 <PositionButton/>
               </Link>
             </Box>
             <Box sx={{
-              width: "50%",
-              float: "right",
+              width: "20%",
+              ml: "auto",
+              mr: "20%",
             }}>
               <Link to="/position/buy">
                 <PositionButton/>
