@@ -38,7 +38,7 @@ class App extends React.Component<{}, {data: Array<IInstrument>}> {
     return (
       <React.Fragment>
         <ThemeProvider theme={theme}>
-          <Container maxWidth="xl" sx = {{
+          <Container maxWidth="xl" sx ={{
               height: "100%"
             }}>
             <Navbar/>

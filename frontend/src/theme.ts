@@ -75,6 +75,28 @@ let themeMain = createTheme({
       fontSize: "1.75em",
     },
   },
+  components: {
+    MuiSelect: {
+      styleOverrides: {
+
+      }
+    },
+    MuiFormControl: {
+      styleOverrides: {
+
+      }
+    },
+    MuiList: {
+      styleOverrides: {
+
+      }
+    },
+    MuiInputBase: {
+      styleOverrides: {
+
+      },
+    },
+  }
   });
 
 export const theme = responsiveFontSizes(themeMain);

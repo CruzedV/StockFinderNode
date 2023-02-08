@@ -1,9 +1,6 @@
-import React from 'react'
-import { Paper, Box, Divider } from '@mui/material'
-import { Header } from "../CommonC/Header"
-import { Param } from "../CommonC/Param"
-import { Statistics } from "../CommonC/Statistics"
-import { BuyButton } from "./BuyButton"
+import React from 'react';
+import { Box, Paper, Typography } from '@mui/material'
+import { PositionBuyBody } from './PositionBuyBody';
 
 export class PositionBuyPage extends React.Component {
   render () {
@@ -18,19 +15,17 @@ export class PositionBuyPage extends React.Component {
             p: "1em 1em 1em 1em",
             backgroundColor: "primary.main",
           }}>
-{/* Header */}
-            <Header/>
-            <Divider color="#F4F4F4" variant="middle"/>
-{/* Parameters */}
-            <Param/>
-            <Divider color="#F4F4F4" variant="middle"/>
-{/* Statistics */}
-            <Statistics/>
-{/* Sell Button */}
-            <BuyButton/>
+            <Typography variant="positionPrice">
+              ИИС
+            </Typography>
+            <Typography>
+              Доступно для покупки: 1000P
+            </Typography>
           </Paper>
         </Box>
+        <PositionBuyBody/>
       </React.Fragment>
+
     )
   }
 }

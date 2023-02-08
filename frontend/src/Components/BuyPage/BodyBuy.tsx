@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Paper } from "@mui/material";
-import { PositionCard } from "../Cards/PositionCard"
+import { PositionCard } from "../CommonComponents/PositionCard"
 
 export class BodyBuy extends React.Component {
   render() {
