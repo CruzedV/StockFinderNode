@@ -1,22 +1,24 @@
 import React from 'react'
-import { Button, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 
-export class PositionButton extends React.Component {
+export class BuyButton extends React.Component {
   render () {
     return (
-      <React.Fragment>
+      <Box sx={{
+        width: "20%",
+        mt: "2em",
+        ml: "40%",
+        mr: "40%",
+      }}>
         <Button variant="contained" sx={{
           p: "0.7em 2em 0.7em 2em",
-          bottom: "3em",
           backgroundColor: "success.main",
-          opacity: "90%",
-          position: "fixed",
         }}>
           <Typography variant="positionText">
-            купить
+            Купить
           </Typography>
         </Button>
-      </React.Fragment>
+      </Box>
     )
   }
 }
