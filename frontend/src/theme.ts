@@ -78,22 +78,58 @@ let themeMain = createTheme({
   components: {
     MuiSelect: {
       styleOverrides: {
-
+        select: {
+          borderRadius: "0.9em",
+          backgroundColor: "secondary.main",
+          color: "text.secondary",
+          fontSize: "0.9em",
+        }
       }
     },
     MuiFormControl: {
       styleOverrides: {
-
+        root: {
+          borderRadius: "0.9em",
+          backgroundColor: "secondary.main",
+          color: "text.secondary",
+          fontSize: "0.9em",
+        }
       }
     },
-    MuiList: {
+    MuiMenu: {
       styleOverrides: {
-
+        root: {
+          borderRadius: "0.9em",
+          backgroundColor: "secondary.main",
+          color: "text.secondary",
+          fontSize: "0.9em",
+        }
+      }
+    },
+    MuiButtonBase: {
+      styleOverrides: {
+        root: {
+          borderRadius: "0.9em",
+          backgroundColor: "secondary.main",
+          color: "text.secondary",
+          fontSize: "0.9em",
+        }
       }
     },
     MuiInputBase: {
       styleOverrides: {
-
+        root: {
+          borderRadius: "0.9em",
+          backgroundColor: "secondary.main",
+          color: "text.secondary",
+          fontSize: "0.9em",
+        },
+        input: {
+          borderRadius: "0.9em",
+          backgroundColor: "secondary.main",
+          color: "text.secondary",
+          fontSize: "0.9em",
+        }
       },
     },
   }

@@ -26,9 +26,10 @@ export class Param extends React.Component {
             display: "inline-block",
           }}>
             <FormControl size="small" sx={{ 
-              width: "8em",
+              width: "9em",
+              color: "text.secondary",
+              backgroundColor: "secondary.main"
             }}>
-              <InputLabel id="select-type">Цена</InputLabel>
               <Select
                 labelId="select-type"
                 id="select-type"
