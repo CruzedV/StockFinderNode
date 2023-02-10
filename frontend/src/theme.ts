@@ -35,9 +35,6 @@ declare module '@mui/material/Typography' {
   }
 }
 
-const secondaryColor = "#F4F4F4"
-const primaryColor = "#373737"
-
 let themeMain = createTheme({
 // COLOR DEFINITION
   status: {
@@ -79,16 +76,6 @@ let themeMain = createTheme({
     },
   },
   components: {
-    MuiSelect: {
-      styleOverrides: {
-        select: {
-          borderRadius: "0.9em",
-          backgroundColor: secondaryColor,
-          color: primaryColor,
-          fontSize: "0.9em",
-        }
-      }
-    },
     MuiFormControl: {
       styleOverrides: {
         root: {
