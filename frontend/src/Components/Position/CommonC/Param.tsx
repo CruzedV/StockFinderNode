@@ -19,7 +19,7 @@ export class Param extends React.Component {
             <Typography>
               Лучшая цена
             </Typography>
-            <TextField label="ПАРАМЕТР 1" fullWidth color="secondary"></TextField>
+            <TextField variant="filled" label="ПАРАМЕТР 1" fullWidth color="secondary"></TextField>
           </Box>
           <Box sx={{
             width: "25%",
@@ -54,7 +54,7 @@ export class Param extends React.Component {
             <Typography>
               Количество
             </Typography>
-            <TextField label="ПАРАМЕТР 1" fullWidth color="secondary"></TextField>
+            <TextField variant="filled" label="ПАРАМЕТР 1" fullWidth color="secondary"></TextField>
           </Box>
           <Box sx={{
             display: "inline-block",
@@ -65,7 +65,6 @@ export class Param extends React.Component {
             </Typography>
           </Box>
         </Box>
-
       </Box>
 
     )

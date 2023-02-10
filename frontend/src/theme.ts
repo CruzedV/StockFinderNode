@@ -122,7 +122,9 @@ let themeMain = createTheme({
     MuiFormLabel: {
       styleOverrides: {
         root: {
-          color: "#53DD6C"
+          "&.Mui-focused": {
+            color: "#53DD6C"
+          }
         }
       }
     },
