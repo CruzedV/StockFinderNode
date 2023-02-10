@@ -4,8 +4,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { CardProps } from '../../Types/Cards/CardProps';
+import { CardState } from '../../Types/Cards/CardState';
 
-export class PositionCard extends React.Component {
+export class PositionCard extends React.Component<CardProps, CardState> {
   render () {
     return (
       <Card sx={{ 
@@ -14,7 +16,7 @@ export class PositionCard extends React.Component {
         maxHeight: "4em",
         borderRadius: "0.9em"
        }}>
-        <Link to="/position">
+        <Link to="/position"{this.props.figi}>
           <CardActionArea>
             <Box sx={{
               float: "left",
@@ -34,10 +36,10 @@ export class PositionCard extends React.Component {
                 width: "40%",
               }}>
                 <Typography color="text.secondary">
-                  ОФЗ 12454566534343
+                  {this.props.name}
                 </Typography>
                 <Typography variant="positionSubtitle" color="text.secondary">
-                  1020 шт
+                  {this.props.amount}
                 </Typography>
               </Box>
               <Box sx={{
@@ -46,10 +48,10 @@ export class PositionCard extends React.Component {
                 width: "40%",
               }}>
                 <Typography color="text.secondary">
-                  1000P
+                  {this.state.price}
                 </Typography>
                 <Typography variant="positionSubtitle" color="error">
-                  -255P | -15%
+                  {this.state.profit} | {this.state.profitPercentage}
                 </Typography>
               </Box>
             </Box>

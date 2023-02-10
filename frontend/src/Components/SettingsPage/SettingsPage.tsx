@@ -18,11 +18,11 @@ export class SettingsPage extends React.Component {
             pt: "1em",
             pb: "1em"
           }}>
-            <Param/>
-            <Param/>
-            <Param/>
-            <Param/>
-            <Param/>
+            <Param name="Токен Tinkoff API"/>
+            <Param name="Цветовая схема"/>
+            <Param name="Валюта рассчетов"/>
+            <Param name="Форма W-8BEN"/>
+            <Param name="Доступ"/>
           </Box>
           </Paper>
         </Box>
