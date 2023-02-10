@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Typography, TextField, FormControl, MenuItem, InputLabel, Select } from '@mui/material'
+import { Box, Typography, TextField, FormControl, MenuItem, Select } from '@mui/material'
 
 export class Param extends React.Component {
   render () {
@@ -19,7 +19,7 @@ export class Param extends React.Component {
             <Typography>
               Лучшая цена
             </Typography>
-            <TextField label="ПАРАМЕТР 1" focused fullWidth variant="filled" color="secondary"></TextField>
+            <TextField label="ПАРАМЕТР 1" fullWidth color="secondary"></TextField>
           </Box>
           <Box sx={{
             width: "25%",
@@ -27,17 +27,13 @@ export class Param extends React.Component {
           }}>
             <FormControl size="small" sx={{ 
               width: "9em",
-              color: "text.secondary",
-              backgroundColor: "secondary.main"
             }}>
               <Select
                 labelId="select-type"
                 id="select-type"
                 label="Лучшая цена"
               >
-                <MenuItem value={0}>
-                  <em>Лучшая цена</em>
-                </MenuItem>
+                <MenuItem value={0}>Лучшая цена</MenuItem>
                 <MenuItem value={1}>Лимитная заявка</MenuItem>
                 <MenuItem value={2}>Рыночная заявка</MenuItem>
                 <MenuItem value={3}>Стоп-маркет</MenuItem>
@@ -58,7 +54,7 @@ export class Param extends React.Component {
             <Typography>
               Количество
             </Typography>
-            <TextField label="ПАРАМЕТР 1" focused fullWidth variant="filled" color="secondary"></TextField>
+            <TextField label="ПАРАМЕТР 1" fullWidth color="secondary"></TextField>
           </Box>
           <Box sx={{
             display: "inline-block",

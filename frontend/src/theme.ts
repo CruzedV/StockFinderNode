@@ -35,6 +35,9 @@ declare module '@mui/material/Typography' {
   }
 }
 
+const secondaryColor = "#F4F4F4"
+const primaryColor = "#373737"
+
 let themeMain = createTheme({
 // COLOR DEFINITION
   status: {
@@ -80,8 +83,8 @@ let themeMain = createTheme({
       styleOverrides: {
         select: {
           borderRadius: "0.9em",
-          backgroundColor: "secondary.main",
-          color: "text.secondary",
+          backgroundColor: secondaryColor,
+          color: primaryColor,
           fontSize: "0.9em",
         }
       }
@@ -90,8 +93,8 @@ let themeMain = createTheme({
       styleOverrides: {
         root: {
           borderRadius: "0.9em",
-          backgroundColor: "secondary.main",
-          color: "text.secondary",
+          backgroundColor: "#F4F4F4",
+          color: "#373737",
           fontSize: "0.9em",
         }
       }
@@ -100,19 +103,26 @@ let themeMain = createTheme({
       styleOverrides: {
         root: {
           borderRadius: "0.9em",
-          backgroundColor: "secondary.main",
-          color: "text.secondary",
+          color: "#373737",
           fontSize: "0.9em",
         }
       }
     },
-    MuiButtonBase: {
+    MuiMenuItem: {
       styleOverrides: {
         root: {
           borderRadius: "0.9em",
-          backgroundColor: "secondary.main",
-          color: "text.secondary",
-          fontSize: "0.9em",
+          borderBottom: "0",
+          backgroundColor: "#F4F4F4",
+          color: "#373737",
+          fontSize: 12,
+        }
+      }
+    },
+    MuiFormLabel: {
+      styleOverrides: {
+        root: {
+          color: "#53DD6C"
         }
       }
     },
@@ -120,15 +130,13 @@ let themeMain = createTheme({
       styleOverrides: {
         root: {
           borderRadius: "0.9em",
-          backgroundColor: "secondary.main",
-          color: "text.secondary",
-          fontSize: "0.9em",
+          color: "#373737",
         },
         input: {
-          borderRadius: "0.9em",
-          backgroundColor: "secondary.main",
-          color: "text.secondary",
-          fontSize: "0.9em",
+          "&::before": {
+            borderRadius: "0.9em",
+            color: "#373737",
+          }
         }
       },
     },

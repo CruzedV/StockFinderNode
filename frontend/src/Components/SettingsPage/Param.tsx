@@ -11,7 +11,7 @@ export class Param extends React.Component {
           textAlign: "center",
         }}>
           <Typography color="text.primary">ПАРАМЕТР 1</Typography>
-          <TextField label="ПАРАМЕТР 1" focused fullWidth variant="filled" color="secondary"></TextField>
+          <TextField label="ПАРАМЕТР 1" fullWidth color="secondary"></TextField>
         </Box>
         <Divider light={true} variant="middle"/>
       </React.Fragment>
