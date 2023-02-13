@@ -9,7 +9,7 @@ export interface IInstrument{
     figi: string,
     instrumentType: string,
     quanity: IQuanity,
-    quanityLots: IQuanity;
+    quantityLots: IQuanity;
 };
 
 interface IQuanity {

@@ -8,6 +8,16 @@ import { CardProps } from '../../Types/Cards/CardProps';
 import { CardState } from '../../Types/Cards/CardState';
 
 export class PositionCard extends React.Component<CardProps, CardState> {
+  constructor(props:CardProps) {
+    super(props)
+    this.state ={
+      isProfitable: false,
+      profitPercentage: "-14%"
+    }
+  }
+  componentDidMount(): void {
+    
+  }
   render () {
     return (
       <Card sx={{ 
@@ -16,7 +26,7 @@ export class PositionCard extends React.Component<CardProps, CardState> {
         maxHeight: "4em",
         borderRadius: "0.9em"
        }}>
-        <Link to="/position"{this.props.figi}>
+        <Link to={this.props.figi}>
           <CardActionArea>
             <Box sx={{
               float: "left",
@@ -39,7 +49,7 @@ export class PositionCard extends React.Component<CardProps, CardState> {
                   {this.props.name}
                 </Typography>
                 <Typography variant="positionSubtitle" color="text.secondary">
-                  {this.props.amount}
+                  {this.props.amount} шт
                 </Typography>
               </Box>
               <Box sx={{
@@ -48,10 +58,10 @@ export class PositionCard extends React.Component<CardProps, CardState> {
                 width: "40%",
               }}>
                 <Typography color="text.secondary">
-                  {this.state.price}
+                  {this.props.price} {this.props.currency}
                 </Typography>
                 <Typography variant="positionSubtitle" color="error">
-                  {this.state.profit} | {this.state.profitPercentage}
+                  {this.props.profit} | {this.state.profitPercentage}
                 </Typography>
               </Box>
             </Box>

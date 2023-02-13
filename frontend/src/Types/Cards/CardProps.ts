@@ -4,4 +4,5 @@ export type CardProps = {
     price: number;
     profit: number;
     figi: string;
+    currency?: string;
 }

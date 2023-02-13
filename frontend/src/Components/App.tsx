@@ -1,7 +1,5 @@
 import React from 'react';
 import './App.css';
-import { GetPortfolio } from '../API/getPortfolio';
-import { IInstrument } from '../Interfaces/IInstrument';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../theme';
 import { Container, Box } from '@mui/material';
@@ -14,26 +12,7 @@ import { PositionPage } from './Position/PositionPage/PositionPage';
 import { PositionSellPage } from './Position/PositionSellPage/PositionSellPage';
 import { PositionBuyPage } from './Position/PositionBuyPage/PositionBuyPage';
 
-class App extends React.Component<{}, {data: Array<IInstrument>}> {
-  constructor(props:any){
-    super(props);
-    this.handleEvent = this.handleEvent.bind(this);
-    this.state = {
-      data: []
-    }
-  }
-
-  async componentDidMount() {
-    let res = await GetPortfolio('/api/user')
-    this.setState({
-      data: res
-    })
-  }
-
-  handleEvent(){  
-    console.log(this.props);  
-  }  
-
+class App extends React.Component {
   render () {
     return (
       <React.Fragment>
