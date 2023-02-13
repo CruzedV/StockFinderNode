@@ -12,11 +12,14 @@ export class PositionCard extends React.Component<CardProps, CardState> {
     super(props)
     this.state ={
       isProfitable: false,
-      profitPercentage: "-14%"
+      profitPercentage: 14
     }
   }
   componentDidMount(): void {
-    
+    this.setState({
+      isProfitable: this.props.profit > 0 ? true : false,
+      profitPercentage: (this.props.profit / this.props.price)*100
+    })
   }
   render () {
     return (
@@ -26,7 +29,7 @@ export class PositionCard extends React.Component<CardProps, CardState> {
         maxHeight: "4em",
         borderRadius: "0.9em"
        }}>
-        <Link to={this.props.figi}>
+        <Link to={"/"+this.props.figi}>
           <CardActionArea>
             <Box sx={{
               float: "left",
@@ -58,10 +61,10 @@ export class PositionCard extends React.Component<CardProps, CardState> {
                 width: "40%",
               }}>
                 <Typography color="text.secondary">
-                  {this.props.price} {this.props.currency}
+                  {this.props.price.toFixed(2)} {this.props.currency}
                 </Typography>
-                <Typography variant="positionSubtitle" color="error">
-                  {this.props.profit} | {this.state.profitPercentage}
+                <Typography variant="positionSubtitle" color={this.state.isProfitable? "success.main" : "error"}>
+                  {this.props.profit} {this.props.currency} | {this.state.profitPercentage.toFixed(2)} %
                 </Typography>
               </Box>
             </Box>

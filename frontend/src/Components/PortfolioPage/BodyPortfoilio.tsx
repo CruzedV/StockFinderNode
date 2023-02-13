@@ -31,10 +31,10 @@ export class BodyPortfolio extends React.Component<{}, {data: Array<IInstrument>
             {this.state.data.map((i:IInstrument) =>
             <PositionCard
               name={i.figi}
-              amount={i.quantityLots.units}
-              price={i.currentPrice.units*i.quantityLots.units}
+              amount={i.quantity.units}
+              price={(i.currentPrice.units+(Math.floor(i.currentPrice.nano/10000000)/100))*i.quantity.units}
               currency={i.currentPrice.currency}
-              profit={i.expectedYield.units}
+              profit={i.expectedYield.units+(Math.floor(i.currentPrice.nano/10000000)/100)}
               figi={i.figi}/>
             )}
           </Box>

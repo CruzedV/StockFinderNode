@@ -8,7 +8,7 @@ export interface IInstrument{
     expectedYield: IQuanity,
     figi: string,
     instrumentType: string,
-    quanity: IQuanity,
+    quantity: IQuanity,
     quantityLots: IQuanity;
 };
 

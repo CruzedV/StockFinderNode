@@ -31,12 +31,12 @@ export class BodyBuy extends React.Component<{}, {data: Array<IInstrument>}> {
           }}>
             {this.state.data.map((i:IInstrument) =>
             <PositionCard 
-              name={i.figi} 
-              amount={i.quantityLots.units} 
-              price={i.currentPrice.units*i.quantityLots.units} 
-              currency={i.currentPrice.currency} 
-              profit={i.expectedYield.units} 
-              figi={i.figi}/>
+            name={i.figi}
+            amount={i.quantity.units}
+            price={(i.averagePositionPrice.units+(Math.floor(i.averagePositionPrice.nano/10000000)/100))*i.quantity.units}
+            currency={i.averagePositionPrice.currency}
+            profit={i.expectedYield.units+(Math.floor(i.averagePositionPrice.nano/10000000)/100)}
+            figi={i.figi}/>
             )}
           </Box>
         </Paper>

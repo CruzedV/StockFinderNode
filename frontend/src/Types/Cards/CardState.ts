@@ -1,4 +1,4 @@
 export type CardState = {
   isProfitable: boolean;
-  profitPercentage: string;
+  profitPercentage: number;
 }
