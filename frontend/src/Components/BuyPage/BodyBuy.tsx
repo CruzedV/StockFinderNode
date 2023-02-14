@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Paper } from "@mui/material";
-import { PositionCard } from "../CommonComponents/PositionCard"
+import { PositionCard } from "../PositionCard/PositionCard"
 import { IInstrument } from "../../Interfaces/IInstrument";
-import { GetPortfolio } from "../../API/getPortfolio";
+import { GetPortfolioPositions } from "../../API/getPortfolio";
 
 export class BodyBuy extends React.Component<{}, {data: Array<IInstrument>}> {
   constructor(props:any){
@@ -13,7 +13,7 @@ export class BodyBuy extends React.Component<{}, {data: Array<IInstrument>}> {
   }
   async componentDidMount() {
     // Replace with correct get
-    let res = await GetPortfolio('/api/user')
+    let res = await GetPortfolioPositions('/api/user')
     this.setState({
       data: res
     })
@@ -33,9 +33,9 @@ export class BodyBuy extends React.Component<{}, {data: Array<IInstrument>}> {
             <PositionCard 
             name={i.figi}
             amount={i.quantity.units}
-            price={(i.averagePositionPrice.units+(Math.floor(i.averagePositionPrice.nano/10000000)/100))*i.quantity.units}
+            price={(i.currentPrice.units+(i.currentPrice.nano/Math.pow(10, 9)))*i.quantity.units}
             currency={i.averagePositionPrice.currency}
-            profit={i.expectedYield.units+(Math.floor(i.averagePositionPrice.nano/10000000)/100)}
+            profit={i.expectedYield.units+(i.expectedYield.nano/Math.pow(10, 9))}
             figi={i.figi}/>
             )}
           </Box>

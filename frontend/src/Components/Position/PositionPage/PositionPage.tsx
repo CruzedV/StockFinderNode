@@ -5,8 +5,10 @@ import { PositionRegion } from './PositionRegion'
 import { PositionGraph } from './PositionGraph/PositionGraph'
 import { PositionButton } from './PositionButton'
 import { Link } from 'react-router-dom';
+import { PositionState } from '../../../Types/Position/PositionState'
+import { PositionProps } from '../../../Types/Position/PositionProps'
 
-export class PositionPage extends React.Component {
+export class PositionPage extends React.Component<PositionProps, PositionState> {
   render () {
     return (
       <React.Fragment>

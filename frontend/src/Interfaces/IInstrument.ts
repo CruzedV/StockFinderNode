@@ -1,5 +1,6 @@
+import IQuanity from "./IQuanity";
 
-export interface IInstrument{
+export interface IInstrument {
     averagePositionPrice: IQuanity,
     averagePositionPriceFifo: IQuanity,
     averagePositionPricePt: IQuanity,
@@ -10,10 +11,4 @@ export interface IInstrument{
     instrumentType: string,
     quantity: IQuanity,
     quantityLots: IQuanity;
-};
-
-interface IQuanity {
-    currency?: string,
-    nano: number,
-    units: number;
 };
