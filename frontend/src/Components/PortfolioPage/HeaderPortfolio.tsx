@@ -54,7 +54,7 @@ export class HeaderPortfolio extends React.Component<{}, PortfolioTotal> {
                 <Typography color={this.state.isProfitable ? "success" : "error"}>
                   {this.state.total.toFixed(2)} rub
                 </Typography>
-                <Typography color={this.state.isProfitable ? "success" : "error"}>
+                <Typography variant="positionText" color={this.state.isProfitable ? "success" : "error"}>
                   {((this.state.total*this.state.profitPercentage)/(100+this.state.profitPercentage)).toFixed(2)} rub | {this.state.profitPercentage.toFixed(2)} %
                 </Typography>
               </Box>
