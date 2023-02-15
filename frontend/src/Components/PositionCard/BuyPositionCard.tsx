@@ -8,24 +8,6 @@ import { BuyCardProps } from '../../Types/Cards/BuyCardProps';
 import { BuyCardState } from '../../Types/Cards/BuyCardState';
 
 export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState> {
-  constructor(props:BuyCardProps) {
-    super(props)
-    this.state ={
-      isProfitable: false,
-      profitPercentage: 0,
-      price: 0,
-      currency: "",
-      profit: 0,
-      ticker: "",
-    }
-  }
-  componentDidMount(): void {
-    this.setState({
-      isProfitable: false,
-      profitPercentage: 0,
-    })
-
-  }
   render () {
     return (
       <Grow in={true}
@@ -38,7 +20,7 @@ export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState>
           maxHeight: "4em",
           borderRadius: "0.9em"
         }}>
-          <Link to={"/"+this.props.uid}>
+          <Link to={"/"+this.props.figi}>
             <CardActionArea>
               <Box sx={{
                 float: "left",
@@ -61,7 +43,7 @@ export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState>
                     {this.props.name.slice(0, 24)+"..."}
                   </Typography>
                   <Typography variant="positionSubtitle" color="text.secondary">
-                    {this.state.ticker} шт
+                    {this.props.ticker}
                   </Typography>
                 </Box>
                 <Box sx={{
@@ -70,10 +52,22 @@ export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState>
                   width: "40%",
                 }}>
                   <Typography color="text.secondary">
-                    {this.state.price.toFixed(2)} {this.state.currency}
+                    {this.props.nominal.toFixed(2)} {this.props.currency}
                   </Typography>
-                  <Typography variant="positionSubtitle" color={this.state.isProfitable? "success.main" : "error"}>
-                    {this.state.profit} {this.state.currency} | {this.state.profitPercentage.toFixed(2)} %
+                  <Typography variant="positionSubtitle" color={this.props.isDividend? "success.main" : "error"}>
+                    Dividend
+                  </Typography>
+                  <Typography variant="positionSubtitle" color="text.secondary">
+                     |   
+                  </Typography>
+                  <Typography variant="positionSubtitle" color={this.props.isSellAvailable? "success.main" : "error"}>
+                    Sell 
+                  </Typography>
+                  <Typography variant="positionSubtitle" color="text.secondary">
+                     |  
+                  </Typography>
+                  <Typography variant="positionSubtitle" color={this.props.isBuyAvailable? "success.main" : "error"}>
+                    Buy
                   </Typography>
                 </Box>
               </Box>

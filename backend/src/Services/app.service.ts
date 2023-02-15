@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { type } from 'os';
 import { api } from '../api';
 
 @Injectable()
@@ -11,8 +10,8 @@ export class AppService {
     });
     return accounts[0].id, portfolio;
   }
-  async getAssets(): Promise<object> {
-    const { assets } = await api.instruments.getAssets({});
-    return assets.slice(0, 20);
+  async getShares(): Promise<object> {
+    const shares = await api.instruments.shares({ instrumentStatus: 1 });
+    return shares.instruments.filter((i) => i.countryOfRisk === 'RU');
   }
 }

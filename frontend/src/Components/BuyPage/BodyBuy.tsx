@@ -1,10 +1,10 @@
 import React from "react";
-import { Box, Paper } from "@mui/material";
+import { Box, Paper, CircularProgress } from "@mui/material";
 import { BuyPositionCard } from "../PositionCard/BuyPositionCard"
-import { IAsset } from "../../Interfaces/IAsset";
-import { GetAssets } from "../../API/getAssets";
+import { IShare } from "../../Interfaces/IShare";
+import { GetShares } from "../../API/getAssets";
 
-export class BodyBuy extends React.Component<{}, {data: Array<IAsset>}> {
+export class BodyBuy extends React.Component<{}, {data: Array<IShare>}> {
   constructor(props:any){
     super(props)
     this.state = {
@@ -12,7 +12,7 @@ export class BodyBuy extends React.Component<{}, {data: Array<IAsset>}> {
     }
   }
   async componentDidMount() {
-    let res = await GetAssets('/api/assets')
+    let res = await GetShares('/api/assets/shares', 0, 20)
     this.setState({
       data: res
     })
@@ -26,14 +26,26 @@ export class BodyBuy extends React.Component<{}, {data: Array<IAsset>}> {
         }}>
           <Box sx={{
             pt: "1em",
-            pb: "1em"
+            pb: "1em",
           }}>
-            {this.state.data.map((i:IAsset) =>
-            <BuyPositionCard 
+            {this.state.data.map((i:IShare) =>
+            <BuyPositionCard
+              figi={i.figi}
+              ticker={i.ticker}
+              currency={i.currency}
               name={i.name}
-              uid={i.uid}
+              isDividend={i.divYieldFlag}
+              isSellAvailable={i.sell_available_flag}
+              isBuyAvailable={i.buy_available_flag}
+              nominal={(i.nominal.units + (i.nominal.nano/Math.pow(10, 9)))*i.lot}
              />
             )}
+          </Box>
+          <Box sx={{
+            p: "1em 47% 3em 47%",
+            width: "6%",
+          }}>
+            <CircularProgress color="secondary"/>
           </Box>
         </Paper>
       </Box>

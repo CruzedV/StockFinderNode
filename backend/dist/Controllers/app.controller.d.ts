@@ -3,5 +3,5 @@ export declare class AppController {
     private readonly appService;
     constructor(appService: AppService);
     getPortfolio(): Promise<object>;
-    getAssets(): Promise<object>;
+    getShares(): Promise<object>;
 }

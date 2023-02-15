@@ -17,9 +17,9 @@ let AppService = class AppService {
         });
         return accounts[0].id, portfolio;
     }
-    async getAssets() {
-        const { assets } = await api_1.api.instruments.getAssets({});
-        return assets.slice(0, 20);
+    async getShares() {
+        const shares = await api_1.api.instruments.shares({ instrumentStatus: 1 });
+        return shares.instruments.filter((i) => i.countryOfRisk === 'RU');
     }
 };
 AppService = __decorate([

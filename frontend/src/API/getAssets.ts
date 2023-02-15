@@ -1,7 +1,7 @@
 import axios from "axios"
-import { IAsset } from "../Interfaces/IAsset";
+import { IShare } from "../Interfaces/IShare";
 
-export async function GetAssets(url:string) {
+export async function GetShares(url:string, low:number, high:number) {
   const res = await axios.get(url);
-  return await res.data as Array<IAsset>;
+  return await res.data.slice(low, high) as Array<IShare>;
 }

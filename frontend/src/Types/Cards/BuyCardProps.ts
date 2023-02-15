@@ -1,5 +1,11 @@
 export type BuyCardProps = {
-  name: string;
-  uid: string;
-  ticker?: string;
+  figi: string,
+  ticker: string,
+  currency: string,
+  name: string,
+  isDividend: boolean,
+  isSellAvailable: boolean,
+  isBuyAvailable: boolean, 
+  nominal: number,
+  
 }
