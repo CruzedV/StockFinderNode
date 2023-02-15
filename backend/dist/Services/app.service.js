@@ -21,6 +21,18 @@ let AppService = class AppService {
         const shares = await api_1.api.instruments.shares({ instrumentStatus: 1 });
         return shares.instruments.filter((i) => i.countryOfRisk === 'RU');
     }
+    async getBonds() {
+        const resp = await api_1.api.instruments.bonds({ instrumentStatus: 1 });
+        return resp.instruments.filter((i) => i.countryOfRisk === 'RU');
+    }
+    async getCurrency() {
+        const resp = await api_1.api.instruments.currencies({ instrumentStatus: 1 });
+        return resp.instruments;
+    }
+    async getETF() {
+        const resp = await api_1.api.instruments.etfs({ instrumentStatus: 1 });
+        return resp.instruments.filter((i) => i.countryOfRisk === 'RU');
+    }
 };
 AppService = __decorate([
     (0, common_1.Injectable)()

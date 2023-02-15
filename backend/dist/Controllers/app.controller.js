@@ -22,9 +22,18 @@ let AppController = class AppController {
     getShares() {
         return this.appService.getShares();
     }
+    getBonds() {
+        return this.appService.getBonds();
+    }
+    getCurrency() {
+        return this.appService.getCurrency();
+    }
+    getETF() {
+        return this.appService.getETF();
+    }
 };
 __decorate([
-    (0, common_1.Get)('/user'),
+    (0, common_1.Get)('/user '),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
@@ -35,6 +44,24 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "getShares", null);
+__decorate([
+    (0, common_1.Get)('/assets/bonds'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "getBonds", null);
+__decorate([
+    (0, common_1.Get)('/assets/currency'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "getCurrency", null);
+__decorate([
+    (0, common_1.Get)('/assets/etf'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "getETF", null);
 AppController = __decorate([
     (0, common_1.Controller)('api'),
     __metadata("design:paramtypes", [app_service_1.AppService])

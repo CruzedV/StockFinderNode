@@ -12,4 +12,16 @@ export class AppController {
   getShares(): Promise<object> {
     return this.appService.getShares();
   }
+  @Get('/assets/bonds')
+  getBonds(): Promise<object> {
+    return this.appService.getBonds();
+  }
+  @Get('/assets/currency')
+  getCurrency(): Promise<object> {
+    return this.appService.getCurrency();
+  }
+  @Get('/assets/etf')
+  getETF(): Promise<object> {
+    return this.appService.getETF();
+  }
 }

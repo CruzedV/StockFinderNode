@@ -1,5 +1,5 @@
 import axios from "axios"
-import { IShare } from "../Interfaces/IShare";
+import { IShare } from "../Interfaces/Instruments.ts/IShare";
 
 export async function GetShares(url:string, low:number, high:number) {
   const res = await axios.get(url);

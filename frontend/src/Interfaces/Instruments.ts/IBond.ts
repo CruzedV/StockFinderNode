@@ -1,4 +1,4 @@
-import IQuanity from "./IQuanity";
+import IQuanity from "../IQuanity";
 
 export interface IShare {
   figi: string,

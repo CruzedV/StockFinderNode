@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Paper, CircularProgress } from "@mui/material";
 import { BuyPositionCard } from "../PositionCard/BuyPositionCard"
-import { IShare } from "../../Interfaces/IShare";
+import { IShare } from "../../Interfaces/Instruments.ts/IShare";
 import { GetShares } from "../../API/getAssets";
 
 export class BodyBuy extends React.Component<{}, {data: Array<IShare>}> {

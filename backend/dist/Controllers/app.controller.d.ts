@@ -4,4 +4,7 @@ export declare class AppController {
     constructor(appService: AppService);
     getPortfolio(): Promise<object>;
     getShares(): Promise<object>;
+    getBonds(): Promise<object>;
+    getCurrency(): Promise<object>;
+    getETF(): Promise<object>;
 }
