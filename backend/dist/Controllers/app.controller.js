@@ -19,15 +19,24 @@ let AppController = class AppController {
     getPortfolio() {
         return this.appService.getPortfolio();
     }
+    getAssets() {
+        return this.appService.getAssets();
+    }
 };
 __decorate([
-    (0, common_1.Get)(),
+    (0, common_1.Get)('/user'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "getPortfolio", null);
+__decorate([
+    (0, common_1.Get)('/assets'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "getAssets", null);
 AppController = __decorate([
-    (0, common_1.Controller)('api/user'),
+    (0, common_1.Controller)('api'),
     __metadata("design:paramtypes", [app_service_1.AppService])
 ], AppController);
 exports.AppController = AppController;

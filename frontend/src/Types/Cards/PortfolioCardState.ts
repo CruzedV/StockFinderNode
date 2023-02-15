@@ -1,4 +1,4 @@
-export type CardState = {
+export type PortfolioCardState = {
   isProfitable: boolean;
   profitPercentage: number;
 }

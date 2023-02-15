@@ -4,21 +4,25 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea, Box, Grow } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { CardProps } from '../../Types/Cards/CardProps';
-import { CardState } from '../../Types/Cards/CardState';
+import { BuyCardProps } from '../../Types/Cards/BuyCardProps';
+import { BuyCardState } from '../../Types/Cards/BuyCardState';
 
-export class PositionCard extends React.Component<CardProps, CardState> {
-  constructor(props:CardProps) {
+export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState> {
+  constructor(props:BuyCardProps) {
     super(props)
     this.state ={
       isProfitable: false,
-      profitPercentage: 14
+      profitPercentage: 0,
+      price: 0,
+      currency: "",
+      profit: 0,
+      ticker: "",
     }
   }
   componentDidMount(): void {
     this.setState({
-      isProfitable: this.props.profit > 0 ? true : false,
-      profitPercentage: (this.props.profit / this.props.price)*100
+      isProfitable: false,
+      profitPercentage: 0,
     })
 
   }
@@ -34,7 +38,7 @@ export class PositionCard extends React.Component<CardProps, CardState> {
           maxHeight: "4em",
           borderRadius: "0.9em"
         }}>
-          <Link to={"/"+this.props.figi}>
+          <Link to={"/"+this.props.uid}>
             <CardActionArea>
               <Box sx={{
                 float: "left",
@@ -51,13 +55,13 @@ export class PositionCard extends React.Component<CardProps, CardState> {
                 <Box sx={{
                   textAlign: "center",
                   float: "left",
-                  width: "40%",
+                  width: "50%",
                 }}>
                   <Typography color="text.secondary">
-                    {this.props.name}
+                    {this.props.name.slice(0, 24)+"..."}
                   </Typography>
                   <Typography variant="positionSubtitle" color="text.secondary">
-                    {this.props.amount} шт
+                    {this.state.ticker} шт
                   </Typography>
                 </Box>
                 <Box sx={{
@@ -66,10 +70,10 @@ export class PositionCard extends React.Component<CardProps, CardState> {
                   width: "40%",
                 }}>
                   <Typography color="text.secondary">
-                    {this.props.price.toFixed(2)} {this.props.currency}
+                    {this.state.price.toFixed(2)} {this.state.currency}
                   </Typography>
                   <Typography variant="positionSubtitle" color={this.state.isProfitable? "success.main" : "error"}>
-                    {this.props.profit} {this.props.currency} | {this.state.profitPercentage.toFixed(2)} %
+                    {this.state.profit} {this.state.currency} | {this.state.profitPercentage.toFixed(2)} %
                   </Typography>
                 </Box>
               </Box>

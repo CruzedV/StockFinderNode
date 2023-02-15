@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Paper } from "@mui/material";
-import { PositionCard } from "../PositionCard/PositionCard"
-import { IInstrument } from "../../Interfaces/IInstrument";
-import { GetPortfolioPositions } from "../../API/getPortfolio";
+import { BuyPositionCard } from "../PositionCard/BuyPositionCard"
+import { IAsset } from "../../Interfaces/IAsset";
+import { GetAssets } from "../../API/getAssets";
 
-export class BodyBuy extends React.Component<{}, {data: Array<IInstrument>}> {
+export class BodyBuy extends React.Component<{}, {data: Array<IAsset>}> {
   constructor(props:any){
     super(props)
     this.state = {
@@ -12,8 +12,7 @@ export class BodyBuy extends React.Component<{}, {data: Array<IInstrument>}> {
     }
   }
   async componentDidMount() {
-    // Replace with correct get
-    let res = await GetPortfolioPositions('/api/user')
+    let res = await GetAssets('/api/assets')
     this.setState({
       data: res
     })
@@ -29,14 +28,11 @@ export class BodyBuy extends React.Component<{}, {data: Array<IInstrument>}> {
             pt: "1em",
             pb: "1em"
           }}>
-            {this.state.data.map((i:IInstrument) =>
-            <PositionCard 
-              name={i.figi}
-              amount={i.quantity.units}
-              price={(i.currentPrice.units+(i.currentPrice.nano/Math.pow(10, 9)))*i.quantity.units}
-              currency={i.averagePositionPrice.currency}
-              profit={i.expectedYield.units+(i.expectedYield.nano/Math.pow(10, 9))}
-              figi={i.figi}/>
+            {this.state.data.map((i:IAsset) =>
+            <BuyPositionCard 
+              name={i.name}
+              uid={i.uid}
+             />
             )}
           </Box>
         </Paper>

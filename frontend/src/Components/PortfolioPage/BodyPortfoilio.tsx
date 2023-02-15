@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Paper } from "@mui/material";
-import { PositionCard } from "../PositionCard/PositionCard"
+import { PortfolioPositionCard } from "../PositionCard/PortfolioPositionCard"
 import { IInstrument } from "../../Interfaces/IInstrument";
 import { GetPortfolioPositions } from "../../API/getPortfolio";
 
@@ -29,7 +29,7 @@ export class BodyPortfolio extends React.Component<{}, {data: Array<IInstrument>
             pb: "1em"
           }}>
             {this.state.data.map((i:IInstrument) =>
-            <PositionCard
+            <PortfolioPositionCard
               name={i.figi}
               amount={i.quantity.units}
               price={(i.currentPrice.units+(i.currentPrice.nano/Math.pow(10, 9)))*i.quantity.units}

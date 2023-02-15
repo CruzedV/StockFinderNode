@@ -1,8 +1,8 @@
-export type CardProps = {
+export type PortfolioCardProps = {
     name: string;
     amount: number;
     price: number;
-    profit: number;
-    figi: string;
+    profit: number
+    figi: string,
     currency?: string;
 }

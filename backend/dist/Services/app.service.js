@@ -17,6 +17,10 @@ let AppService = class AppService {
         });
         return accounts[0].id, portfolio;
     }
+    async getAssets() {
+        const { assets } = await api_1.api.instruments.getAssets({});
+        return assets.slice(0, 20);
+    }
 };
 AppService = __decorate([
     (0, common_1.Injectable)()
