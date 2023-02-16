@@ -11,6 +11,7 @@ import { SettingsPage } from './SettingsPage/SettingsPage';
 import { PositionPage } from './Position/PositionPage/PositionPage';
 import { PositionSellPage } from './Position/PositionSellPage/PositionSellPage';
 import { PositionBuyPage } from './Position/PositionBuyPage/PositionBuyPage';
+import { getByFigi } from '../API/getByFigi';
 
 class App extends React.Component {
   render () {

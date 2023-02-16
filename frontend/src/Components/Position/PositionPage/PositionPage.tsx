@@ -13,6 +13,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
   constructor(props:PositionProps) {
     super(props)
     this.state = {
+      figi: "",
       name: "",
       ticker: "",
       exchangeCode: "",
@@ -21,8 +22,9 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
     }
   }
   async componentDidMount() {
+    console.log(this.state.figi)
     const res = await getByFigi("")
-    this.setState ({ 
+    this.setState ({
       name: res.name,
       ticker: res.ticker,
       exchangeCode: res.exchangeCode,

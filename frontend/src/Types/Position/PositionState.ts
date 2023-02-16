@@ -1,4 +1,5 @@
 export type PositionState = {
+  figi: string,
   name: string,
   ticker: string,
   exchangeCode: string,
