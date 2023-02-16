@@ -1,6 +1,6 @@
 import IQuanity from "../IQuanity";
 
-export interface IBond {
+export interface IETF {
   figi: string,
   ticker: string,
   currency: string,

@@ -1,3 +1,3 @@
 export type PositionProps = {
-  // uid: string,
+  // figi: string,
 }

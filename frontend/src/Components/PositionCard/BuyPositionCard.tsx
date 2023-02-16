@@ -40,7 +40,7 @@ export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState>
                   width: "50%",
                 }}>
                   <Typography color="text.secondary">
-                    {this.props.name.slice(0, 24)+"..."}
+                    {this.props.name.length > 24? this.props.name.slice(0, 24)+"..." : this.props.name}
                   </Typography>
                   <Typography variant="positionSubtitle" color="text.secondary">
                     {this.props.ticker}
@@ -55,19 +55,19 @@ export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState>
                     {this.props.nominal.toFixed(2)} {this.props.currency}
                   </Typography>
                   <Typography variant="positionSubtitle" color={this.props.isDividend? "success.main" : "error"}>
-                    Dividend
+                    Дивиденды
                   </Typography>
                   <Typography variant="positionSubtitle" color="text.secondary">
                      |   
                   </Typography>
                   <Typography variant="positionSubtitle" color={this.props.isSellAvailable? "success.main" : "error"}>
-                    Sell 
+                    Продажа
                   </Typography>
                   <Typography variant="positionSubtitle" color="text.secondary">
                      |  
                   </Typography>
                   <Typography variant="positionSubtitle" color={this.props.isBuyAvailable? "success.main" : "error"}>
-                    Buy
+                    Покупка
                   </Typography>
                 </Box>
               </Box>

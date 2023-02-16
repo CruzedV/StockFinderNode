@@ -33,7 +33,7 @@ let AppController = class AppController {
     }
 };
 __decorate([
-    (0, common_1.Get)('/user '),
+    (0, common_1.Get)('/user'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)

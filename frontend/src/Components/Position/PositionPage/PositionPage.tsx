@@ -7,8 +7,29 @@ import { PositionButton } from './PositionButton'
 import { Link } from 'react-router-dom';
 import { PositionState } from '../../../Types/Position/PositionState'
 import { PositionProps } from '../../../Types/Position/PositionProps'
+import { getByFigi } from '../../../API/getByFigi'
 
 export class PositionPage extends React.Component<PositionProps, PositionState> {
+  constructor(props:PositionProps) {
+    super(props)
+    this.state = {
+      name: "",
+      ticker: "",
+      exchangeCode: "",
+      country: "",
+      averagePositionPrice: 0,
+    }
+  }
+  async componentDidMount() {
+    const res = await getByFigi("")
+    this.setState ({ 
+      name: res.name,
+      ticker: res.ticker,
+      exchangeCode: res.exchangeCode,
+      country: res.country,
+      averagePositionPrice: res.averagePositionPrice,
+    })
+  }
   render () {
     return (
       <React.Fragment>
@@ -37,7 +58,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
               ml: "20%",
               mr: "auto",
             }}>
-              <Link to="/position/sell">
+              <Link to={"sell"}>
                 <PositionButton/>
               </Link>
             </Box>
@@ -46,7 +67,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
               ml: "auto",
               mr: "20%",
             }}>
-              <Link to="/position/buy">
+              <Link to={"buy"}>
                 <PositionButton/>
               </Link>
             </Box>
