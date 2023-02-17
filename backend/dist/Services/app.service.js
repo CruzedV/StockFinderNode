@@ -33,6 +33,14 @@ let AppService = class AppService {
         const resp = await api_1.api.instruments.etfs({ instrumentStatus: 1 });
         return resp.instruments.filter((i) => i.countryOfRisk === 'RU');
     }
+    async getByFigi(figi) {
+        const resp = await api_1.api.instruments.getInstrumentBy({
+            idType: 1,
+            id: figi,
+            classCode: '',
+        });
+        return resp;
+    }
 };
 AppService = __decorate([
     (0, common_1.Injectable)()

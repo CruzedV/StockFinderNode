@@ -4,4 +4,5 @@ export declare class AppService {
     getBonds(): Promise<object>;
     getCurrency(): Promise<object>;
     getETF(): Promise<object>;
+    getByFigi(figi: string): Promise<object>;
 }

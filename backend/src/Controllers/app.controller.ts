@@ -25,7 +25,7 @@ export class AppController {
     return this.appService.getETF();
   }
   @Get('/assets/:figi')
-  getByFigi(@Param() figi: string): Promise<object> {
+  getByFigi(@Param('figi') figi: string): Promise<object> {
     return this.appService.getByFigi(figi);
   }
 }

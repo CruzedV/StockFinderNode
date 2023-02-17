@@ -7,4 +7,5 @@ export declare class AppController {
     getBonds(): Promise<object>;
     getCurrency(): Promise<object>;
     getETF(): Promise<object>;
+    getByFigi(figi: string): Promise<object>;
 }
