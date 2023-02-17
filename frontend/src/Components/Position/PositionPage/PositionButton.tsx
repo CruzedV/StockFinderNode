@@ -1,7 +1,9 @@
 import React from 'react'
 import { Button, Typography } from '@mui/material'
+import { PositionProps } from '../../../Types/Position/PositionProps'
+import { ButtonState } from '../../../Types/Position/ButtonState'
 
-export class PositionButton extends React.Component {
+export class PositionButton extends React.Component<PositionProps, ButtonState > {
   render () {
     return (
       <React.Fragment>

@@ -5,4 +5,6 @@ export type PositionState = {
   exchangeCode: string,
   country: string,
   averagePositionPrice: number, 
+  countryOfRisk: string,
+  countryOfRiskName: string,
 }

@@ -19,6 +19,8 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
       exchangeCode: "",
       country: "",
       averagePositionPrice: 0,
+      countryOfRisk: "",
+      countryOfRiskName: "",
     }
   }
   async componentDidMount() {
@@ -30,6 +32,8 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
       exchangeCode: res.exchangeCode,
       country: res.country,
       averagePositionPrice: res.averagePositionPrice,
+      countryOfRisk: res.countryOfRisk,
+      countryOfRiskName: res.countryOfRiskName,
     })
   }
   render () {
@@ -43,7 +47,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
             borderRadius: "0.9em",
             backgroundColor: "primary.main",
           }}>
-            <HeaderPosition/>
+            <HeaderPosition name={this.state.name} ticker={this.state.ticker}/>
             <Divider color="#F4F4F4" variant="middle"/>
             <PositionRegion/>
             <Divider color="#F4F4F4" variant="middle"/>

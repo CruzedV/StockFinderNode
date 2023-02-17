@@ -1,7 +1,9 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
+import { PositionProps } from '../../../Types/Position/PositionProps'
+import { HeaderState } from '../../../Types/Position/HeaderState'
 
-export class HeaderPosition extends React.Component {
+export class HeaderPosition extends React.Component<PositionProps, HeaderState> {
   render () {
     return (
       <React.Fragment>
@@ -20,14 +22,13 @@ export class HeaderPosition extends React.Component {
           }}>
             <Box>
               <Typography color="text.primary">
-                ОФЗ 12454566534343
+                {this.props.name}
               </Typography>
               <Typography color="text.primary" variant="positionSubtitle">
-                SU26232RMFS7
+                {this.props.ticker}
               </Typography>
             </Box>
             <Typography color="text.primary" variant="positionText">
-              Облигации федерального займа (ОФЗ) - самые надежные ценные бумаги на российском фондовом рынке, потому что их выпускает государство в лице Минфина. Государство же и будет их погашать(возвращать номинал)
             </Typography>
           </Box>
         </Box>

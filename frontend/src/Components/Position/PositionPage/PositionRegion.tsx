@@ -1,7 +1,9 @@
 import React from 'react';
 import { Box, Typography, Divider } from '@mui/material';
+import { PositionProps } from '../../../Types/Position/PositionProps';
+import { RegionState } from '../../../Types/Position/RegionState';
 
-export class PositionRegion extends React.Component{
+export class PositionRegion extends React.Component<PositionProps, RegionState> {
   render () {
     return (
       <React.Fragment>
@@ -16,14 +18,14 @@ export class PositionRegion extends React.Component{
               width: "50%",
               float: "left",
             }}>
-              <Typography>RU</Typography>
-              <Typography variant="positionText">Российская федереция</Typography>
+              <Typography>{this.props.countryOfRisk}</Typography>
+              <Typography variant="positionText">{this.props.countryOfRiskName}</Typography>
             </Box>
             <Box sx={{
               width: "50%",
               float: "left"
             }}>
-              <Typography>MOEX</Typography>
+              <Typography>{this.props.exchange}</Typography>
               <Typography variant="positionText">Московская биржа</Typography>
             </Box>
           </Box>
