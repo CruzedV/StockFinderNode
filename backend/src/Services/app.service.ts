@@ -26,4 +26,12 @@ export class AppService {
     const resp = await api.instruments.etfs({ instrumentStatus: 1 });
     return resp.instruments.filter((i) => i.countryOfRisk === 'RU');
   }
+  async getByFigi(figi: string): Promise<object> {
+    const resp = await api.instruments.getInstrumentBy({
+      idType: 1,
+      id: figi,
+      classCode: '',
+    });
+    return resp;
+  }
 }

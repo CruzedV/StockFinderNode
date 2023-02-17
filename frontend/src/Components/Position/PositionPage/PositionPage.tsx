@@ -13,7 +13,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
   constructor(props:PositionProps) {
     super(props)
     this.state = {
-      figi: "",
+      figi: window.location.pathname.slice(1,),
       name: "",
       ticker: "",
       exchangeCode: "",
@@ -23,7 +23,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
   }
   async componentDidMount() {
     console.log(this.state.figi)
-    const res = await getByFigi("")
+    const res = await getByFigi("api/assets/"+this.state.figi)
     this.setState ({
       name: res.name,
       ticker: res.ticker,
@@ -60,7 +60,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
               ml: "20%",
               mr: "auto",
             }}>
-              <Link to={"sell"}>
+              <Link to={"sell"} state={this.state}>
                 <PositionButton/>
               </Link>
             </Box>
@@ -69,7 +69,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
               ml: "auto",
               mr: "20%",
             }}>
-              <Link to={"buy"}>
+              <Link to={"buy"} state={this.state}>
                 <PositionButton/>
               </Link>
             </Box>

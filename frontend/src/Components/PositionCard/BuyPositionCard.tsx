@@ -52,7 +52,7 @@ export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState>
                   width: "40%",
                 }}>
                   <Typography color="text.secondary">
-                    {this.props.nominal.toFixed(2)} {this.props.currency}
+                    {this.props.nominal} {this.props.currency}
                   </Typography>
                   <Typography variant="positionSubtitle" color={this.props.isDividend? "success.main" : "error"}>
                     Дивиденды

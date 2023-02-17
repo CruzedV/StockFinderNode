@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { AppService } from '../Services/app.service';
 
 @Controller('api')
@@ -23,5 +23,9 @@ export class AppController {
   @Get('/assets/etf')
   getETF(): Promise<object> {
     return this.appService.getETF();
+  }
+  @Get('/assets/:figi')
+  getByFigi(@Param() figi: string): Promise<object> {
+    return this.appService.getByFigi(figi);
   }
 }
