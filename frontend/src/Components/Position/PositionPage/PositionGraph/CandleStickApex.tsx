@@ -1,10 +1,13 @@
 import React from 'react';
 import Chart from 'react-apexcharts';
 import { Box } from '@mui/material';
+import { ApexProps } from '../../../../Types/Position/ApexProps';
+import { ApexState } from '../../../../Types/Position/ApexState';
+import { getCandles } from '../../../../API/getCandles';
 
 
-export class CandleStickApex extends React.Component<{}, {options:any, series:any}> {
-  constructor(props:any) {
+export class CandleStickApex extends React.Component<ApexProps, ApexState> {
+  constructor(props:ApexProps) {
     super(props);
     this.state = {
       options: {
@@ -32,42 +35,23 @@ export class CandleStickApex extends React.Component<{}, {options:any, series:an
           },
         },
         title: {
-          text: 'Показатели ОФЗ 12454566534343',
+          text: 'Показатели '+this.props.name,
           align: 'left'
         }
       },
       series: [{
-        data: [{
-          x: 2016,
-          y: [51.98, 56.29, 51.59, 53.85]
-        },
-        {
-          x: 2017,
-          y: [51.98, 56.29, 51.59, 53.85]
-        },
-        {
-          x: 2018,
-          y: [51.98, 56.29, 51.59, 53.85]
-        },
-        {
-          x: 2019,
-          y: [51.98, 56.29, 51.59, 53.85]
-        },
-        {
-          x: 2020,
-          y: [51.98, 56.29, 51.59, 53.85]
-        },
-        {
-          x: 2021,
-          y: [51.98, 56.29, 51.59, 53.85]
-        },
-        {
-          x: 2022,
-          y: [52.76, 57.35, 52.15, 57.03]
-        }]
+        data: []
       }],
       }
     }
+  async componentDidMount() {
+    const res = await getCandles("candles")
+    this.setState ({
+      series: [{
+        data: res.data
+      }]
+    })
+  }
   render() {
     return (
       <Box>

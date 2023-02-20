@@ -1,9 +1,9 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
-import { PositionProps } from '../../../Types/Position/PositionProps'
 import { HeaderState } from '../../../Types/Position/HeaderState'
+import { HeaderProps } from '../../../Types/Position/HeaderProps'
 
-export class HeaderPosition extends React.Component<PositionProps, HeaderState> {
+export class HeaderPosition extends React.Component<HeaderProps, HeaderState> {
   render () {
     return (
       <React.Fragment>

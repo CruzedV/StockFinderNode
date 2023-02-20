@@ -16,7 +16,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
       figi: window.location.pathname.slice(1,),
       name: "",
       ticker: "",
-      exchangeCode: "",
+      exchange: "",
       country: "",
       averagePositionPrice: 0,
       countryOfRisk: "",
@@ -29,7 +29,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
     this.setState ({
       name: res.name,
       ticker: res.ticker,
-      exchangeCode: res.exchangeCode,
+      exchange: res.exchange,
       country: res.country,
       averagePositionPrice: res.averagePositionPrice,
       countryOfRisk: res.countryOfRisk,
@@ -47,13 +47,22 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
             borderRadius: "0.9em",
             backgroundColor: "primary.main",
           }}>
-            <HeaderPosition name={this.state.name} ticker={this.state.ticker}/>
+            <HeaderPosition 
+              name={this.state.name} 
+              ticker={this.state.ticker}/>
             <Divider color="#F4F4F4" variant="middle"/>
-            <PositionRegion/>
+            <PositionRegion 
+              countryOfRisk={this.state.countryOfRisk} 
+              countryOfRiskName={this.state.countryOfRiskName} 
+              exchange={this.state.exchange}/>
             <Divider color="#F4F4F4" variant="middle"/>
             {/* <PositionDetail/> */}
             <Divider color="#F4F4F4" variant="middle"/>
-            <PositionGraph/>
+            <PositionGraph
+              figi={this.state.figi}
+              name={this.state.name}
+              averagePositionPrice={this.state.averagePositionPrice}
+            />
           </Paper>
           <Box sx={{
             p: "0.5em 0 0.5em 0"
@@ -65,7 +74,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
               mr: "auto",
             }}>
               <Link to={"sell"} state={this.state}>
-                <PositionButton/>
+                <PositionButton action="продать"/>
               </Link>
             </Box>
             <Box sx={{
@@ -74,7 +83,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
               mr: "20%",
             }}>
               <Link to={"buy"} state={this.state}>
-                <PositionButton/>
+                <PositionButton action="купить"/>
               </Link>
             </Box>
           </Box>

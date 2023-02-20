@@ -1,21 +1,21 @@
 import React from 'react'
 import { Button, Typography } from '@mui/material'
-import { PositionProps } from '../../../Types/Position/PositionProps'
 import { ButtonState } from '../../../Types/Position/ButtonState'
+import { ButtonProps } from '../../../Types/Position/ButtonProps'
 
-export class PositionButton extends React.Component<PositionProps, ButtonState > {
+export class PositionButton extends React.Component<ButtonProps, ButtonState > {
   render () {
     return (
       <React.Fragment>
         <Button variant="contained" sx={{
           p: "0.7em 2em 0.7em 2em",
           bottom: "3em",
-          backgroundColor: "success.main",
+          backgroundColor: this.props.action === "купить" ? "success.main" : "error.main",
           opacity: "90%",
           position: "fixed",
         }}>
           <Typography variant="positionText">
-            купить
+            {this.props.action}
           </Typography>
         </Button>
       </React.Fragment>
