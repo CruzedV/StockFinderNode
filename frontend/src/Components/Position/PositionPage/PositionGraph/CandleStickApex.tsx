@@ -4,6 +4,7 @@ import { Box } from '@mui/material';
 import { ApexProps } from '../../../../Types/Position/ApexProps';
 import { ApexState } from '../../../../Types/Position/ApexState';
 import { getCandles } from '../../../../API/getCandles';
+import { ICandle } from '../../../../Interfaces/Positions/ICandle';
 
 
 export class CandleStickApex extends React.Component<ApexProps, ApexState> {
@@ -15,9 +16,6 @@ export class CandleStickApex extends React.Component<ApexProps, ApexState> {
           id: 'candlestick',
           foreColor: '#F4F4F4',
           fontFamily: 'Inter',
-        },
-        xaxis: {
-          categories: [2016, 2017, 2018, 2019, 2020, 2021, 2022]
         },
         plotOptions: {
           candlestick: {
@@ -40,16 +38,30 @@ export class CandleStickApex extends React.Component<ApexProps, ApexState> {
         }
       },
       series: [{
-        data: []
+        data: [{}]
       }],
       }
     }
   async componentDidMount() {
-    const res = await getCandles("candles")
+    const res = await getCandles("api/assets/"+this.props.figi+"/candles")
     this.setState ({
       series: [{
-        data: res.data
-      }]
+        data: res.map((i:ICandle) => ({
+          x: new Date(i.time).toLocaleDateString(),
+          y: [
+            i.open.units+(i.open.nano/Math.pow(10, 9)),
+            i.high.units+(i.high.nano/Math.pow(10, 9)),
+            i.low.units+(i.low.nano/Math.pow(10, 9)),
+            i.close.units+(i.close.nano/Math.pow(10, 9))
+          ]
+        }))
+      }],
+      options: {
+        title: {
+          text: 'Показатели '+this.props.name,
+          align: 'left'
+        },
+      }
     })
   }
   render() {

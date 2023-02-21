@@ -28,4 +28,8 @@ export class AppController {
   getByFigi(@Param('figi') figi: string): Promise<object> {
     return this.appService.getByFigi(figi);
   }
+  @Get('/assets/:figi/candles')
+  getCandles(@Param('figi') figi: string): Promise<object> {
+    return this.appService.getCandles(figi);
+  }
 }

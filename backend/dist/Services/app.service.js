@@ -41,6 +41,18 @@ let AppService = class AppService {
         });
         return resp;
     }
+    async getCandles(figi) {
+        const today = new Date();
+        const yearAgo = new Date();
+        yearAgo.setFullYear(today.getFullYear() - 1);
+        const resp = await api_1.api.marketdata.getCandles({
+            figi: figi,
+            to: today,
+            from: yearAgo,
+            interval: 5,
+        });
+        return resp;
+    }
 };
 AppService = __decorate([
     (0, common_1.Injectable)()

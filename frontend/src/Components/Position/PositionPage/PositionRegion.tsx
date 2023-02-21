@@ -18,8 +18,12 @@ export class PositionRegion extends React.Component<RegionProps, RegionState> {
               width: "50%",
               float: "left",
             }}>
-              <Typography>{this.props.countryOfRisk}</Typography>
-              <Typography variant="positionText">{this.props.countryOfRiskName}</Typography>
+              <Typography>
+                {this.props.countryOfRisk  !== "" ? this.props.countryOfRisk : "RU"}
+                </Typography>
+              <Typography variant="positionText">
+                {this.props.countryOfRiskName  !== "" ? this.props.countryOfRiskName : "Российская Федерация"}
+                </Typography>
             </Box>
             <Box sx={{
               width: "50%",

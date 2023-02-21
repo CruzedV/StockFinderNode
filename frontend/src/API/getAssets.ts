@@ -1,8 +1,8 @@
 import axios from "axios"
-import { IShare } from "../Interfaces/Instruments.ts/IShare";
-import { IBond } from "../Interfaces/Instruments.ts/IBond";
-import { ICurrency } from "../Interfaces/Instruments.ts/ICurrency";
-import { IETF } from "../Interfaces/Instruments.ts/IETF";
+import { IShare } from "../Interfaces/Instruments/IShare";
+import { IBond } from "../Interfaces/Instruments/IBond";
+import { ICurrency } from "../Interfaces/Instruments/ICurrency";
+import { IETF } from "../Interfaces/Instruments/IETF";
 
 export async function GetShares(url:string, low:number, high:number) {
   const res = await axios.get(url);
