@@ -37,8 +37,8 @@ let AppController = class AppController {
     getByFigi(figi) {
         return this.appService.getByFigi(figi);
     }
-    getCandles(figi) {
-        return this.appService.getCandles(figi);
+    getCandles(figi, from, to) {
+        return this.appService.getCandles(figi, from, to);
     }
     getLastPrice(figi) {
         return this.appService.getLastPrice(figi);
@@ -82,10 +82,12 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "getByFigi", null);
 __decorate([
-    (0, common_1.Get)('/assets/:figi/candles'),
+    (0, common_1.Get)('/assets/:figi/candles/:from/:to'),
     __param(0, (0, common_1.Param)('figi')),
+    __param(1, (0, common_1.Param)('from')),
+    __param(2, (0, common_1.Param)('to')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, String, String]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "getCandles", null);
 __decorate([

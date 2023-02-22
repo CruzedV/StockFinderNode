@@ -34,14 +34,11 @@ export class AppService {
     });
     return resp;
   }
-  async getCandles(figi: string): Promise<object> {
-    const today = new Date();
-    const yearAgo = new Date();
-    yearAgo.setFullYear(today.getFullYear() - 1);
+  async getCandles(figi: string, from: string, to: string): Promise<object> {
     const resp = await api.marketdata.getCandles({
       figi: figi,
-      to: today,
-      from: yearAgo,
+      from: new Date(from.slice(0, 10)),
+      to: new Date(to.slice(0, 10)),
       interval: 5,
     });
     return resp;

@@ -10,12 +10,15 @@ export class PositionGraph extends React.Component<GraphProps, GraphState>{
     super(props)
     this.state = {
       lastPrice: 0,
+      isProfitable: false,
+      profit: 0,
+      profitPercentage: 0,
     }
   }
   async componentDidMount() {
-    const res = await getLastPrice("api/assets/"+this.props.figi+"/lastprice")
+    const res_price = await getLastPrice("api/assets/"+this.props.figi+"/lastprice")
     this.setState ({
-      lastPrice: res,
+      lastPrice: res_price,
     })
   }
   render () {
@@ -35,7 +38,7 @@ export class PositionGraph extends React.Component<GraphProps, GraphState>{
               <Typography variant="positionPrice">{this.state.lastPrice} {this.props.currency}</Typography>
             </Box>
             <Box>
-              <Typography color="success.main" variant="positionSubtitle">+34.19Р | +4%</Typography>
+              <Typography color={this.state.isProfitable? "success.main" : "error.main"} variant="positionSubtitle">{this.state.profit} | +{this.state.profitPercentage}%</Typography>
             </Box>
           </Box>             
           <Box>

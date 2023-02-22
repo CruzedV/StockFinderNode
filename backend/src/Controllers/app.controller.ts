@@ -28,9 +28,13 @@ export class AppController {
   getByFigi(@Param('figi') figi: string): Promise<object> {
     return this.appService.getByFigi(figi);
   }
-  @Get('/assets/:figi/candles')
-  getCandles(@Param('figi') figi: string): Promise<object> {
-    return this.appService.getCandles(figi);
+  @Get('/assets/:figi/candles/:from/:to')
+  getCandles(
+    @Param('figi') figi: string,
+    @Param('from') from: string,
+    @Param('to') to: string,
+  ): Promise<object> {
+    return this.appService.getCandles(figi, from, to);
   }
   @Get('/assets/:figi/lastprice')
   getLastPrice(@Param('figi') figi: string): Promise<object> {

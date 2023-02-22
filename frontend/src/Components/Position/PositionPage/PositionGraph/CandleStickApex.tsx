@@ -11,6 +11,8 @@ export class CandleStickApex extends React.Component<ApexProps, ApexState> {
   constructor(props:ApexProps) {
     super(props);
     this.state = {
+      from: this.getYearAgo(new Date()),
+      to: new Date(),
       options: {
         chart: {
           id: 'candlestick',
@@ -42,8 +44,13 @@ export class CandleStickApex extends React.Component<ApexProps, ApexState> {
       }],
       }
     }
+  getYearAgo(now: Date) {
+    const yearAgo = new Date()
+    yearAgo.setFullYear(now.getFullYear()-1)
+    return yearAgo
+  }
   async componentDidMount() {
-    const res = await getCandles("api/assets/"+this.props.figi+"/candles")
+    const res = await getCandles("api/assets/"+this.props.figi+"/candles", this.state.from, this.state.to)
     this.setState ({
       series: [{
         data: res.map((i:ICandle) => ({
