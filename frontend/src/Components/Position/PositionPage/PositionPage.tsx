@@ -18,7 +18,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
       ticker: "",
       exchange: "",
       country: "",
-      averagePositionPrice: 0,
+      currency: "",
       countryOfRisk: "",
       countryOfRiskName: "",
     }
@@ -30,7 +30,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
       ticker: res.ticker,
       exchange: res.exchange,
       country: res.country,
-      averagePositionPrice: res.averagePositionPrice,
+      currency: res.currency,
       countryOfRisk: res.countryOfRisk,
       countryOfRiskName: res.countryOfRiskName,
     })
@@ -60,7 +60,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
             <PositionGraph
               figi={this.state.figi}
               name={this.state.name}
-              averagePositionPrice={this.state.averagePositionPrice}
+              currency={this.state.currency}
             />
           </Paper>
           <Box sx={{

@@ -32,4 +32,8 @@ export class AppController {
   getCandles(@Param('figi') figi: string): Promise<object> {
     return this.appService.getCandles(figi);
   }
+  @Get('/assets/:figi/lastprice')
+  getLastPrice(@Param('figi') figi: string): Promise<object> {
+    return this.appService.getLastPrice(figi);
+  }
 }

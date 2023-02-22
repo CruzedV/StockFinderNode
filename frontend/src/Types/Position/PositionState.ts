@@ -4,7 +4,7 @@ export type PositionState = {
   ticker: string,
   exchange: string,
   country: string,
-  averagePositionPrice: number, 
+  currency: string, 
   countryOfRisk: string,
   countryOfRiskName: string,
 }

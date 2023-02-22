@@ -53,6 +53,12 @@ let AppService = class AppService {
         });
         return resp;
     }
+    async getLastPrice(figi) {
+        const resp = await api_1.api.marketdata.getLastPrices({
+            figi: [figi],
+        });
+        return resp.lastPrices[0];
+    }
 };
 AppService = __decorate([
     (0, common_1.Injectable)()

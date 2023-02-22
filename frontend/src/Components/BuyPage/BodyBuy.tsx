@@ -37,7 +37,6 @@ export class BodyBuy extends React.Component<{}, {data: Array<IShare>}> {
               isDividend={i.divYieldFlag}
               isSellAvailable={i.sell_available_flag}
               isBuyAvailable={i.buy_available_flag}
-              nominal={(i.nominal.units + (i.nominal.nano/Math.pow(10, 9)))*i.lot}
              />
             )}
           </Box>

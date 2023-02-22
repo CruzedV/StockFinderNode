@@ -1,5 +1,3 @@
-import IQuanity from "../IQuanity";
-
 export interface IShare {
   figi: string,
   ticker: string,
@@ -9,5 +7,4 @@ export interface IShare {
   divYieldFlag: boolean,
   sell_available_flag: boolean,
   buy_available_flag: boolean,
-  nominal: IQuanity,
 }

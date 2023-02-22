@@ -46,4 +46,10 @@ export class AppService {
     });
     return resp;
   }
+  async getLastPrice(figi: string): Promise<object> {
+    const resp = await api.marketdata.getLastPrices({
+      figi: [figi],
+    });
+    return resp.lastPrices[0];
+  }
 }

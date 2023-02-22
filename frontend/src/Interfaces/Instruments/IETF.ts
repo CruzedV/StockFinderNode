@@ -1,5 +1,3 @@
-import IQuanity from "../IQuanity";
-
 export interface IETF {
   figi: string,
   ticker: string,
@@ -9,5 +7,4 @@ export interface IETF {
   divYieldFlag: boolean,
   sell_available_flag: boolean,
   buy_available_flag: boolean,
-  nominal: IQuanity,
 }

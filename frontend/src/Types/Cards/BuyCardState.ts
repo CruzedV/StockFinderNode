@@ -1,3 +1,3 @@
 export type BuyCardState = {
-  isProfitable: boolean;
+  lastPrice: number,
 }

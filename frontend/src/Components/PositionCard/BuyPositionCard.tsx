@@ -6,8 +6,21 @@ import { CardActionArea, Box, Grow } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { BuyCardProps } from '../../Types/Cards/BuyCardProps';
 import { BuyCardState } from '../../Types/Cards/BuyCardState';
+import { getLastPrice } from '../../API/getLastPrice';
 
 export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState> {
+  constructor(props:BuyCardProps) {
+    super(props);
+    this.state = {
+      lastPrice: 0,
+    } 
+  }
+  async componentDidMount() {
+    const res = await getLastPrice("api/assets/"+this.props.figi+"/lastprice")
+    this.setState ({
+      lastPrice: res,
+    })
+  }
   render () {
     return (
       <Grow in={true}
@@ -52,7 +65,7 @@ export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState>
                   width: "40%",
                 }}>
                   <Typography color="text.secondary">
-                    {this.props.nominal} {this.props.currency}
+                    {this.state.lastPrice} {this.props.currency}
                   </Typography>
                   <Typography variant="positionSubtitle" color={this.props.isDividend? "success.main" : "error"}>
                     Дивиденды

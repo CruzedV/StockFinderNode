@@ -6,6 +6,4 @@ export type BuyCardProps = {
   isDividend: boolean,
   isSellAvailable: boolean,
   isBuyAvailable: boolean, 
-  nominal: number,
-  
 }

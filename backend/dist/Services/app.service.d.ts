@@ -6,4 +6,5 @@ export declare class AppService {
     getETF(): Promise<object>;
     getByFigi(figi: string): Promise<object>;
     getCandles(figi: string): Promise<object>;
+    getLastPrice(figi: string): Promise<object>;
 }
