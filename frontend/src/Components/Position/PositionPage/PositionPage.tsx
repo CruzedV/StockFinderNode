@@ -21,6 +21,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
       currency: "",
       countryOfRisk: "",
       countryOfRiskName: "",
+      instrumentType: "",
     }
   }
   async componentDidMount() {
@@ -33,6 +34,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
       currency: res.currency,
       countryOfRisk: res.countryOfRisk,
       countryOfRiskName: res.countryOfRiskName,
+      instrumentType: res.instrumentType,
     })
   }
   render () {
@@ -48,7 +50,9 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
           }}>
             <HeaderPosition 
               name={this.state.name} 
-              ticker={this.state.ticker}/>
+              ticker={this.state.ticker}
+              instrumentType={this.state.instrumentType}
+            />
             <Divider color="#F4F4F4" variant="middle"/>
             <PositionRegion 
               countryOfRisk={this.state.countryOfRisk} 

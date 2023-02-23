@@ -7,4 +7,5 @@ export type PositionState = {
   currency: string, 
   countryOfRisk: string,
   countryOfRiskName: string,
+  instrumentType: string,
 }

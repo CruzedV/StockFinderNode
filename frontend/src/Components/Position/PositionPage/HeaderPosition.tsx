@@ -27,6 +27,15 @@ export class HeaderPosition extends React.Component<HeaderProps, HeaderState> {
               <Typography color="text.primary" variant="positionSubtitle">
                 {this.props.ticker}
               </Typography>
+              <Box>
+                <Typography color="text.primary" variant="positionText">
+                  {this.props.instrumentType === "share" ? "Акция" : ""}
+                  {this.props.instrumentType === "etf" ? "Фонд" : ""}
+                  {this.props.instrumentType === "bond" ? "Облигация" : ""}
+                  {this.props.instrumentType === "currency" ? "Валюта" : ""}
+                  {this.props.instrumentType === "futures" ? "Фьючерс" : ""}
+                </Typography>
+              </Box>
             </Box>
             <Typography color="text.primary" variant="positionText">
             </Typography>

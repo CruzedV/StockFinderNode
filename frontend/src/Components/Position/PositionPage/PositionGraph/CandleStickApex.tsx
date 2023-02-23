@@ -18,12 +18,20 @@ export class CandleStickApex extends React.Component<ApexProps, ApexState> {
           id: 'candlestick',
           foreColor: '#F4F4F4',
           fontFamily: 'Inter',
+          zoom: {
+            enabled: true,
+            type: 'x',  
+            autoScaleYaxis: true,  
+          }
         },
         plotOptions: {
           candlestick: {
             colors: {
               upward: '#53DD6C',
               downward: '#DB324D'
+            },
+            wick: {
+              useFillColor: true
             }
           }
         },
@@ -37,6 +45,8 @@ export class CandleStickApex extends React.Component<ApexProps, ApexState> {
         title: {
           text: 'Показатели '+this.props.name,
           align: 'left'
+        },
+        xaxis: {
         }
       },
       series: [{
