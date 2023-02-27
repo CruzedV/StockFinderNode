@@ -1,20 +1,29 @@
 import React from "react";
-import { Box, Paper, CircularProgress } from "@mui/material";
+import { Box, Paper, TablePagination } from "@mui/material";
 import { BuyPositionCard } from "../PositionCard/BuyPositionCard"
 import { IShare } from "../../Interfaces/Instruments/IShare";
 import { GetShares } from "../../API/getAssets";
+import { BodyState } from "../../Interfaces/BuyPage/BodyState";
 
-export class BodyBuy extends React.Component<{}, {data: Array<IShare>}> {
+export class BodyBuy extends React.Component<{}, BodyState> {
   constructor(props:any){
     super(props)
     this.state = {
-      data: []
+      data: [],
+      counter: 20,
     }
+    this.handlePagination = this.handlePagination.bind(this);
   }
   async componentDidMount() {
-    let res = await GetShares('/api/assets/shares', 0, 20)
+    let res = await GetShares('/api/assets/shares', 0, this.state.counter)
     this.setState({
       data: res
+    })
+  }
+  async handlePagination() {
+
+    this.setState({
+      counter:  this.state.counter + 20
     })
   }
   render() {
@@ -41,10 +50,16 @@ export class BodyBuy extends React.Component<{}, {data: Array<IShare>}> {
             )}
           </Box>
           <Box sx={{
-            p: "1em 47% 3em 47%",
-            width: "6%",
-          }}>
-            <CircularProgress color="secondary"/>
+            p: "0em 23% 1em 23%"
+            }}>
+            <TablePagination
+              count={100} 
+              page={1}
+              onPageChange={this.handlePagination}
+              rowsPerPage={20}
+            >
+
+              </TablePagination>
           </Box>
         </Paper>
       </Box>
