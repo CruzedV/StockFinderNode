@@ -35,7 +35,7 @@ export class Navbar extends React.Component {
             }}>
               <ButtonGroup>
                 {/* Buy */}
-                <Link to="/buy">
+                <Link to="/buy/page=/1">
                   <Button startIcon={<AddShoppingCartRoundedIcon/>} sx={{
                     color: "text.primary"
                   }}>

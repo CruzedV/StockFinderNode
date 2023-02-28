@@ -34,7 +34,7 @@ export class PortfolioPositionCard extends React.Component<PortfolioCardProps, P
           maxHeight: "4em",
           borderRadius: "0.9em"
         }}>
-          <Link to={"/"+this.props.figi}>
+          <Link to={"/position/"+this.props.figi}>
             <CardActionArea>
               <Box sx={{
                 float: "left",

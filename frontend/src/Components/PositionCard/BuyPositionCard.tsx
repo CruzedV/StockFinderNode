@@ -33,7 +33,7 @@ export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState>
           maxHeight: "4em",
           borderRadius: "0.9em"
         }}>
-          <Link to={"/"+this.props.figi}>
+          <Link to={"/position/"+this.props.figi}>
             <CardActionArea>
               <Box sx={{
                 float: "left",

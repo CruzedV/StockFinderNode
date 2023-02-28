@@ -35,21 +35,23 @@ class App extends React.Component {
                     path="/" 
                     element={<PortfolioPage/>}/>
                   <Route 
-                    path="/buy/*" 
+                    path="/buy/page=/:page" 
                     element={<BuyPage/>}/>
                   <Route 
                     path="/settings" 
                     element={<SettingsPage/>}/>
                   <Route 
-                    path=":figi" 
+                    path="/position/:figi"
                     element={<PositionPage/>}
                   />
                   <Route 
-                    path=":figi/buy"
-                    element={<PositionBuyPage/>}/>
+                    path="/position/:figi/buy"
+                    element={<PositionBuyPage/>}
+                  />
                   <Route 
-                    path=":figi/sell" 
-                    element={<PositionSellPage/>}/>
+                    path="/position/:figi/sell" 
+                    element={<PositionSellPage/>}
+                  />
                 </Routes>
               </Container>
             </Box>
