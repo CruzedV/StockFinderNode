@@ -60,7 +60,7 @@ export class CandleStickApex extends React.Component<ApexProps, ApexState> {
     return yearAgo
   }
   async componentDidMount() {
-    const res = await getCandles("api/assets/"+this.props.figi+"/candles", this.state.from, this.state.to)
+    const res = await getCandles("/api/assets/"+this.props.figi+"/candles", this.state.from, this.state.to)
     this.setState ({
       series: [{
         data: res.map((i:ICandle) => ({

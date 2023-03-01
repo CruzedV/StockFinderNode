@@ -16,7 +16,7 @@ export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState>
     } 
   }
   async componentDidMount() {
-    const res = await getLastPrice("api/assets/"+this.props.figi+"/lastprice")
+    const res = await getLastPrice("/api/assets/"+this.props.figi+"/lastprice")
     this.setState ({
       lastPrice: res,
     })
@@ -52,8 +52,8 @@ export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState>
                   float: "left",
                   width: "50%",
                 }}>
-                  <Typography color="text.secondary">
-                    {this.props.name.length > 24? this.props.name.slice(0, 24)+"..." : this.props.name}
+                  <Typography noWrap={true} color="text.secondary">
+                    {this.props.name.length > 22? this.props.name.slice(0, 24)+"..." : this.props.name}
                   </Typography>
                   <Typography variant="positionSubtitle" color="text.secondary">
                     {this.props.ticker}

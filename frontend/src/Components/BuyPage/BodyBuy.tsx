@@ -1,25 +1,22 @@
 import React from "react";
 import { Box, Paper, Pagination } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, Routes, Route } from "react-router-dom";
 import PaginationItem from "@mui/material/PaginationItem/PaginationItem";
 import { BodyState } from "../../Types/BuyPage/BodyState";
 import { BodyProps } from "../../Types/BuyPage/BodyProps";
-import { BuyPositionCard } from "../PositionCard/BuyPositionCard"
-import { IShare } from "../../Interfaces/Instruments/IShare";
-import { GetShares } from "../../API/getAssets";
+import { ListBuy } from "./ListBuy";
+
 
 export class BodyBuy extends React.Component<BodyProps, BodyState> {
   constructor(props:any){
     super(props)
     this.state = {
-      data: [],
-      page: 1,
+      page: parseInt(window.location.pathname.slice(11,)),
     }
   }
-  async componentDidMount() {
-    let res = await GetShares('/api/assets/shares', 20*(this.state.page-1), 20*(this.state.page))
+  componentDidMount() {
     this.setState({
-      data: res
+      page: parseInt(window.location.pathname.slice(11,)),
     })
   }
   render() {
@@ -33,17 +30,12 @@ export class BodyBuy extends React.Component<BodyProps, BodyState> {
             pt: "1em",
             pb: "1em",
           }}>
-            {this.state.data.map((i:IShare) =>
-              <BuyPositionCard
-                figi={i.figi}
-                ticker={i.ticker}
-                currency={i.currency}
-                name={i.name}
-                isDividend={i.divYieldFlag}
-                isSellAvailable={i.sell_available_flag}
-                isBuyAvailable={i.buy_available_flag}
-              />  
-            )}
+            <Routes>
+              <Route 
+                path=""
+                element={<ListBuy/>}
+              />
+            </Routes>
           </Box>
           <Box sx={{
             p: "0em 23% 1em 23%"
@@ -54,7 +46,7 @@ export class BodyBuy extends React.Component<BodyProps, BodyState> {
               renderItem={(item) => (
                 <PaginationItem
                   component={Link}
-                  to={`/buy/page=${item.page}`}
+                  to={`/buy/page=/${item.page}`}
                   {...item}
                 />
               )}

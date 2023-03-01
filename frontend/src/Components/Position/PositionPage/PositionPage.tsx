@@ -13,7 +13,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
   constructor(props:PositionProps) {
     super(props)
     this.state = {
-      figi: window.location.pathname.slice(1,),
+      figi: window.location.pathname.slice(10),
       name: "",
       ticker: "",
       exchange: "",
@@ -25,7 +25,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
     }
   }
   async componentDidMount() {
-    const res = await getByFigi("api/assets/"+this.state.figi)
+    const res = await getByFigi("/api/assets/"+this.state.figi)
     this.setState ({
       name: res.name,
       ticker: res.ticker,

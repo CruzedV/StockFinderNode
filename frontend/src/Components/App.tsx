@@ -33,13 +33,16 @@ class App extends React.Component {
                 <Routes>
                   <Route 
                     path="/" 
-                    element={<PortfolioPage/>}/>
+                    element={<PortfolioPage/>}
+                  />
                   <Route 
-                    path="/buy/page=/:page" 
-                    element={<BuyPage/>}/>
+                    path="/buy/page=/:page"
+                    element={<BuyPage/>}
+                  />
                   <Route 
                     path="/settings" 
-                    element={<SettingsPage/>}/>
+                    element={<SettingsPage/>}
+                  />
                   <Route 
                     path="/position/:figi"
                     element={<PositionPage/>}
