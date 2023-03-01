@@ -1,5 +1,7 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Pagination } from "@mui/material";
+import PaginationItem from "@mui/material/PaginationItem/PaginationItem";
+import { Link } from "react-router-dom";
 import { BuyPositionCard } from "../PositionCard/BuyPositionCard"
 import { IShare } from "../../Interfaces/Instruments/IShare";
 import { GetShares } from "../../API/getAssets";
@@ -34,7 +36,22 @@ export class ListBuy extends React.Component<ListProps, ListState> {
             isBuyAvailable={i.buy_available_flag}
           />
         )}
+      <Box sx={{
+        p: "0em 23% 1em 23%"
+      }}>    
+        <Pagination
+          count={100}
+          page={this.state.page}
+          renderItem={(item) => (
+            <PaginationItem
+              component={Link}
+              to={`/buy/page=/${item.page}`}
+              {...item}
+            />
+          )}
+        />
       </Box>
+    </Box>
     )
   }
 }
