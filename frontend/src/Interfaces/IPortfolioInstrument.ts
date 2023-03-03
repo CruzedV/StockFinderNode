@@ -1,6 +1,6 @@
 import IQuanity from "./IQuanity";
 
-export interface IInstrument {
+export interface IPortfolioInstrument {
     averagePositionPrice: IQuanity,
     averagePositionPriceFifo: IQuanity,
     averagePositionPricePt: IQuanity,

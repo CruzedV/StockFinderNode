@@ -1,11 +1,11 @@
 import axios from "axios"
 
-import { IInstrument } from "../Interfaces/IInstrument";
+import { IPortfolioInstrument } from "../Interfaces/IPortfolioInstrument";
 import { PortfolioTotal } from "../Types/Portfolio/PortfolioTotal";
 
 export async function GetPortfolioPositions(url:string) {
   const res = await axios.get(url);
-  return await res.data.positions as Array<IInstrument>
+  return await res.data.positions as Array<IPortfolioInstrument>
 }
 
 export async function GetPortfolioTotal(url:string) {

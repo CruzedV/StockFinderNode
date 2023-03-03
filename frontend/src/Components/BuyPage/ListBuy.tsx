@@ -1,12 +1,12 @@
 import React from "react";
-import { Box, Pagination } from "@mui/material";
+import { Box, Pagination, Button } from "@mui/material";
 import PaginationItem from "@mui/material/PaginationItem/PaginationItem";
 import { Link } from "react-router-dom";
 import { BuyPositionCard } from "../PositionCard/BuyPositionCard"
-import { IShare } from "../../Interfaces/Instruments/IShare";
-import { GetShares } from "../../API/getAssets";
+import { GetAssets } from "../../API/getAssets";
 import { ListProps } from "../../Types/BuyPage/ListProps";
 import { ListState } from "../../Types/BuyPage/ListState";
+import { IBuyInstrument } from "../../Interfaces/IBuyInstrument";
 
 export class ListBuy extends React.Component<ListProps, ListState> {
   constructor(props:any){
@@ -14,10 +14,11 @@ export class ListBuy extends React.Component<ListProps, ListState> {
     this.state = {
       data: [],
       page: parseInt(window.location.pathname.slice(11,)),
+      type: "shares",
     }
   }
   async componentDidMount() {
-    let res = await GetShares('/api/assets/shares', 20*(this.state.page-1), 20*(this.state.page))
+    let res = await GetAssets(`/api/assets/${this.state.type}`, 20*(this.state.page-1), 20*(this.state.page))
     this.setState({
       data: res,
     })
@@ -25,13 +26,12 @@ export class ListBuy extends React.Component<ListProps, ListState> {
   render() {
     return(
       <Box>
-        {this.state.data.map((i:IShare) =>
+        {this.state.data.map((i:IBuyInstrument) =>
           <BuyPositionCard
             figi={i.figi}
             ticker={i.ticker}
             currency={i.currency}
             name={i.name}
-            isDividend={i.divYieldFlag}
             isSellAvailable={i.sell_available_flag}
             isBuyAvailable={i.buy_available_flag}
           />
@@ -44,8 +44,8 @@ export class ListBuy extends React.Component<ListProps, ListState> {
           page={this.state.page}
           renderItem={(item) => (
             <PaginationItem
-              component={Link}
-              to={`/buy/page=/${item.page}`}
+              component={Button}
+              href={`/buy/page=/${item.page}`}
               {...item}
             />
           )}

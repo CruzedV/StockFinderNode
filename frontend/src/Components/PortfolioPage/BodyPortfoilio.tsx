@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Paper } from "@mui/material";
 import { PortfolioPositionCard } from "../PositionCard/PortfolioPositionCard"
-import { IInstrument } from "../../Interfaces/IInstrument";
+import { IPortfolioInstrument } from "../../Interfaces/IPortfolioInstrument";
 import { GetPortfolioPositions } from "../../API/getPortfolio";
 
-export class BodyPortfolio extends React.Component<{}, {data: Array<IInstrument>}> {
+export class BodyPortfolio extends React.Component<{}, {data: Array<IPortfolioInstrument>}> {
   constructor(props:any){
     super(props)
     this.state = {
@@ -28,7 +28,7 @@ export class BodyPortfolio extends React.Component<{}, {data: Array<IInstrument>
             pt: "1em",
             pb: "1em"
           }}>
-            {this.state.data.map((i:IInstrument) =>
+            {this.state.data.map((i:IPortfolioInstrument) =>
             <PortfolioPositionCard
               name={i.figi}
               amount={i.quantity.units}

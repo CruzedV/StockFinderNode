@@ -1,6 +1,7 @@
-import { IShare } from "../../Interfaces/Instruments/IShare";
+import { IBuyInstrument } from "../../Interfaces/IBuyInstrument"
 
 export type ListState = {
-  data: Array<IShare>,
+  data: Array<IBuyInstrument>,
   page: number,
+  type: "shares"|"bonds"|"currency"|"etf"
 }

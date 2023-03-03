@@ -67,12 +67,6 @@ export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState>
                   <Typography color="text.secondary">
                     {this.state.lastPrice} {this.props.currency}
                   </Typography>
-                  <Typography variant="positionSubtitle" color={this.props.isDividend? "success.main" : "error"}>
-                    Дивиденды
-                  </Typography>
-                  <Typography variant="positionSubtitle" color="text.secondary">
-                     |   
-                  </Typography>
                   <Typography variant="positionSubtitle" color={this.props.isSellAvailable? "success.main" : "error"}>
                     Продажа
                   </Typography>

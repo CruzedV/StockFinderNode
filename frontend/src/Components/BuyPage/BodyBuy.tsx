@@ -5,7 +5,6 @@ import { BodyState } from "../../Types/BuyPage/BodyState";
 import { BodyProps } from "../../Types/BuyPage/BodyProps";
 import { ListBuy } from "./ListBuy";
 
-
 export class BodyBuy extends React.Component<BodyProps, BodyState> {
   constructor(props:any){
     super(props)
