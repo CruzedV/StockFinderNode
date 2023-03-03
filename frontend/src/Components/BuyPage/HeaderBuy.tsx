@@ -1,4 +1,6 @@
 import React from "react";
+import { Box, Button, ButtonGroup, Paper, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 // BOND
 import AccountBalanceRoundedIcon from '@mui/icons-material/AccountBalanceRounded';
 // ETF
@@ -9,8 +11,6 @@ import CurrencyRubleRoundedIcon from '@mui/icons-material/CurrencyRubleRounded';
 import MoneyRoundedIcon from '@mui/icons-material/MoneyRounded';
 //OTHER
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
-
-import { Box, Button, ButtonGroup, Paper, Typography } from "@mui/material";
 
 export class HeaderBuy extends React.Component {
   render() {
@@ -25,46 +25,57 @@ export class HeaderBuy extends React.Component {
           p: "1.6em 2em 1.6em 2em",
         }}>
           <ButtonGroup>
-            <Button sx={{
-              color: "text.primary",
-            }}>
-              <MoneyRoundedIcon/>
-              <Typography variant="positionSubtitle">
-                Акции
-              </Typography>
-            </Button>
-            <Button sx={{
-              color: "text.primary",
-            }}>
-              <AccountBalanceRoundedIcon/>
-              <Typography variant="positionSubtitle">
-                Облигации
-              </Typography>
-            </Button>
-            <Button sx={{
-              color: "text.primary",
-            }}>
-              <AccountBalanceWalletRoundedIcon/>
-              <Typography variant="positionSubtitle">
-                Фонды
-              </Typography>
-            </Button>
-            <Button sx={{
-              color: "text.primary",
-            }}>
-              <CurrencyRubleRoundedIcon/>
-              <Typography variant="positionSubtitle">
-                Валюта
-              </Typography>
-            </Button>
-            <Button sx={{
-              color: "text.primary",
-            }}>
-              <ShoppingCartRoundedIcon/>
-              <Typography variant="positionSubtitle">
-                Другое
-              </Typography>
-            </Button>
+            <Link to="/buy/?type=shares&page=1">
+              <Button
+              sx={{
+                color: "text.primary",
+              }}>
+                <MoneyRoundedIcon/>
+                <Typography variant="positionSubtitle">
+                  Акции
+                </Typography>
+              </Button>
+            </Link>
+            <Link to="/buy/?type=bonds&page=1">
+              <Button sx={{
+                color: "text.primary",
+              }}>
+                <AccountBalanceRoundedIcon/>
+                <Typography variant="positionSubtitle">
+                  Облигации
+                </Typography>
+              </Button>
+            </Link>
+            <Link to="/buy/?type=etf&page=1">
+              <Button sx={{
+                color: "text.primary",
+              }}>
+                <AccountBalanceWalletRoundedIcon/>
+                <Typography variant="positionSubtitle">
+                  Фонды
+                </Typography>
+              </Button>
+            </Link>
+            <Link to="/buy/?type=currency&page=1">
+              <Button sx={{
+                color: "text.primary",
+              }}>
+                <CurrencyRubleRoundedIcon/>
+                <Typography variant="positionSubtitle">
+                  Валюта
+                </Typography>
+              </Button>
+            </Link>
+            <Link to="/buy/?type=other&page=1">
+              <Button sx={{
+                color: "text.primary",
+              }}>
+                <ShoppingCartRoundedIcon/>
+                <Typography variant="positionSubtitle">
+                  Другое
+                </Typography>
+              </Button>
+            </Link>
           </ButtonGroup>
         </Paper>
       </Box>

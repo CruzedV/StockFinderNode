@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Pagination, Button } from "@mui/material";
 import PaginationItem from "@mui/material/PaginationItem/PaginationItem";
-import { Link } from "react-router-dom";
 import { BuyPositionCard } from "../PositionCard/BuyPositionCard"
 import { GetAssets } from "../../API/getAssets";
 import { ListProps } from "../../Types/BuyPage/ListProps";
@@ -13,7 +12,7 @@ export class ListBuy extends React.Component<ListProps, ListState> {
     super(props)
     this.state = {
       data: [],
-      page: parseInt(window.location.pathname.slice(11,)),
+      page: parseInt(window.location.pathname.slice(18,)),
       type: "shares",
     }
   }
@@ -45,7 +44,7 @@ export class ListBuy extends React.Component<ListProps, ListState> {
           renderItem={(item) => (
             <PaginationItem
               component={Button}
-              href={`/buy/page=/${item.page}`}
+              href={`/buy/?page=${item.page}`}
               {...item}
             />
           )}

@@ -53,7 +53,7 @@ export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState>
                   width: "50%",
                 }}>
                   <Typography noWrap={true} color="text.secondary">
-                    {this.props.name.length > 22? this.props.name.slice(0, 24)+"..." : this.props.name}
+                    {this.props.name.length > 22? this.props.name.slice(0, 22)+"..." : this.props.name}
                   </Typography>
                   <Typography variant="positionSubtitle" color="text.secondary">
                     {this.props.ticker}

@@ -8,8 +8,10 @@ import { ListBuy } from "./ListBuy";
 export class BodyBuy extends React.Component<BodyProps, BodyState> {
   constructor(props:any){
     super(props)
+    const params = new URLSearchParams(window.location.search)
+    console.log(params)
     this.state = {
-      page: parseInt(window.location.pathname.slice(11,)),
+      page: params.get("page"),
     }
   }
   render() {
