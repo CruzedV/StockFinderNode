@@ -10,9 +10,10 @@ import { IBuyInstrument } from "../../Interfaces/IBuyInstrument";
 export class ListBuy extends React.Component<ListProps, ListState> {
   constructor(props:any){
     super(props)
+    const params = new URLSearchParams(window.location.search)
     this.state = {
       data: [],
-      page: parseInt(window.location.pathname.slice(18,)),
+      page: parseInt(params.get("page")!),
       type: "shares",
     }
   }

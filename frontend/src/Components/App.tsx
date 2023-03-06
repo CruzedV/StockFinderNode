@@ -36,7 +36,7 @@ class App extends React.Component {
                     element={<PortfolioPage/>}
                   />
                   <Route 
-                    path="/buy/*/?type=*&page=*"
+                    path="/buy/?type=shares&page=1"
                     element={<BuyPage/>}
                   />
                   <Route 

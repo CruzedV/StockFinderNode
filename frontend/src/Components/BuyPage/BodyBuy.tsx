@@ -9,9 +9,8 @@ export class BodyBuy extends React.Component<BodyProps, BodyState> {
   constructor(props:any){
     super(props)
     const params = new URLSearchParams(window.location.search)
-    console.log(params)
     this.state = {
-      page: params.get("page"),
+      page: parseInt(params.get("page")!),
     }
   }
   render() {
@@ -25,6 +24,7 @@ export class BodyBuy extends React.Component<BodyProps, BodyState> {
             pt: "1em",
             pb: "1em",
           }}>
+            <ListBuy/>
             <Routes>
               <Route 
                 path="*"
