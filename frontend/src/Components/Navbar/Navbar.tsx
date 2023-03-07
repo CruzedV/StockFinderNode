@@ -39,8 +39,7 @@ export class Navbar extends React.Component {
                   <Button startIcon={<AddShoppingCartRoundedIcon/>} sx={{
                     color: "text.primary"
                   }}>
-                    
-                    <Typography color="text.primary">Купить</Typography>
+                    <Typography>Купить</Typography>
                   </Button>
                 </Link>
                 {/* Portfolio */}
@@ -48,7 +47,7 @@ export class Navbar extends React.Component {
                   <Button startIcon={<CardTravelRoundedIcon/>} sx={{
                     color: "text.primary"
                   }}>
-                    <Typography color="text.primary">Портфель</Typography>
+                    <Typography>Портфель</Typography>
                   </Button>
                 </Link>
                 {/* Settings */}
@@ -56,7 +55,7 @@ export class Navbar extends React.Component {
                   <Button startIcon={<SettingsRoundedIcon/>} sx={{
                     color: "text.primary"
                   }}>
-                    <Typography color="text.primary">Настройки</Typography>
+                    <Typography>Настройки</Typography>
                   </Button>
                 </Link>
               </ButtonGroup>

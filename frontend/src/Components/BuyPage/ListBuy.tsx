@@ -14,7 +14,7 @@ export class ListBuy extends React.Component<ListProps, ListState> {
     this.state = {
       data: [],
       page: parseInt(params.get("page")!),
-      type: "shares",
+      type: params.get("type")!,
     }
   }
   async componentDidMount() {
@@ -45,7 +45,7 @@ export class ListBuy extends React.Component<ListProps, ListState> {
           renderItem={(item) => (
             <PaginationItem
               component={Button}
-              href={`/buy/?page=${item.page}`}
+              href={`/buy/?type=${this.state.type}&page=${item.page}`}
               {...item}
             />
           )}

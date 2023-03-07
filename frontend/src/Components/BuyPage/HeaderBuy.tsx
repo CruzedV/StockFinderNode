@@ -25,9 +25,9 @@ export class HeaderBuy extends React.Component {
           p: "1.6em 2em 1.6em 2em",
         }}>
           <ButtonGroup>
+            {/* Shares */}
             <Link to="/buy/?type=shares&page=1">
-              <Button
-              sx={{
+              <Button sx={{
                 color: "text.primary",
               }}>
                 <MoneyRoundedIcon/>
@@ -36,6 +36,7 @@ export class HeaderBuy extends React.Component {
                 </Typography>
               </Button>
             </Link>
+            {/* Bonds */}
             <Link to="/buy/?type=bonds&page=1">
               <Button sx={{
                 color: "text.primary",
@@ -46,6 +47,7 @@ export class HeaderBuy extends React.Component {
                 </Typography>
               </Button>
             </Link>
+            {/* ETF */}
             <Link to="/buy/?type=etf&page=1">
               <Button sx={{
                 color: "text.primary",
@@ -56,6 +58,7 @@ export class HeaderBuy extends React.Component {
                 </Typography>
               </Button>
             </Link>
+            {/* Currency */}
             <Link to="/buy/?type=currency&page=1">
               <Button sx={{
                 color: "text.primary",
@@ -66,6 +69,7 @@ export class HeaderBuy extends React.Component {
                 </Typography>
               </Button>
             </Link>
+            {/* Other */}
             <Link to="/buy/?type=other&page=1">
               <Button sx={{
                 color: "text.primary",
