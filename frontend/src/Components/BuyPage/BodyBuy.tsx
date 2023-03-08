@@ -5,11 +5,12 @@ import { BodyProps } from "../../Types/BuyPage/BodyProps";
 import { ListBuy } from "./ListBuy";
 
 export class BodyBuy extends React.Component<BodyProps, BodyState> {
-  constructor(props:any){
+  constructor(props:BodyProps){
     super(props)
     const params = new URLSearchParams(window.location.search)
     this.state = {
       page: parseInt(params.get("page")!),
+      type: params.get("type")!,
     }
   }
   render() {
@@ -23,7 +24,7 @@ export class BodyBuy extends React.Component<BodyProps, BodyState> {
             pt: "1em",
             pb: "1em",
           }}>
-            <ListBuy/>
+            <ListBuy type={this.state.type}/>
           </Box>
         </Paper>
       </Box>

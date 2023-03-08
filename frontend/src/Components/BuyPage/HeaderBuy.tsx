@@ -13,6 +13,13 @@ import MoneyRoundedIcon from '@mui/icons-material/MoneyRounded';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 
 export class HeaderBuy extends React.Component {
+  constructor(props:any){
+    super(props)
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    setTimeout(() => window.location.reload())
+  }
   render() {
     return (
       <Box sx={{
@@ -27,7 +34,7 @@ export class HeaderBuy extends React.Component {
           <ButtonGroup>
             {/* Shares */}
             <Link to="/buy/?type=shares&page=1">
-              <Button sx={{
+              <Button onClick={this.handleClick} sx={{
                 color: "text.primary",
               }}>
                 <MoneyRoundedIcon/>
@@ -38,7 +45,7 @@ export class HeaderBuy extends React.Component {
             </Link>
             {/* Bonds */}
             <Link to="/buy/?type=bonds&page=1">
-              <Button sx={{
+              <Button onClick={this.handleClick} sx={{
                 color: "text.primary",
               }}>
                 <AccountBalanceRoundedIcon/>
@@ -49,7 +56,7 @@ export class HeaderBuy extends React.Component {
             </Link>
             {/* ETF */}
             <Link to="/buy/?type=etf&page=1">
-              <Button sx={{
+              <Button onClick={this.handleClick} sx={{
                 color: "text.primary",
               }}>
                 <AccountBalanceWalletRoundedIcon/>
@@ -60,7 +67,7 @@ export class HeaderBuy extends React.Component {
             </Link>
             {/* Currency */}
             <Link to="/buy/?type=currency&page=1">
-              <Button sx={{
+              <Button onClick={this.handleClick} sx={{
                 color: "text.primary",
               }}>
                 <CurrencyRubleRoundedIcon/>
@@ -71,7 +78,7 @@ export class HeaderBuy extends React.Component {
             </Link>
             {/* Other */}
             <Link to="/buy/?type=other&page=1">
-              <Button sx={{
+              <Button onClick={this.handleClick} sx={{
                 color: "text.primary",
               }}>
                 <ShoppingCartRoundedIcon/>

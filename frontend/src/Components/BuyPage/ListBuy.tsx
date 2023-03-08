@@ -8,17 +8,16 @@ import { ListState } from "../../Types/BuyPage/ListState";
 import { IBuyInstrument } from "../../Interfaces/IBuyInstrument";
 
 export class ListBuy extends React.Component<ListProps, ListState> {
-  constructor(props:any){
-    super(props)
+  constructor(props:ListProps){
     const params = new URLSearchParams(window.location.search)
+    super(props)
     this.state = {
       data: [],
       page: parseInt(params.get("page")!),
-      type: params.get("type")!,
     }
   }
   async componentDidMount() {
-    let res = await GetAssets(`/api/assets/${this.state.type}`, 20*(this.state.page-1), 20*(this.state.page))
+    let res = await GetAssets(`/api/assets/${this.props.type}`, 20*(this.state.page-1), 20*(this.state.page))
     this.setState({
       data: res,
     })
@@ -45,7 +44,7 @@ export class ListBuy extends React.Component<ListProps, ListState> {
           renderItem={(item) => (
             <PaginationItem
               component={Button}
-              href={`/buy/?type=${this.state.type}&page=${item.page}`}
+              href={`/buy/?type=${this.props.type}&page=${item.page}`}
               {...item}
             />
           )}
