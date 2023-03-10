@@ -49,4 +49,10 @@ export class AppService {
     });
     return resp.lastPrices[0];
   }
+  async getInstrument(query: string): Promise<object> {
+    const resp = await api.instruments.findInstrument({
+      query: query,
+    });
+    return resp;
+  }
 }

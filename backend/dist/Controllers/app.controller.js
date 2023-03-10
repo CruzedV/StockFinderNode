@@ -43,6 +43,9 @@ let AppController = class AppController {
     getLastPrice(figi) {
         return this.appService.getLastPrice(figi);
     }
+    getInstrument(query) {
+        return this.appService.getInstrument(query);
+    }
 };
 __decorate([
     (0, common_1.Get)('/user'),
@@ -97,6 +100,13 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "getLastPrice", null);
+__decorate([
+    (0, common_1.Get)('/assets/find/:query'),
+    __param(0, (0, common_1.Param)('query')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "getInstrument", null);
 AppController = __decorate([
     (0, common_1.Controller)('api'),
     __metadata("design:paramtypes", [app_service_1.AppService])

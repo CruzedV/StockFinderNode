@@ -10,4 +10,5 @@ export declare class AppController {
     getByFigi(figi: string): Promise<object>;
     getCandles(figi: string, from: string, to: string): Promise<object>;
     getLastPrice(figi: string): Promise<object>;
+    getInstrument(query: string): Promise<object>;
 }

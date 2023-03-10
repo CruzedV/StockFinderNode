@@ -56,6 +56,12 @@ let AppService = class AppService {
         });
         return resp.lastPrices[0];
     }
+    async getInstrument(query) {
+        const resp = await api_1.api.instruments.findInstrument({
+            query: query,
+        });
+        return resp;
+    }
 };
 AppService = __decorate([
     (0, common_1.Injectable)()

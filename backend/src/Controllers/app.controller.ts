@@ -40,4 +40,8 @@ export class AppController {
   getLastPrice(@Param('figi') figi: string): Promise<object> {
     return this.appService.getLastPrice(figi);
   }
+  @Get('/assets/find/:query')
+  getInstrument(@Param('query') query: string): Promise<object> {
+    return this.appService.getInstrument(query);
+  }
 }

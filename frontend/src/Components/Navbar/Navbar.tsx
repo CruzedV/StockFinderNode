@@ -1,7 +1,7 @@
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import { Typography, Box, Toolbar, Button, ButtonGroup } from '@mui/material';
-import SearchField from './SearchField';
+import { SearchField } from './SearchField';
 // Acciunt Icon
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 // Buy
@@ -30,7 +30,7 @@ export class Navbar extends React.Component {
               </Typography>
             </Box>
             <Box sx={{
-              width: "11em",
+              width: "20em",
               m: "0.4em auto 0.4em auto",
             }}>
               <SearchField/>
