@@ -17,13 +17,6 @@ export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState>
   }
   async componentDidMount() {
     const res = await getLastPrice("/api/assets/"+this.props.figi+"/lastprice")
-    const params = new URLSearchParams(window.location.search)
-    params.get("type") === "bonds" 
-    ?  
-    this.setState ({
-      lastPrice: Math.round(res * 100) / 10,
-    })
-    : 
     this.setState ({
       lastPrice: res,
     })

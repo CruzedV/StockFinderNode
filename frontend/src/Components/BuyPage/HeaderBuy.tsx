@@ -35,7 +35,7 @@ export class HeaderBuy extends React.Component {
         }}>
           <ButtonGroup>
             {/* Shares */}
-            <Link to="/buy/?type=shares&page=1">
+            <Link to="/buy/?type=shares&page=1&search=null">
               <Button onClick={this.handleClick} sx={{
                 color: "text.primary",
               }}>
@@ -46,7 +46,7 @@ export class HeaderBuy extends React.Component {
               </Button>
             </Link>
             {/* Bonds */}
-            <Link to="/buy/?type=bonds&page=1">
+            <Link to="/buy/?type=bonds&page=1&search=null">
               <Button onClick={this.handleClick} sx={{
                 color: "text.primary",
               }}>
@@ -57,7 +57,7 @@ export class HeaderBuy extends React.Component {
               </Button>
             </Link>
             {/* ETF */}
-            <Link to="/buy/?type=etf&page=1">
+            <Link to="/buy/?type=etf&page=1&search=null">
               <Button onClick={this.handleClick} sx={{
                 color: "text.primary",
               }}>
@@ -68,7 +68,7 @@ export class HeaderBuy extends React.Component {
               </Button>
             </Link>
             {/* Currency */}
-            <Link to="/buy/?type=currency&page=1">
+            <Link to="/buy/?type=currency&page=1&search=null">
               <Button onClick={this.handleClick} sx={{
                 color: "text.primary",
               }}>
@@ -79,7 +79,7 @@ export class HeaderBuy extends React.Component {
               </Button>
             </Link>
             {/* Other */}
-            <Link to="/buy/?type=other&page=1">
+            <Link to="/buy/?type=other&page=1&search=null">
               <Button onClick={this.handleClick} sx={{
                 color: "text.primary",
               }}>
