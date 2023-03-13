@@ -1,25 +1,29 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
-import { SearchState } from '../../Types/Navbar/SearchState';
 // Global Search
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 
-export class SearchField extends React.Component<{}, SearchState> {
+export class SearchField extends React.Component {
   constructor(props:any){
     super(props)
-    this.state = {
-      options: []
-    }
+    this.findInstrument = this.findInstrument.bind(this)
   }
+  findInstrument(event: any) {
+    const params = new URLSearchParams(window.location.search)
+    params.set("search", event.target.value)
+    setTimeout(() => window.location.reload)
+  } 
   render() {
     return(
       <TextField
+        onChange={(event: any) => this.findInstrument(event)}
+        fullWidth
         size="small"
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
-              <SearchRoundedIcon />
+              <SearchRoundedIcon/>
             </InputAdornment>
           ),
         }}

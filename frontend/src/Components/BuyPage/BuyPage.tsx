@@ -7,7 +7,7 @@ export class BuyPage extends React.Component {
     return (
       <React.Fragment>
         <HeaderBuy/>
-        <BodyBuy/>
+        <BodyBuy link="buy"/>
       </React.Fragment>
     )
   }

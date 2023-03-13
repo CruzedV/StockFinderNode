@@ -1,7 +1,7 @@
 import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import { Typography, Box, Toolbar, Button, ButtonGroup } from '@mui/material';
-import { SearchField } from './SearchField';
+import { SearchField } from '../CommonComponents/SearchField';
 // Acciunt Icon
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 // Buy
@@ -41,7 +41,7 @@ export class Navbar extends React.Component {
             }}>
               <ButtonGroup>
                 {/* Buy */}
-                <Link to="/buy/?type=shares&page=1">
+                <Link to="/buy/?type=shares&page=1&search=null">
                   <Button startIcon={<AddShoppingCartRoundedIcon/>} sx={{
                     color: "text.primary"
                   }}>

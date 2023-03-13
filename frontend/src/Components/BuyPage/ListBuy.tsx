@@ -6,6 +6,7 @@ import { GetAssets } from "../../API/getAssets";
 import { ListProps } from "../../Types/BuyPage/ListProps";
 import { ListState } from "../../Types/BuyPage/ListState";
 import { IBuyInstrument } from "../../Interfaces/IBuyInstrument";
+import { GetInstrument } from "../../API/getInstrument";
 
 export class ListBuy extends React.Component<ListProps, ListState> {
   constructor(props:ListProps){
@@ -14,13 +15,23 @@ export class ListBuy extends React.Component<ListProps, ListState> {
     this.state = {
       data: [],
       page: parseInt(params.get("page")!),
+      query: params.get("search")!,
+      isSearch: params.get("search") === "null" ? false : true,
     }
   }
   async componentDidMount() {
-    let res = await GetAssets(`/api/assets/${this.props.type}`, 20*(this.state.page-1), 20*(this.state.page))
-    this.setState({
-      data: res,
-    })
+    if (this.state.isSearch) {
+      const res = await GetInstrument(`/api/assets/find/${this.state.query}`)
+      this.setState({
+        data: res,
+      })
+    }
+    else {
+      const res = await GetAssets(`/api/assets/${this.props.type}`, 20*(this.state.page-1), 20*(this.state.page))
+      this.setState({
+        data: res,
+      })
+    }
   }
   render() {
     return(
@@ -44,7 +55,7 @@ export class ListBuy extends React.Component<ListProps, ListState> {
           renderItem={(item) => (
             <PaginationItem
               component={Button}
-              href={`/buy/?type=${this.props.type}&page=${item.page}`}
+              href={`/buy/?type=${this.props.type}&page=${item.page}&search=${this.state.query}`}
               {...item}
             />
           )}
