@@ -11,6 +11,7 @@ import { SettingsPage } from './SettingsPage/SettingsPage';
 import { PositionPage } from './Position/PositionPage/PositionPage';
 import { PositionSellPage } from './Position/PositionSellPage/PositionSellPage';
 import { PositionBuyPage } from './Position/PositionBuyPage/PositionBuyPage';
+import { SearchPage } from './SearchPage/SearchPage';
 
 class App extends React.Component {
   render () {
@@ -54,6 +55,10 @@ class App extends React.Component {
                   <Route
                     path="/position/:figi/sell" 
                     element={<PositionSellPage/>}
+                  />
+                  <Route
+                    path="/position/search/:query"
+                    element={<SearchPage/>}
                   />
                 </Routes>
               </Container>
