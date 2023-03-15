@@ -10,15 +10,17 @@ import { getLastPrice } from '../../API/getLastPrice';
 
 export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState> {
   constructor(props:BuyCardProps) {
+    const params = new URLSearchParams(window.location.search)
     super(props);
     this.state = {
       lastPrice: 0,
+      instrumentType: this.props.instrumentType? "" : params.get("type")!,
     } 
   }
   async componentDidMount() {
     const res = await getLastPrice("/api/assets/"+this.props.figi+"/lastprice")
     this.setState ({
-      lastPrice: res,
+      lastPrice: ((this.props.instrumentType === "bond") || (this.state.instrumentType === "bonds")) ? Math.round(res*100)/10 : res,
     })
   }
   render () {
@@ -53,7 +55,7 @@ export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState>
                   width: "50%",
                 }}>
                   <Typography noWrap={true} color="text.secondary">
-                    {this.props.name.length > 22? this.props.name.slice(0, 22)+"..." : this.props.name}
+                    {this.props.name}
                   </Typography>
                   <Typography variant="positionSubtitle" color="text.secondary">
                     {this.props.ticker}
@@ -64,8 +66,8 @@ export class BuyPositionCard extends React.Component<BuyCardProps, BuyCardState>
                   float: "right",
                   width: "40%",
                 }}>
-                  <Typography color="text.secondary">
-                    {this.state.lastPrice} {this.props.currency}
+                  <Typography color="text.secondary" noWrap={true}>
+                    {this.state.lastPrice} {this.props.currency ? this.props.currency : "rub"}
                   </Typography>
                   <Typography variant="positionSubtitle" color={this.props.isSellAvailable? "success.main" : "error"}>
                     Продажа

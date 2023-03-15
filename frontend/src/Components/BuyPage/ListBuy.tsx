@@ -44,6 +44,7 @@ export class ListBuy extends React.Component<ListProps, ListState> {
             name={i.name}
             isSellAvailable={i.sell_available_flag}
             isBuyAvailable={i.buy_available_flag}
+            instrumentType={i.instrumentType}
           />
         )}
       <Box sx={{

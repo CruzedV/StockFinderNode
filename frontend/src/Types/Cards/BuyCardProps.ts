@@ -5,4 +5,5 @@ export type BuyCardProps = {
   name: string,
   isSellAvailable: boolean,
   isBuyAvailable: boolean, 
+  instrumentType: string,
 }
