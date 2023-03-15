@@ -16,9 +16,9 @@ export class PositionGraph extends React.Component<GraphProps, GraphState>{
     }
   }
   async componentDidMount() {
-    const res_price = await getLastPrice("/api/assets/"+this.props.figi+"/lastprice")
+    const res = await getLastPrice("/api/assets/"+this.props.figi+"/lastprice")
     this.setState ({
-      lastPrice: res_price,
+      lastPrice: this.props.instrumentType === "bond" ? Math.round(res*100)/10 : res,
     })
   }
   render () {

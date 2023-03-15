@@ -65,6 +65,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
               figi={this.state.figi}
               name={this.state.name}
               currency={this.state.currency}
+              instrumentType={this.state.instrumentType}
             />
           </Paper>
           <Box sx={{
