@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Paper } from "@mui/material";
 import { PortfolioPositionCard } from "../PositionCard/PortfolioPositionCard"
 import { IPortfolioInstrument } from "../../Interfaces/IPortfolioInstrument";
-import { GetPortfolioPositions } from "../../API/getPortfolio";
+import { getPortfolioPositions } from "../../API/getPortfolio";
 
 export class BodyPortfolio extends React.Component<{}, {data: Array<IPortfolioInstrument>}> {
   constructor(props:any){
@@ -12,7 +12,7 @@ export class BodyPortfolio extends React.Component<{}, {data: Array<IPortfolioIn
     }
   }
   async componentDidMount() {
-    let res = await GetPortfolioPositions('/api/user')
+    let res = await getPortfolioPositions('/api/user')
     this.setState({
       data: res
     })
@@ -30,7 +30,6 @@ export class BodyPortfolio extends React.Component<{}, {data: Array<IPortfolioIn
           }}>
             {this.state.data.map((i:IPortfolioInstrument) =>
             <PortfolioPositionCard
-              name={i.figi}
               amount={i.quantity.units}
               price={(i.currentPrice.units+(i.currentPrice.nano/Math.pow(10, 9)))*i.quantity.units}
               currency={i.currentPrice.currency}

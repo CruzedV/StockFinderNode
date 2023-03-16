@@ -3,12 +3,12 @@ import axios from "axios"
 import { IPortfolioInstrument } from "../Interfaces/IPortfolioInstrument";
 import { PortfolioTotal } from "../Types/Portfolio/PortfolioTotal";
 
-export async function GetPortfolioPositions(url:string) {
+export async function getPortfolioPositions(url:string) {
   const res = await axios.get(url);
   return await res.data.positions as Array<IPortfolioInstrument>
 }
 
-export async function GetPortfolioTotal(url:string) {
+export async function getPortfolioTotal(url:string) {
   const res = await axios.get(url)
   return await {
     totalAmountShares: res.data.totalAmountShares.units + (res.data.totalAmountShares.nano/Math.pow(10, 9)),

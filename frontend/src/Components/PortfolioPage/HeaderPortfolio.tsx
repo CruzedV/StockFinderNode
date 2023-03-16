@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Paper, Typography } from "@mui/material";
-import { GetPortfolioTotal } from "../../API/getPortfolio";
+import { getPortfolioTotal } from "../../API/getPortfolio";
 import { PortfolioTotal } from "../../Types/Portfolio/PortfolioTotal";
 
 export class HeaderPortfolio extends React.Component<{}, PortfolioTotal> {
@@ -19,7 +19,7 @@ export class HeaderPortfolio extends React.Component<{}, PortfolioTotal> {
     }
   }
   async componentDidMount() {
-    let res = await GetPortfolioTotal('/api/user')
+    let res = await getPortfolioTotal('/api/user')
     this.setState({
       totalAmountShares: res.totalAmountShares,
       totalAmountBonds: res.totalAmountBonds,

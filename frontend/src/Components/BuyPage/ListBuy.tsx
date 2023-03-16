@@ -2,11 +2,11 @@ import React from "react";
 import { Box, Pagination, Button } from "@mui/material";
 import PaginationItem from "@mui/material/PaginationItem/PaginationItem";
 import { BuyPositionCard } from "../PositionCard/BuyPositionCard"
-import { GetAssets } from "../../API/getAssets";
+import { getAssets } from "../../API/getAssets";
 import { ListProps } from "../../Types/BuyPage/ListProps";
 import { ListState } from "../../Types/BuyPage/ListState";
 import { IBuyInstrument } from "../../Interfaces/IBuyInstrument";
-import { GetInstrument } from "../../API/getInstrument";
+import { getInstrument } from "../../API/getInstrument";
 
 export class ListBuy extends React.Component<ListProps, ListState> {
   constructor(props:ListProps){
@@ -21,13 +21,13 @@ export class ListBuy extends React.Component<ListProps, ListState> {
   }
   async componentDidMount() {
     if (this.state.isSearch) {
-      const res = await GetInstrument(`/api/assets/find/${this.state.query}`)
+      const res = await getInstrument(`/api/assets/find/${this.state.query}`)
       this.setState({
         data: res,
       })
     }
     else {
-      const res = await GetAssets(`/api/assets/${this.props.type}`, 20*(this.state.page-1), 20*(this.state.page))
+      const res = await getAssets(`/api/assets/${this.props.type}`, 20*(this.state.page-1), 20*(this.state.page))
       this.setState({
         data: res,
       })

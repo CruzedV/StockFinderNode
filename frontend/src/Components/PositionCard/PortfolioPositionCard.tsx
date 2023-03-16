@@ -6,19 +6,23 @@ import { CardActionArea, Box, Grow } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { PortfolioCardProps } from '../../Types/Cards/PortfolioCardProps';
 import { PortfolioCardState } from '../../Types/Cards/PortfolioCardState';
+import { getByFigi } from '../../API/getByFigi';
 
 export class PortfolioPositionCard extends React.Component<PortfolioCardProps, PortfolioCardState> {
   constructor(props:PortfolioCardProps) {
     super(props)
     this.state ={
       isProfitable: false,
-      profitPercentage: 14
+      profitPercentage: 14,
+      name: "",
     }
   }
-  componentDidMount(): void {
+  async componentDidMount() {
+    const res = await getByFigi("/api/assets/"+this.props.figi)
     this.setState({
       isProfitable: this.props.profit > 0 ? true : false,
-      profitPercentage: (this.props.profit / this.props.price)*100
+      profitPercentage: (this.props.profit / this.props.price)*100,
+      name: res.name,
     })
 
   }
@@ -53,8 +57,8 @@ export class PortfolioPositionCard extends React.Component<PortfolioCardProps, P
                   float: "left",
                   width: "40%",
                 }}>
-                  <Typography color="text.secondary">
-                    {this.props.name}
+                  <Typography noWrap={true} color="text.secondary">
+                    {this.state.name}
                   </Typography>
                   <Typography variant="positionSubtitle" color="text.secondary">
                     {this.props.amount} шт
