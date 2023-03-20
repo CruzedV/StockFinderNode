@@ -12,7 +12,7 @@ export class PositionBuyBody extends React.Component<{}, BodyBuyState> {
   constructor(props:any) {
     super(props)
     this.state = {
-      figi: window.location.pathname.slice(10, 14),
+      figi: window.location.pathname.slice(10, 22),
       name: "",
       currency: "",
       instrumentType: "",
@@ -20,8 +20,8 @@ export class PositionBuyBody extends React.Component<{}, BodyBuyState> {
     }
   }
   async componentDidMount() {
-    const lastPriceRes = await getLastPrice(`/api/assets/${this.state.figi}/lastprice`)
-    const res = await getByFigi(`/api/assets/{this.state.figi}`)
+    const lastPriceRes = await getLastPrice("/api/assets/"+this.state.figi+"/lastprice")
+    const res = await getByFigi("/api/assets/"+this.state.figi)
     this.setState ({
       lastPrice: lastPriceRes,
       name: res.name,
