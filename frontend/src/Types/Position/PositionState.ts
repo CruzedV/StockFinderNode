@@ -8,4 +8,6 @@ export type PositionState = {
   countryOfRisk: string,
   countryOfRiskName: string,
   instrumentType: string,
+  isSellAvailable: boolean,
+  isBuyAvailable: boolean,
 }

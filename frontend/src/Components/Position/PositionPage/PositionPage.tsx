@@ -22,6 +22,9 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
       countryOfRisk: "",
       countryOfRiskName: "",
       instrumentType: "",
+      isSellAvailable: false,
+      isBuyAvailable: false,
+
     }
   }
   async componentDidMount() {
@@ -35,6 +38,8 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
       countryOfRisk: res.countryOfRisk,
       countryOfRiskName: res.countryOfRiskName,
       instrumentType: res.instrumentType,
+      isSellAvailable: res.sellAvailableFlag,
+      isBuyAvailable: res.buyAvailableFlag,
     })
   }
   render () {
@@ -78,7 +83,10 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
               mr: "auto",
             }}>
               <Link to={"sell"} state={this.state}>
-                <PositionButton action="продать"/>
+                <PositionButton
+                  action="продать"
+                  isDisabled={this.state.isSellAvailable}
+                />
               </Link>
             </Box>
             <Box sx={{
@@ -87,7 +95,10 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
               mr: "20%",
             }}>
               <Link to={"buy"} state={this.state}>
-                <PositionButton action="купить"/>
+                <PositionButton
+                  action="купить"
+                  isDisabled={this.state.isBuyAvailable}
+                />
               </Link>
             </Box>
           </Box>
