@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Typography } from '@mui/material'
 import { HeaderBuyProps } from '../../../Types/Position/BuyPage/HeaderBuyProps'
 
-export class Header extends React.Component<HeaderBuyProps, {}> {
+export class BuyHeader extends React.Component<HeaderBuyProps, {}> {
   render () {
     return (
       <Box sx={{
@@ -36,7 +36,7 @@ export class Header extends React.Component<HeaderBuyProps, {}> {
             width: "45%",
             display: "inline-block",
           }}>
-            <Typography>{this.props.lastPrice}</Typography>
+            <Typography>{this.props.lastPrice} {this.props.currency}</Typography>
             <Typography variant="positionSubtitle">Цена последней сделки</Typography>
           </Box>
         </Box>

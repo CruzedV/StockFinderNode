@@ -1,8 +1,9 @@
 import React from 'react';
 import { Box, Paper, Typography } from '@mui/material'
-import { PositionBuyBody } from './PositionBuyBody';
+import { BodyBuy } from "../CommonC/Body"
+import { BodyBuyState } from '../../../Types/Position/BuyPage/BodyBuyState';
 
-export class PositionBuyPage extends React.Component {
+export class PositionBuyPage extends React.Component<{}, BodyBuyState> {
   render () {
     return (
       <React.Fragment>
@@ -23,7 +24,7 @@ export class PositionBuyPage extends React.Component {
             </Typography>
           </Paper>
         </Box>
-        <PositionBuyBody/>
+        <BodyBuy/>
       </React.Fragment>
 
     )

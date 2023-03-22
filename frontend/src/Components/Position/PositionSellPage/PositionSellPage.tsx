@@ -1,14 +1,11 @@
 import React from 'react'
-import { Paper, Box, Divider } from '@mui/material'
-import { Header } from "../CommonC/Header"
-import { Param } from "../CommonC/Param"
-import { Statistics } from '../CommonC/Statistics'
-import { SellButton } from './SellButton'
-import { BodySellState } from '../../../Types/Position/BuyPage/BodySellState'
+import { Paper, Box, } from '@mui/material'
 import { getLastPrice } from '../../../API/getLastPrice'
 import { getByFigi } from '../../../API/getByFigi'
+import { BodyBuy } from "../CommonC/Body"
+import { BodyBuyState } from '../../../Types/Position/BuyPage/BodyBuyState'
 
-export class PositionSellPage extends React.Component<{}, BodySellState> {
+export class PositionSellPage extends React.Component<{}, BodyBuyState> {
   constructor(props:any) {
     super(props)
     this.state = {
@@ -41,20 +38,7 @@ export class PositionSellPage extends React.Component<{}, BodySellState> {
             p: "1em 1em 1em 1em",
             backgroundColor: "primary.main",
           }}>
-{/* Header */}
-            <Header
-              figi={this.state.figi}
-              name={this.state.name}
-              lastPrice={this.state.lastPrice}
-            />
-            <Divider color="#F4F4F4" variant="middle"/>
-{/* Parameters */}
-            <Param/>
-            <Divider color="#F4F4F4" variant="middle"/>
-{/* Statistics */}
-            <Statistics/>
-{/* Sell Button */}
-            <SellButton/>
+            <BodyBuy/>
           </Paper>
         </Box>
       </React.Fragment>
