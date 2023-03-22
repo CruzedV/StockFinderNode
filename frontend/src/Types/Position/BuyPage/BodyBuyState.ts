@@ -4,4 +4,5 @@ export type BodyBuyState = {
   currency: string, 
   instrumentType: string,
   lastPrice: number,
+  lot: number,
 }

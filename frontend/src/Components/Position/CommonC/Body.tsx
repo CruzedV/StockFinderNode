@@ -8,7 +8,7 @@ import { BodyBuyState } from '../../../Types/Position/BuyPage/BodyBuyState'
 import { getLastPrice } from '../../../API/getLastPrice'
 import { getByFigi } from '../../../API/getByFigi'
 
-export class BodyBuy extends React.Component<{}, BodyBuyState> {
+export class BodyBuy extends React.Component<{isBuy: boolean}, BodyBuyState> {
   constructor(props:any) {
     super(props)
     this.state = {
@@ -17,6 +17,7 @@ export class BodyBuy extends React.Component<{}, BodyBuyState> {
       currency: "",
       instrumentType: "",
       lastPrice: 0,
+      lot: 0,
     }
   }
   async componentDidMount() {
@@ -27,6 +28,7 @@ export class BodyBuy extends React.Component<{}, BodyBuyState> {
       name: res.name,
       currency: res.currency,
       instrumentType: res.instrumentType,
+      lot: res.lot
     })
   }
   render () {
@@ -49,13 +51,17 @@ export class BodyBuy extends React.Component<{}, BodyBuyState> {
             />
             <Divider color="#F4F4F4" variant="middle"/>
 {/* Parameters */}
-            <Param/>
+            <Param
+              lastPrice={this.state.lastPrice}
+              currency={this.state.currency}
+              lot={this.state.lot}
+            />
             <Divider color="#F4F4F4" variant="middle"/>
 {/* Statistics */}
             <Statistics/>
 {/* Sell Button */}
             <BuyButton
-              name="Купить"
+              isBuy={this.props.isBuy}
             />
           </Paper>
         </Box>

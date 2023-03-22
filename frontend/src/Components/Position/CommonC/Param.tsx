@@ -1,7 +1,8 @@
 import React from 'react'
 import { Box, Typography, TextField, FormControl, MenuItem, Select } from '@mui/material'
+import { ParamsProps } from '../../../Types/Position/BuyPage/ParamsProps'
 
-export class Param extends React.Component {
+export class Param extends React.Component<ParamsProps, {}> {
   render () {
     return (
       <Box sx={{
@@ -19,7 +20,7 @@ export class Param extends React.Component {
             <Typography>
               Лучшая цена
             </Typography>
-            <TextField size="small" variant="filled" label="ПАРАМЕТР 1" fullWidth color="secondary"></TextField>
+            <TextField size="small" variant="filled" label={this.props.lastPrice + " " +this.props.currency} fullWidth color="secondary"></TextField>
           </Box>
           <Box sx={{
             width: "25%",
@@ -54,14 +55,14 @@ export class Param extends React.Component {
             <Typography>
               Количество
             </Typography>
-            <TextField size="small" variant="filled" label="ПАРАМЕТР 1" fullWidth color="secondary"></TextField>
+            <TextField size="small" variant="filled" label={"1 лот = " + this.props.lot + " шт"} fullWidth color="secondary"></TextField>
           </Box>
           <Box sx={{
             display: "inline-block",
             width: "25%",
           }}>
             <Typography variant="positionSubtitle" color="success.main">
-              На сумму: 887.9P
+              На сумму: {Math.round((this.props.lot*this.props.lastPrice)*10)/10} {this.props.currency}
             </Typography>
           </Box>
         </Box>

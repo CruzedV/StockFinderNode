@@ -24,7 +24,9 @@ export class PositionBuyPage extends React.Component<{}, BodyBuyState> {
             </Typography>
           </Paper>
         </Box>
-        <BodyBuy/>
+        <BodyBuy
+          isBuy={true}
+        />
       </React.Fragment>
 
     )

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Button, Typography } from '@mui/material'
 
-export class BuyButton extends React.Component<{name: string}, {}> {
+export class BuyButton extends React.Component<{isBuy: boolean}, {}> {
   render () {
     return (
       <Box sx={{
@@ -12,10 +12,12 @@ export class BuyButton extends React.Component<{name: string}, {}> {
       }}>
         <Button variant="contained" sx={{
           p: "0.7em 2em 0.7em 2em",
-          backgroundColor: "success.main",
+          backgroundColor: this.props.isBuy
+          ? "success.main"
+          : "error.main",
         }}>
           <Typography variant="positionText">
-            {this.props.name}
+            {this.props.isBuy ? "купить" : "продать"}
           </Typography>
         </Button>
       </Box>

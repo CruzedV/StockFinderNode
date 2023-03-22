@@ -1,6 +1,6 @@
 import React from 'react'
-import { Paper, Box, } from '@mui/material'
 import { getLastPrice } from '../../../API/getLastPrice'
+import { Box } from '@mui/material'
 import { getByFigi } from '../../../API/getByFigi'
 import { BodyBuy } from "../CommonC/Body"
 import { BodyBuyState } from '../../../Types/Position/BuyPage/BodyBuyState'
@@ -14,6 +14,7 @@ export class PositionSellPage extends React.Component<{}, BodyBuyState> {
       currency: "",
       instrumentType: "",
       lastPrice: 0,
+      lot: 0,
     }
   }
   async componentDidMount() {
@@ -24,6 +25,7 @@ export class PositionSellPage extends React.Component<{}, BodyBuyState> {
       name: res.name,
       currency: res.currency,
       instrumentType: res.instrumentType,
+      lot: res.lot
     })
   }
   render () {
@@ -33,13 +35,9 @@ export class PositionSellPage extends React.Component<{}, BodyBuyState> {
           pt: "3.75em",
           pb: "3.75em",
         }}>
-          <Paper sx={{
-            borderRadius: "0.9em",
-            p: "1em 1em 1em 1em",
-            backgroundColor: "primary.main",
-          }}>
-            <BodyBuy/>
-          </Paper>
+          <BodyBuy
+            isBuy={false}
+          />
         </Box>
       </React.Fragment>
     )
