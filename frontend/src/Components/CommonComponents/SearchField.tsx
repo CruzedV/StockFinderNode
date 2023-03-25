@@ -5,7 +5,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 
 export class SearchField extends React.Component<{}, {text: string}> {
-  constructor(props:any){
+  constructor(props:any) {
     const params = new URLSearchParams(window.location.search)
     super(props)
     this.findInstrument = this.findInstrument.bind(this)
