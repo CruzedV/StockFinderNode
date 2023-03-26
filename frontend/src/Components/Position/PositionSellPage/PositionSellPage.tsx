@@ -15,6 +15,7 @@ export class PositionSellPage extends React.Component<{}, BodyBuyState> {
       instrumentType: "",
       lastPrice: 0,
       lot: 0,
+      quanity: 1,
     }
   }
   async componentDidMount() {
