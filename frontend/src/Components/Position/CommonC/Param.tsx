@@ -42,10 +42,13 @@ export class Param extends React.Component<ParamsProps, ParamsState> {
             </Typography>
             <TextField
               size="small" 
-              variant="filled" 
+              variant="filled"
               label={this.props.lastPrice + " " +this.props.currency} 
               fullWidth 
-              color="secondary">
+              color="secondary"
+              InputProps={{
+                readOnly: this.state.type === "Лучшая цена" ? true : false
+              }}>
             </TextField>
           </Box>
           <Box sx={{

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Typography, Box } from '@mui/material'
+import { StatisticsProps } from '../../../Types/Position/BuyPage/StatisticsProps'
 
-export class Statistics extends React.Component {
+export class Statistics extends React.Component<StatisticsProps ,{}> {
   render () {
     return (
       <Box sx={{
@@ -40,7 +41,7 @@ export class Statistics extends React.Component {
           mt: "1em",
         }}>
           <Typography>
-            На сумму: 887.9P
+            На сумму: {this.props.lastPrice*this.props.lot} {this.props.currency}
           </Typography>
         </Box>
       </Box>

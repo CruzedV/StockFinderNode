@@ -58,7 +58,11 @@ export class BodyBuy extends React.Component<{isBuy: boolean}, BodyBuyState> {
             />
             <Divider color="#F4F4F4" variant="middle"/>
 {/* Statistics */}
-            <Statistics/>
+            <Statistics
+              lastPrice={this.state.lastPrice}
+              currency={this.state.currency}
+              lot={this.state.lot}
+            />
 {/* Sell Button */}
             <BuyButton
               isBuy={this.props.isBuy}
