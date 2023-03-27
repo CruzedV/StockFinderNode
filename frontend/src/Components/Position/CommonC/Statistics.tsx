@@ -41,7 +41,7 @@ export class Statistics extends React.Component<StatisticsProps ,{}> {
           mt: "1em",
         }}>
           <Typography>
-            На сумму: {Math.round((this.props.quanity*(this.props.lot*this.props.lastPrice))*100)/100} {this.props.currency}
+            На сумму: {Math.round((this.props.quantity*(this.props.lot*this.props.lastPrice))*100)/100} {this.props.currency}
           </Typography>
         </Box>
       </Box>

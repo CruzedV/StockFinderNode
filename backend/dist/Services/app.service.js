@@ -62,6 +62,22 @@ let AppService = class AppService {
         });
         return resp;
     }
+    async postOrder(figi, direction, price, quantity) {
+        const { accounts } = await api_1.api.users.getAccounts({});
+        const resp = await api_1.api.orders.postOrder({
+            figi: figi,
+            accountId: accounts[0].id,
+            direction: direction === 'buy' ? 1 : 2,
+            orderType: 1,
+            price: {
+                units: Math.trunc(price),
+                nano: Math.trunc((price % 1) * Math.pow(10, 9)),
+            },
+            orderId: Date.now().toString(),
+            quantity: quantity,
+        });
+        return resp;
+    }
 };
 AppService = __decorate([
     (0, common_1.Injectable)()

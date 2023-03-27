@@ -11,7 +11,7 @@ import { getByFigi } from '../../../API/getByFigi'
 export class BodyBuy extends React.Component<{isBuy: boolean}, BodyBuyState> {
   constructor(props:any) {
     super(props)
-    this.handleChangeQuanity = this.handleChangeQuanity.bind(this)
+    this.handleChangeQuantity = this.handleChangeQuantity.bind(this)
     this.state = {
       figi: window.location.pathname.slice(10, 22),
       name: "",
@@ -19,7 +19,7 @@ export class BodyBuy extends React.Component<{isBuy: boolean}, BodyBuyState> {
       instrumentType: "",
       lastPrice: 0,
       lot: 0,
-      quanity: 1,
+      quantity: 1,
     }
   }
   async componentDidMount() {
@@ -33,9 +33,9 @@ export class BodyBuy extends React.Component<{isBuy: boolean}, BodyBuyState> {
       lot: res.lot
     })
   }
-  handleChangeQuanity(event: any) {
+  handleChangeQuantity(event: any) {
     this.setState({
-      quanity: event.target.value
+      quantity: event.target.value
     })
   }
   render () {
@@ -62,8 +62,8 @@ export class BodyBuy extends React.Component<{isBuy: boolean}, BodyBuyState> {
               lastPrice={this.state.lastPrice}
               currency={this.state.currency}
               lot={this.state.lot}
-              quanity={this.state.quanity}
-              quanityHandler={this.handleChangeQuanity}
+              quantity={this.state.quantity}
+              quantityHandler={this.handleChangeQuantity}
             />
             <Divider color="#F4F4F4" variant="middle"/>
 {/* Statistics */}
@@ -71,7 +71,7 @@ export class BodyBuy extends React.Component<{isBuy: boolean}, BodyBuyState> {
               lastPrice={this.state.lastPrice}
               currency={this.state.currency}
               lot={this.state.lot}
-              quanity={this.state.quanity}
+              quantity={this.state.quantity}
             />
 {/* Sell Button */}
             <BuyButton

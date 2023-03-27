@@ -8,6 +8,7 @@ export class AppController {
   getPortfolio(): Promise<object> {
     return this.appService.getPortfolio();
   }
+
   @Get('/assets/shares')
   getShares(): Promise<object> {
     return this.appService.getShares();
@@ -24,6 +25,7 @@ export class AppController {
   getETF(): Promise<object> {
     return this.appService.getETF();
   }
+
   @Get('/assets/:figi')
   getByFigi(@Param('figi') figi: string): Promise<object> {
     return this.appService.getByFigi(figi);
@@ -43,5 +45,14 @@ export class AppController {
   @Get('/assets/find/:query')
   getInstrument(@Param('query') query: string): Promise<object> {
     return this.appService.getInstrument(query);
+  }
+  @Get('/assets/buy/:figi/:direction/:price/:quanity')
+  postOrder(
+    @Param('figi') figi: string,
+    @Param('direction') direction: 'buy' | 'sell',
+    @Param('price') price: number,
+    @Param('quantity') quantity: number,
+  ): Promise<object> {
+    return this.appService.postOrder(figi, direction, price, quantity);
   }
 }

@@ -1,4 +1,4 @@
-import IQuanity from "./IQuanity";
+import IQuantity from "./IQuantity";
 
 export interface IBuyInstrument {
   figi: string,
@@ -8,6 +8,6 @@ export interface IBuyInstrument {
   lot: number,
   sell_available_flag: boolean,
   buy_available_flag: boolean,
-  nominal?: IQuanity,
+  nominal?: IQuantity,
   instrumentType: string,
 }

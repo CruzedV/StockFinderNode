@@ -1,9 +1,9 @@
-import IQuanity from "../IQuanity";
+import IQuantity from "../IQuantity";
 
 export interface ICandle {
-  open: IQuanity,
-  high: IQuanity,
-  low: IQuanity,
-  close: IQuanity,
+  open: IQuantity,
+  high: IQuantity,
+  low: IQuantity,
+  close: IQuantity,
   time: Date,
 }

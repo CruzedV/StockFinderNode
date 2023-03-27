@@ -80,8 +80,8 @@ export class Param extends React.Component<ParamsProps, ParamsState> {
               Количество
             </Typography>
             <TextField
-              onChange={(event)=>this.props.quanityHandler(event)}
-              value={this.props.quanity}
+              onChange={(event)=>this.props.quantityHandler(event)}
+              value={this.props.quantity}
               size="small" 
               variant="filled" 
               label={"1 лот = " + this.props.lot + " шт"} 
@@ -94,7 +94,7 @@ export class Param extends React.Component<ParamsProps, ParamsState> {
             width: "25%",
           }}>
             <Typography variant="positionSubtitle" color="success.main">
-              На сумму: {Math.round((this.props.quanity*(this.props.lot*this.props.lastPrice))*100)/100} {this.props.currency}
+              На сумму: {Math.round((this.props.quantity*(this.props.lot*this.props.lastPrice))*100)/100} {this.props.currency}
             </Typography>
           </Box>
         </Box>

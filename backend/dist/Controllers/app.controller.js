@@ -46,6 +46,9 @@ let AppController = class AppController {
     getInstrument(query) {
         return this.appService.getInstrument(query);
     }
+    postOrder(figi, direction, price, quantity) {
+        return this.appService.postOrder(figi, direction, price, quantity);
+    }
 };
 __decorate([
     (0, common_1.Get)('/user'),
@@ -107,6 +110,16 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "getInstrument", null);
+__decorate([
+    (0, common_1.Get)('/assets/buy/:figi/:direction/:price/:quanity'),
+    __param(0, (0, common_1.Param)('figi')),
+    __param(1, (0, common_1.Param)('direction')),
+    __param(2, (0, common_1.Param)('price')),
+    __param(3, (0, common_1.Param)('quantity')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, String, Number, Number]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "postOrder", null);
 AppController = __decorate([
     (0, common_1.Controller)('api'),
     __metadata("design:paramtypes", [app_service_1.AppService])

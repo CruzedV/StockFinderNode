@@ -1,10 +1,10 @@
-import IQuanity from "./IQuanity";
+import IQuantity from "./IQuantity";
 
 export interface IPortfolioTotal {
-  totalAmountShares: IQuanity,
-  totalAmountBonds: IQuanity,
-  totalAmountEtf: IQuanity,
-  totalAmountCurrencies: IQuanity,
-  totalAmountFutures: IQuanity,
-  expectedYield: IQuanity,
+  totalAmountShares: IQuantity,
+  totalAmountBonds: IQuantity,
+  totalAmountEtf: IQuantity,
+  totalAmountCurrencies: IQuantity,
+  totalAmountFutures: IQuantity,
+  expectedYield: IQuantity,
 }

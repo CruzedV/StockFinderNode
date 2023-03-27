@@ -5,5 +5,5 @@ export type BodyBuyState = {
   instrumentType: string,
   lastPrice: number,
   lot: number,
-  quanity: number,
+  quantity: number,
 }

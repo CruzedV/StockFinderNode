@@ -8,4 +8,5 @@ export declare class AppService {
     getCandles(figi: string, from: string, to: string): Promise<object>;
     getLastPrice(figi: string): Promise<object>;
     getInstrument(query: string): Promise<object>;
+    postOrder(figi: string, direction: 'buy' | 'sell', price: number, quantity: number): Promise<object>;
 }
