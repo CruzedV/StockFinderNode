@@ -76,6 +76,9 @@ export class BodyBuy extends React.Component<{isBuy: boolean}, BodyBuyState> {
 {/* Sell Button */}
             <BuyButton
               isBuy={this.props.isBuy}
+              figi={this.state.figi}
+              price={this.state.lastPrice}
+              quantity={this.state.quantity}
             />
           </Paper>
         </Box>

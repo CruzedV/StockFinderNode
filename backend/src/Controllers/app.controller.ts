@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Post } from '@nestjs/common';
 import { AppService } from '../Services/app.service';
 
 @Controller('api')
@@ -46,7 +46,7 @@ export class AppController {
   getInstrument(@Param('query') query: string): Promise<object> {
     return this.appService.getInstrument(query);
   }
-  @Get('/assets/buy/:figi/:direction/:price/:quanity')
+  @Post('/assets/buy/:figi/:direction/:price/:quanity')
   postOrder(
     @Param('figi') figi: string,
     @Param('direction') direction: 'buy' | 'sell',
