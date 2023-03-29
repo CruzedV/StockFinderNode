@@ -1,5 +1,0 @@
-{
-  "idType": "INSTRUMENT_ID_TYPE_TICKER",
-  "classCode": "Burg",
-  "id": "{{ faker.random.uuid }}"
-}

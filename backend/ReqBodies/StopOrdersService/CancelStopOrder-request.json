@@ -1,4 +1,0 @@
-{
-  "accountId": "{{ faker.random.uuid }}",
-  "stopOrderId": "{{ faker.random.uuid }}"
-}

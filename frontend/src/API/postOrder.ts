@@ -14,6 +14,6 @@ export async function postOrder(figi: string, direction: "buy"|"sell", price: nu
     quantity: quantity,
   })
   .then(function (response) {
-    console.log(response)
+    console.log(response) 
   })
 }

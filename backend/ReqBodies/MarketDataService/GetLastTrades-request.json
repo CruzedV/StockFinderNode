@@ -1,6 +1,0 @@
-{
-  "figi": "Auto Loan Account calculate",
-  "from": "1970-01-01T00:13:01.000000606Z",
-  "to": "1970-01-01T00:10:58.000000776Z",
-  "instrumentId": "{{ faker.random.uuid }}"
-}

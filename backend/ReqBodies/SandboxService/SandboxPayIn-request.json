@@ -1,8 +1,0 @@
-{
-  "accountId": "{{ faker.random.uuid }}",
-  "amount": {
-    "currency": "{{ faker.finance.currency }}",
-    "units": "960",
-    "nano": 408
-  }
-}
