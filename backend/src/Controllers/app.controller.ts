@@ -46,7 +46,7 @@ export class AppController {
   getInstrument(@Param('query') query: string): Promise<object> {
     return this.appService.getInstrument(query);
   }
-  @Post('/assets/buy/:figi/:direction/:price/:quanity')
+  @Post('/assets/order/:figi/:direction/:price/:quanity')
   postOrder(
     @Param('figi') figi: string,
     @Param('direction') direction: 'buy' | 'sell',
