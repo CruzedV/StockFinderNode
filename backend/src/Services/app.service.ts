@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { api } from '../api';
+import { api, account } from '../api';
 
 @Injectable()
 export class AppService {
@@ -61,16 +61,11 @@ export class AppService {
     price: number,
     quantity: number,
   ): Promise<object> {
-    const { accounts } = await api.users.getAccounts({});
-    const resp = await api.orders.postOrder({
+    const resp = await account.postOrder({
       figi: figi,
-      accountId: accounts[0].id,
       direction: direction === 'buy' ? 1 : 2,
       orderType: 1,
-      price: {
-        units: Math.trunc(price),
-        nano: Math.trunc((price % 1) * Math.pow(10, 9)),
-      },
+      price: api.helpers.toQuotation(price),
       orderId: Date.now().toString(),
       quantity: quantity,
     });
