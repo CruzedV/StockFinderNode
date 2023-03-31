@@ -61,7 +61,6 @@ export class AppService {
     price: number,
     quantity: number,
   ): Promise<object> {
-    console.log(figi, direction, price, quantity);
     const resp = await api.orders.postOrder({
       figi: figi,
       accountId: api.users.getAccounts({})[0],
