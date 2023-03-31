@@ -111,7 +111,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "getInstrument", null);
 __decorate([
-    (0, common_1.Post)('/assets/order/:figi/:direction/:price/:quanity'),
+    (0, common_1.Post)('/assets/order/:figi/:direction/:price/:quantity'),
     __param(0, (0, common_1.Param)('figi')),
     __param(1, (0, common_1.Param)('direction')),
     __param(2, (0, common_1.Param)('price')),

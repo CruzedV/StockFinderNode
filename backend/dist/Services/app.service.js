@@ -63,11 +63,13 @@ let AppService = class AppService {
         return resp;
     }
     async postOrder(figi, direction, price, quantity) {
-        const resp = await api_1.account.postOrder({
+        console.log(figi, direction, price, quantity);
+        const resp = await api_1.api.orders.postOrder({
             figi: figi,
+            accountId: api_1.api.users.getAccounts({})[0],
             direction: direction === 'buy' ? 1 : 2,
             orderType: 1,
-            price: api_1.api.helpers.toQuotation(price),
+            price: api_1.api.helpers.toQuotation(6.49),
             orderId: Date.now().toString(),
             quantity: quantity,
         });
