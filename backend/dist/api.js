@@ -1,10 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.account = exports.api = void 0;
+exports.api = void 0;
 const tinkoff_invest_api_1 = require("tinkoff-invest-api");
-const tinkoff_invest_api_2 = require("tinkoff-invest-api");
 exports.api = new tinkoff_invest_api_1.TinkoffInvestApi({
     token: 't.u3YwK34YEudgNQc0qNakfp6HzBlwGbkaXG-3D13Jy-wXhardL5w0llklkIbP9JWuc-hgVTf0l-Oxf0ZxEgT7hw',
 });
-exports.account = new tinkoff_invest_api_2.RealAccount(exports.api, '<real-account-id>');
 //# sourceMappingURL=api.js.map

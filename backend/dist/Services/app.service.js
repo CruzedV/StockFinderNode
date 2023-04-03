@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppService = void 0;
 const common_1 = require("@nestjs/common");
 const api_1 = require("../api");
+const uuid_1 = require("uuid");
 let AppService = class AppService {
     async getPortfolio() {
         const { accounts } = await api_1.api.users.getAccounts({});
@@ -63,14 +64,14 @@ let AppService = class AppService {
         return resp;
     }
     async postOrder(figi, direction, price, quantity) {
-        console.log(figi, direction, price, quantity);
+        const account = await (await api_1.api.users.getAccounts({})).accounts.filter((it) => it.name === 'ИИС')[0];
         const resp = await api_1.api.orders.postOrder({
             figi: figi,
-            accountId: api_1.api.users.getAccounts({})[0],
+            accountId: account.id,
             direction: direction === 'buy' ? 1 : 2,
             orderType: 1,
-            price: api_1.api.helpers.toQuotation(6.49),
-            orderId: Date.now().toString(),
+            price: api_1.api.helpers.toQuotation(price),
+            orderId: (0, uuid_1.v4)(),
             quantity: quantity,
         });
         return resp;

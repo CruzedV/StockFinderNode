@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { api } from '../api';
-
+import { v4 as uuidv4 } from 'uuid';
 @Injectable()
 export class AppService {
   async getPortfolio(): Promise<object> {
@@ -61,13 +61,16 @@ export class AppService {
     price: number,
     quantity: number,
   ): Promise<object> {
+    const account = await (
+      await api.users.getAccounts({})
+    ).accounts.filter((it) => it.name === 'ИИС')[0];
     const resp = await api.orders.postOrder({
       figi: figi,
-      accountId: api.users.getAccounts({})[0],
+      accountId: account.id,
       direction: direction === 'buy' ? 1 : 2,
       orderType: 1,
-      price: api.helpers.toQuotation(6.49),
-      orderId: Date.now().toString(),
+      price: api.helpers.toQuotation(price),
+      orderId: uuidv4(),
       quantity: quantity,
     });
     return resp;
