@@ -19,6 +19,7 @@ export class BuyButton extends React.Component<ButtonBuyProps, {isOpen: boolean}
     this.setState({
       isOpen: true,
     })
+    setTimeout(()=>window.location.assign("/position/"+this.props.figi))
   }
   handleClose() {
     this.setState({

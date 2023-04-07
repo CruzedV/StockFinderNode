@@ -24,7 +24,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
       instrumentType: "",
       isSellAvailable: false,
       isBuyAvailable: false,
-
+      portfolioQuantity: this.props.portfolioQuantity? this.props.portfolioQuantity : 0,
     }
   }
   async componentDidMount() {
