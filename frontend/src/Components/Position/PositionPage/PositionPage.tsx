@@ -57,6 +57,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
               name={this.state.name} 
               ticker={this.state.ticker}
               instrumentType={this.state.instrumentType}
+              figi={this.state.figi}
             />
             <Divider color="#F4F4F4" variant="middle"/>
             <PositionRegion 

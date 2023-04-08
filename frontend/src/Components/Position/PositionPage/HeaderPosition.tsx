@@ -2,8 +2,22 @@ import React from 'react'
 import { Box, Typography } from '@mui/material'
 import { HeaderState } from '../../../Types/Position/HeaderState'
 import { HeaderProps } from '../../../Types/Position/HeaderProps'
+import { getPortfolioQuantity } from '../../../API/getPortfolio'
 
 export class HeaderPosition extends React.Component<HeaderProps, HeaderState> {
+  constructor(props: HeaderProps) {
+    super(props)
+    this.state = {
+      portfolioQuantity: 0,
+    }
+  }
+  async componentDidMound() {
+    const resQuantity = await getPortfolioQuantity("/api/user/", this.props.figi)
+    console.log(resQuantity)
+    this.setState({
+      portfolioQuantity: resQuantity? resQuantity.quantity.units : 0,
+    })
+  }
   render () {
     return (
       <React.Fragment>
@@ -36,9 +50,10 @@ export class HeaderPosition extends React.Component<HeaderProps, HeaderState> {
                   {this.props.instrumentType === "futures" ? "Фьючерс" : ""}
                 </Typography>
               </Box>
+              <Typography color="text.primary" variant="positionText">
+                В вашем портфеле: {this.state.portfolioQuantity} шт
+              </Typography>
             </Box>
-            <Typography color="text.primary" variant="positionText">
-            </Typography>
           </Box>
         </Box>
       </React.Fragment>

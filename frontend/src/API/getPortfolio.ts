@@ -19,3 +19,9 @@ export async function getPortfolioTotal(url:string) {
     expectedYield: res.data.expectedYield.units + (res.data.expectedYield.nano/Math.pow(10, 9)),
   } as PortfolioTotal
 }
+
+export async function getPortfolioQuantity(url: string, figi: string) {
+  const res = await axios.get(url);
+  console.log(res)
+  return await res.data.positions.filter((i:IPortfolioInstrument) => i.figi === figi);
+}

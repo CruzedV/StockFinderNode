@@ -8,7 +8,6 @@ export class AppController {
   getPortfolio(): Promise<object> {
     return this.appService.getPortfolio();
   }
-
   @Get('/assets/shares')
   getShares(): Promise<object> {
     return this.appService.getShares();
