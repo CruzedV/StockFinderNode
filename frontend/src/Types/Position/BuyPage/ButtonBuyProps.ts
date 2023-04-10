@@ -3,4 +3,5 @@ export type ButtonBuyProps = {
   figi: string,
   price: number,
   quantity: number,
+  isAvailable: boolean,
 }

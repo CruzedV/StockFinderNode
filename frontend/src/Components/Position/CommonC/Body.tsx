@@ -5,10 +5,11 @@ import { Param } from "../CommonC/Param"
 import { Statistics } from "../CommonC/Statistics"
 import { BuyButton } from "./Button"
 import { BodyBuyState } from '../../../Types/Position/BuyPage/BodyBuyState'
+import { BodyBuyProps} from '../../../Types/Position/BuyPage/BodyBuyProps'
 import { getLastPrice } from '../../../API/getLastPrice'
 import { getByFigi } from '../../../API/getByFigi'
 
-export class BodyBuy extends React.Component<{isBuy: boolean}, BodyBuyState> {
+export class BodyBuy extends React.Component<BodyBuyProps, BodyBuyState> {
   constructor(props:any) {
     super(props)
     this.handleChangeQuantity = this.handleChangeQuantity.bind(this)
@@ -26,7 +27,7 @@ export class BodyBuy extends React.Component<{isBuy: boolean}, BodyBuyState> {
     const lastPriceRes = await getLastPrice("/api/assets/"+this.state.figi+"/lastprice")
     const res = await getByFigi("/api/assets/"+this.state.figi)
     this.setState ({
-      lastPrice: lastPriceRes,
+      lastPrice: res.instrumentType === "bond" ? lastPriceRes*10 : lastPriceRes,
       name: res.name,
       currency: res.currency,
       instrumentType: res.instrumentType,
@@ -79,6 +80,7 @@ export class BodyBuy extends React.Component<{isBuy: boolean}, BodyBuyState> {
               figi={this.state.figi}
               price={this.state.lastPrice}
               quantity={this.state.quantity}
+              isAvailable={this.props.currencyAvailable! <= this.state.quantity*this.state.lastPrice}
             />
           </Paper>
         </Box>

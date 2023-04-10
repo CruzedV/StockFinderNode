@@ -2,8 +2,9 @@ import React from 'react'
 import { Box, Button, Snackbar, Typography, Alert } from '@mui/material'
 import { postOrder } from '../../../API/postOrder'
 import { ButtonBuyProps } from '../../../Types/Position/BuyPage/ButtonBuyProps'
+import { ButtonBuyState } from '../../../Types/Position/BuyPage/ButtonBuyState'
 
-export class BuyButton extends React.Component<ButtonBuyProps, {isOpen: boolean}> {
+export class BuyButton extends React.Component<ButtonBuyProps, ButtonBuyState> {
   constructor(props:any) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
@@ -35,6 +36,7 @@ export class BuyButton extends React.Component<ButtonBuyProps, {isOpen: boolean}
         mr: "40%",
       }}>
         <Button 
+          disabled={this.props.isAvailable}
           variant="contained" 
           sx={{
             p: "0.7em 2em 0.7em 2em",

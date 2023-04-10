@@ -41,6 +41,7 @@ export class PositionBuyPage extends React.Component<{}, HeaderState> {
         </Box>
         <BodyBuy
           isBuy={true}
+          currencyAvailable={this.state.currencyAvailable}
         />
       </React.Fragment>
 

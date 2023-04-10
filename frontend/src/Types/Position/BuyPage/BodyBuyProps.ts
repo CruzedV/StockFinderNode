@@ -1,4 +1,4 @@
-export type BodyBuyState = {
+export type BodyBuyProps = {
   isBuy: boolean,
-  currencyAvailable: number,
+  currencyAvailable?: number,
 }
