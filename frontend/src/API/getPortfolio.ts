@@ -20,7 +20,7 @@ export async function getPortfolioTotal(url:string) {
   } as PortfolioTotal
 }
 
-export async function getPortfolioQuantity(url: string, figi: string) {
+export async function getPortfolioInstrument(url: string, figi: string) {
   const res = await axios.get(url);
   return await res.data.positions.filter((i:IPortfolioInstrument) => i.figi === figi);
 }

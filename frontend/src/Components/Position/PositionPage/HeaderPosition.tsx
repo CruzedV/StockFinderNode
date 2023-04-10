@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Skeleton, Typography } from '@mui/material'
 import { HeaderState } from '../../../Types/Position/HeaderState'
 import { HeaderProps } from '../../../Types/Position/HeaderProps'
-import { getPortfolioQuantity } from '../../../API/getPortfolio'
+import { getPortfolioInstrument } from '../../../API/getPortfolio'
 
 export class HeaderPosition extends React.Component<HeaderProps, HeaderState> {
   constructor(props: HeaderProps) {
@@ -12,7 +12,7 @@ export class HeaderPosition extends React.Component<HeaderProps, HeaderState> {
     }
   }
   async componentDidMount() {
-    const resQuantity = await getPortfolioQuantity("/api/user/", this.props.figi)
+    const resQuantity = await getPortfolioInstrument("/api/user/", this.props.figi)
     this.setState({
       portfolioQuantity: resQuantity? resQuantity[0].quantity.units : 0,
     })

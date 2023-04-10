@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box, Typography } from '@mui/material'
-import { HeaderBuyProps } from '../../../Types/Position/BuyPage/HeaderBuyProps'
+import { BodyHeaderBuyProps } from '../../../Types/Position/BuyPage/BodyHeaderBuyProps'
 
-export class BuyHeader extends React.Component<HeaderBuyProps, {}> {
+export class BuyHeader extends React.Component<BodyHeaderBuyProps, {}> {
   render () {
     return (
       <Box sx={{

@@ -1,9 +1,24 @@
 import React from 'react';
 import { Box, Paper, Typography } from '@mui/material'
 import { BodyBuy } from "../CommonC/Body"
-import { BodyBuyState } from '../../../Types/Position/BuyPage/BodyBuyState';
+import { HeaderState } from '../../../Types/Position/BuyPage/HeaderState';
+import { getPortfolioInstrument } from '../../../API/getPortfolio';
 
-export class PositionBuyPage extends React.Component<{}, BodyBuyState> {
+export class PositionBuyPage extends React.Component<{}, HeaderState> {
+  constructor(props:any) {
+    super(props);
+    this.state = {
+      currency: "rub",
+      currencyAvailable: 0,
+    }
+  }
+  async componentDidMount() {
+    const res = await getPortfolioInstrument("/api/user/", "RUB000UTSTOM")
+    this.setState({
+      currency: res[0].currentPrice.currency,
+      currencyAvailable: res[0].quantity.units,
+    })
+  }
   render () {
     return (
       <React.Fragment>
@@ -20,7 +35,7 @@ export class PositionBuyPage extends React.Component<{}, BodyBuyState> {
               ИИС
             </Typography>
             <Typography>
-              Доступно для покупки: 1000P
+              Доступно для покупки: {this.state.currencyAvailable} {this.state.currency}
             </Typography>
           </Paper>
         </Box>

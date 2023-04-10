@@ -1,4 +1,4 @@
-export type HeaderBuyProps = {
+export type BodyHeaderBuyProps = {
   figi: string,
   name: string,
   lastPrice: number,
