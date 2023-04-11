@@ -27,7 +27,7 @@ export class BodyBuy extends React.Component<BodyBuyProps, BodyBuyState> {
     const lastPriceRes = await getLastPrice("/api/assets/"+this.state.figi+"/lastprice")
     const res = await getByFigi("/api/assets/"+this.state.figi)
     this.setState ({
-      lastPrice: res.instrumentType === "bond" ? lastPriceRes*10 : lastPriceRes,
+      lastPrice: res.instrumentType === "bond" ? Math.round(lastPriceRes*10) : lastPriceRes,
       name: res.name,
       currency: res.currency,
       instrumentType: res.instrumentType,
@@ -80,7 +80,11 @@ export class BodyBuy extends React.Component<BodyBuyProps, BodyBuyState> {
               figi={this.state.figi}
               price={this.state.lastPrice}
               quantity={this.state.quantity}
-              isAvailable={this.props.currencyAvailable! <= this.state.quantity*this.state.lastPrice}
+              isAvailable={
+                (this.props.currencyAvailable! <= this.state.quantity*this.state.lastPrice) 
+                ||
+                (this.props.quantityAvailable! < this.state.quantity)
+              }
             />
           </Paper>
         </Box>

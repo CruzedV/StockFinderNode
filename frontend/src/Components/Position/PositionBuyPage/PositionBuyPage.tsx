@@ -1,15 +1,16 @@
 import React from 'react';
 import { Box, Paper, Typography } from '@mui/material'
 import { BodyBuy } from "../CommonC/Body"
-import { HeaderState } from '../../../Types/Position/BuyPage/HeaderState';
+import { BuyState } from '../../../Types/Position/BuyPage/BuyState';
 import { getPortfolioInstrument } from '../../../API/getPortfolio';
 
-export class PositionBuyPage extends React.Component<{}, HeaderState> {
+export class PositionBuyPage extends React.Component<{}, BuyState> {
   constructor(props:any) {
     super(props);
     this.state = {
       currency: "rub",
       currencyAvailable: 0,
+      figi: window.location.pathname.slice(10, 22),
     }
   }
   async componentDidMount() {
