@@ -21,6 +21,22 @@ export async function getPortfolioTotal(url:string) {
 }
 
 export async function getPortfolioInstrument(url: string, figi: string) {
-  const res = await axios.get(url);
-  return await res.data.positions.filter((i:IPortfolioInstrument) => i.figi === figi);
+  try {
+    const res = await axios.get(url);
+    return res.data.positions.filter((i:IPortfolioInstrument) => i.figi === figi)[0];
+  } catch {
+    const InstrumentBlank = {
+      quantity: { units: 0, nano: 0, currency: ""},
+      averagePositionPrice: { units: 0, nano: 0, currency: ""},
+      averagePositionPriceFifo: { units: 0, nano: 0, currency: ""},
+      averagePositionPricePt: { units: 0, nano: 0, currency: ""},
+      blocked: false,
+      currentPrice: { units: 0, nano: 0, currency: ""},
+      expectedYield: { units: 0, nano: 0, currency: ""},
+      figi: "",
+      instrumentType: "",
+      quantityLots: { units: 0, nano: 0, currency: ""},
+    }
+    return InstrumentBlank as IPortfolioInstrument
+  }
 }

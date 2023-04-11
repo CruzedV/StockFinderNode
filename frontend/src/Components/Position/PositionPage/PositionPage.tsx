@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { PositionState } from '../../../Types/Position/PositionState'
 import { PositionProps } from '../../../Types/Position/PositionProps'
 import { getByFigi } from '../../../API/getByFigi'
+import { getPortfolioInstrument } from '../../../API/getPortfolio'
 
 export class PositionPage extends React.Component<PositionProps, PositionState> {
   constructor(props:PositionProps) {
@@ -24,10 +25,12 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
       instrumentType: "",
       isSellAvailable: false,
       isBuyAvailable: false,
+      portfolioQuantity: 0,
     }
   }
   async componentDidMount() {
     const res = await getByFigi("/api/assets/"+this.state.figi)
+    const quantityRes = await getPortfolioInstrument("/api/user/", this.state.figi)
     this.setState ({
       name: res.name,
       ticker: res.ticker,
@@ -39,6 +42,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
       instrumentType: res.instrumentType,
       isSellAvailable: res.sellAvailableFlag,
       isBuyAvailable: res.buyAvailableFlag,
+      portfolioQuantity: quantityRes.quantity.units,
     })
   }
   render () {
@@ -57,6 +61,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
               ticker={this.state.ticker}
               instrumentType={this.state.instrumentType}
               figi={this.state.figi}
+              portfolioQuantity={this.state.portfolioQuantity}
             />
             <Divider color="#F4F4F4" variant="middle"/>
             <PositionRegion 
@@ -85,7 +90,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
               <Link to={"sell"} state={this.state}>
                 <PositionButton
                   action="продать"
-                  isDisabled={this.state.isSellAvailable}
+                  isDisabled={this.state.isSellAvailable || this.state.portfolioQuantity === 0}
                 />
               </Link>
             </Box>

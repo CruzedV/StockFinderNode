@@ -2,21 +2,8 @@ import React from 'react'
 import { Box, Skeleton, Typography } from '@mui/material'
 import { HeaderState } from '../../../Types/Position/HeaderState'
 import { HeaderProps } from '../../../Types/Position/HeaderProps'
-import { getPortfolioInstrument } from '../../../API/getPortfolio'
 
 export class HeaderPosition extends React.Component<HeaderProps, HeaderState> {
-  constructor(props: HeaderProps) {
-    super(props)
-    this.state = {
-      portfolioQuantity: 0,
-    }
-  }
-  async componentDidMount() {
-    const resQuantity = await getPortfolioInstrument("/api/user/", this.props.figi)
-    this.setState({
-      portfolioQuantity: resQuantity? resQuantity[0].quantity.units : 0,
-    })
-  }
   render () {
     return (
       <React.Fragment>
@@ -65,7 +52,7 @@ export class HeaderPosition extends React.Component<HeaderProps, HeaderState> {
                 }
               </Box>
               <Typography color="text.primary" variant="positionText">
-                В вашем портфеле: {this.state.portfolioQuantity} шт
+                В вашем портфеле: {this.props.portfolioQuantity} шт
               </Typography>
             </Box>
           </Box>

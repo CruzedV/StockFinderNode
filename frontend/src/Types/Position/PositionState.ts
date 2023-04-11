@@ -10,4 +10,5 @@ export type PositionState = {
   instrumentType: string,
   isSellAvailable: boolean,
   isBuyAvailable: boolean,
+  portfolioQuantity: number,
 }

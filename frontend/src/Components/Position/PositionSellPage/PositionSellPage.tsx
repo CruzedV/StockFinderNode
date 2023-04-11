@@ -16,8 +16,8 @@ export class PositionSellPage extends React.Component<{}, SellState> {
   async componentDidMount() {
     const res = await getPortfolioInstrument("/api/user/", this.state.figi)
     this.setState({
-      currency: res[0].currentPrice.currency,
-      quantityAvailable: res[0].quantity.units,
+      currency: res.currentPrice.currency,
+      quantityAvailable: res.quantity.units,
     })
   }
   render () {

@@ -3,4 +3,5 @@ export type HeaderProps = {
   ticker: string,
   instrumentType: string,
   figi: string,
+  portfolioQuantity: number,
 }

@@ -81,7 +81,7 @@ export class BodyBuy extends React.Component<BodyBuyProps, BodyBuyState> {
               price={this.state.lastPrice}
               quantity={this.state.quantity}
               isAvailable={
-                (this.props.currencyAvailable! <= this.state.quantity*this.state.lastPrice) 
+                (this.props.currencyAvailable! <= this.state.quantity*this.state.lot*this.state.lastPrice) 
                 ||
                 (this.props.quantityAvailable! < this.state.quantity)
               }

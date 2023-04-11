@@ -16,8 +16,8 @@ export class PositionBuyPage extends React.Component<{}, BuyState> {
   async componentDidMount() {
     const res = await getPortfolioInstrument("/api/user/", "RUB000UTSTOM")
     this.setState({
-      currency: res[0].currentPrice.currency,
-      currencyAvailable: res[0].quantity.units,
+      currency: res.currentPrice.currency,
+      currencyAvailable: res.quantity.units,
     })
   }
   render () {
