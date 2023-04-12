@@ -7,7 +7,7 @@ export class PositionButton extends React.Component<ButtonProps, ButtonState > {
   render () {
     return (
       <React.Fragment>
-        <Button disabled={!this.props.isDisabled} variant="contained" sx={{
+        <Button disabled={this.props.isDisabled} variant="contained" sx={{
           p: "0.7em 2em 0.7em 2em",
           bottom: "3em",
           backgroundColor: this.props.action === "купить" ? "success.main" : "error.main",

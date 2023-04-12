@@ -90,7 +90,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
               <Link to={"sell"} state={this.state}>
                 <PositionButton
                   action="продать"
-                  isDisabled={this.state.isSellAvailable || this.state.portfolioQuantity === 0}
+                  isDisabled={!this.state.isSellAvailable || this.state.portfolioQuantity === 0}
                 />
               </Link>
             </Box>
@@ -102,7 +102,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
               <Link to={"buy"} state={this.state}>
                 <PositionButton
                   action="купить"
-                  isDisabled={this.state.isBuyAvailable}
+                  isDisabled={!this.state.isBuyAvailable}
                 />
               </Link>
             </Box>
