@@ -2,22 +2,25 @@ import React from 'react';
 import { Box, Paper, Typography } from '@mui/material'
 import { BodyBuy } from "../CommonC/Body"
 import { BuyState } from '../../../Types/Position/BuyPage/BuyState';
-import { getPortfolioInstrument } from '../../../API/getPortfolio';
+import { getPortfolioCurrency } from '../../../API/getPortfolio';
+import { getByFigi } from '../../../API/getByFigi';
 
 export class PositionBuyPage extends React.Component<{}, BuyState> {
   constructor(props:any) {
     super(props);
     this.state = {
-      currency: "rub",
+      currencyPortfolio: "rub",
       currencyAvailable: 0,
       figi: window.location.pathname.slice(10, 22),
     }
   }
   async componentDidMount() {
-    const res = await getPortfolioInstrument("/api/user/", "RUB000UTSTOM")
+    const res = await getByFigi("/api/assets/"+this.state.figi)
+    const currencyRes = await getPortfolioCurrency("/api/user/", res.currency)
+    console.log(res.currency)
     this.setState({
-      currency: res.currentPrice.currency,
-      currencyAvailable: res.quantity.units,
+      currencyPortfolio: res.currency,
+      currencyAvailable: currencyRes.quantity.units,
     })
   }
   render () {
@@ -36,7 +39,7 @@ export class PositionBuyPage extends React.Component<{}, BuyState> {
               ИИС
             </Typography>
             <Typography>
-              Доступно для покупки: {this.state.currencyAvailable} {this.state.currency}
+              Доступно для покупки: {this.state.currencyAvailable} {this.state.currencyPortfolio}
             </Typography>
           </Paper>
         </Box>

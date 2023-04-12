@@ -20,7 +20,7 @@ export class BodyBuy extends React.Component<BodyBuyProps, BodyBuyState> {
       instrumentType: "",
       lastPrice: 0,
       lot: 0,
-      quantity: 1,
+      quantity: 0,
     }
   }
   async componentDidMount() {

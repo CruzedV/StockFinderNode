@@ -1,5 +1,5 @@
 export type BuyState = {
-  currency: string,
+  currencyPortfolio: string,
   currencyAvailable: number,
   figi: string,
 }

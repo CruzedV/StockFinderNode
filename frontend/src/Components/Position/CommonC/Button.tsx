@@ -36,7 +36,8 @@ export class BuyButton extends React.Component<ButtonBuyProps, ButtonBuyState> {
         mr: "40%",
       }}>
         <Button 
-          disabled={this.props.isAvailable}
+          // eslint-disable-next-line eqeqeq
+          disabled={this.props.isAvailable || this.props.quantity == 0}
           variant="contained" 
           sx={{
             p: "0.7em 2em 0.7em 2em",

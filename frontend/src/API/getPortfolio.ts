@@ -2,6 +2,7 @@ import axios from "axios"
 
 import { IPortfolioInstrument } from "../Interfaces/IPortfolioInstrument";
 import { PortfolioTotal } from "../Types/Portfolio/PortfolioTotal";
+import { InstrumentBlank } from "./InstrumentBlank";
 
 export async function getPortfolioPositions(url:string) {
   const res = await axios.get(url);
@@ -25,18 +26,23 @@ export async function getPortfolioInstrument(url: string, figi: string) {
     const res = await axios.get(url);
     return res.data.positions.filter((i:IPortfolioInstrument) => i.figi === figi)[0];
   } catch {
-    const InstrumentBlank = {
-      quantity: { units: 0, nano: 0, currency: ""},
-      averagePositionPrice: { units: 0, nano: 0, currency: ""},
-      averagePositionPriceFifo: { units: 0, nano: 0, currency: ""},
-      averagePositionPricePt: { units: 0, nano: 0, currency: ""},
-      blocked: false,
-      currentPrice: { units: 0, nano: 0, currency: ""},
-      expectedYield: { units: 0, nano: 0, currency: ""},
-      figi: "",
-      instrumentType: "",
-      quantityLots: { units: 0, nano: 0, currency: ""},
+    return InstrumentBlank as IPortfolioInstrument
+  }
+}
+
+export async function getPortfolioCurrency(url: string, currency: string) {
+  try {
+    const res = await axios.get(url)
+    let figi = "RUB000UTSTOM"
+    if (currency === "rub") {
+      figi = "RUB000UTSTOM"
+    } else if (currency === "usd") {
+      figi = "BBG0013HGFT4"
+    } else if (currency === "eur") {
+      figi = "BBG0013HJJ31"
     }
+    return res.data.positions.filter((i:IPortfolioInstrument) => i.figi === figi)[0]
+  } catch (error) {
     return InstrumentBlank as IPortfolioInstrument
   }
 }
