@@ -42,7 +42,7 @@ export class PositionPage extends React.Component<PositionProps, PositionState> 
       instrumentType: res.instrumentType,
       isSellAvailable: res.sellAvailableFlag,
       isBuyAvailable: res.buyAvailableFlag,
-      portfolioQuantity: quantityRes.quantity.units,
+      portfolioQuantity: quantityRes.quantity.units+(quantityRes.quantity.nano)/Math.pow(10, 9),
     })
   }
   render () {

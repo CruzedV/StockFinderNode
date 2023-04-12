@@ -20,7 +20,7 @@ export class PositionBuyPage extends React.Component<{}, BuyState> {
     console.log(res.currency)
     this.setState({
       currencyPortfolio: res.currency,
-      currencyAvailable: currencyRes.quantity.units,
+      currencyAvailable: currencyRes.quantity.units+(currencyRes.quantity.nano/Math.pow(10, 9)),
     })
   }
   render () {

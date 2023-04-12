@@ -30,7 +30,7 @@ export class BodyPortfolio extends React.Component<{}, {data: Array<IPortfolioIn
           }}>
             {this.state.data.map((i:IPortfolioInstrument) =>
             <PortfolioPositionCard
-              amount={i.quantity.units}
+              amount={i.quantity.units+(i.quantity.nano/Math.pow(10, 9))}
               price={(i.currentPrice.units+(i.currentPrice.nano/Math.pow(10, 9)))*i.quantity.units}
               currency={i.currentPrice.currency}
               profit={i.expectedYield.units+(i.expectedYield.nano/Math.pow(10, 9))}
