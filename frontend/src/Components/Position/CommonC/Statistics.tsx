@@ -23,7 +23,7 @@ export class Statistics extends React.Component<StatisticsProps ,{}> {
           display: "inline-block",
         }}>
           <Typography>
-            На сумму: 0P
+            На сумму: 0 {this.props.currency}
           </Typography>
         </Box>
         <Box sx={{
