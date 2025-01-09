@@ -1,7 +1,4 @@
-# StockFinderNode
-Project StockFinder, but backend with Node.js and nest.js
-
-Launch backend and frontend with <npm run start> on the relevant folder /backend /frontend
+# Stockfinder небольшое приложения для покупки \ продажи \ просмотра акций, облигаций. Создано с использованием TS для фронтенда, NextJS для бэкенда
 
 .env example:
 
